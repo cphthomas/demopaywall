@@ -37,11 +37,11 @@ exports.handler = async ({ body, headers }, context) => {
     //console.log("plan = " + plan);
     //console.log("role = " + role);
 
-    let plan = "";
+    let role = "";
     if (subscription.items.data[0].plan.product == "prod_Iw3ACop34XSSn6") {
-      plan = "pro";
+      role = "pro";
     } else {
-      plan = "premium";
+      role = "premium";
     }
 
     // send a call to the Netlify Identity admin API to update the user role
