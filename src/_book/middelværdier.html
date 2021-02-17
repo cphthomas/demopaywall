@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Kapitel 9 2 Middelværdier | Statistik</title>
+  <meta name="description" content="Kapitel 9 2 Middelværdier | Statistik" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Kapitel 9 2 Middelværdier | Statistik" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Kapitel 9 2 Middelværdier | Statistik" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Kapitel 9 2 Middelværdier | Statistik" />
+  
+  <meta name="twitter:description" content="Kapitel 9 2 Middelværdier | Statistik" />
+  
+
+<meta name="author" content="Thomas Petersen" />
+
+
+<meta name="date" content="2021-01-28" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="prev" href="andele.html"/>
+<link rel="next" href="korrelation.html"/>
+<script src="libs/jquery-3.5.0/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/tippyjs-2.5.2/tippy.all.min.js"></script>
+<script src="libs/tippy-binding-0.0.1/tippy.js"></script>
+<script src="libs/proj4js-2.3.15/proj4.js"></script>
+<link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet" />
+<script src="libs/highcharts-8.1.2/highcharts.js"></script>
+<script src="libs/highcharts-8.1.2/highcharts-3d.js"></script>
+<script src="libs/highcharts-8.1.2/highcharts-more.js"></script>
+<script src="libs/highcharts-8.1.2/modules/stock.js"></script>
+<script src="libs/highcharts-8.1.2/modules/map.js"></script>
+<script src="libs/highcharts-8.1.2/modules/annotations.js"></script>
+<script src="libs/highcharts-8.1.2/modules/data.js"></script>
+<script src="libs/highcharts-8.1.2/modules/drilldown.js"></script>
+<script src="libs/highcharts-8.1.2/modules/item-series.js"></script>
+<script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script>
+<script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script>
+<script src="libs/highcharts-8.1.2/modules/exporting.js"></script>
+<script src="libs/highcharts-8.1.2/modules/export-data.js"></script>
+<script src="libs/highcharts-8.1.2/modules/funnel.js"></script>
+<script src="libs/highcharts-8.1.2/modules/heatmap.js"></script>
+<script src="libs/highcharts-8.1.2/modules/treemap.js"></script>
+<script src="libs/highcharts-8.1.2/modules/sankey.js"></script>
+<script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script>
+<script src="libs/highcharts-8.1.2/modules/organization.js"></script>
+<script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script>
+<script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script>
+<script src="libs/highcharts-8.1.2/modules/sunburst.js"></script>
+<script src="libs/highcharts-8.1.2/modules/vector.js"></script>
+<script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script>
+<script src="libs/highcharts-8.1.2/modules/xrange.js"></script>
+<script src="libs/highcharts-8.1.2/modules/tilemap.js"></script>
+<script src="libs/highcharts-8.1.2/modules/venn.js"></script>
+<script src="libs/highcharts-8.1.2/modules/gantt.js"></script>
+<script src="libs/highcharts-8.1.2/modules/timeline.js"></script>
+<script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script>
+<script src="libs/highcharts-8.1.2/modules/bullet.js"></script>
+<script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script>
+<script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script>
+<script src="libs/highcharts-8.1.2/modules/lollipop.js"></script>
+<script src="libs/highcharts-8.1.2/modules/series-label.js"></script>
+<script src="libs/highcharts-8.1.2/plugins/motion.js"></script>
+<script src="libs/highcharts-8.1.2/custom/reset.js"></script>
+<script src="libs/highcharts-8.1.2/modules/boost.js"></script>
+<script src="libs/highchart-binding-0.8.2/highchart.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.14/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="libs/dt-plugin-searchhighlight-1.10.20/source.css" rel="stylesheet" />
+<script src="libs/dt-plugin-searchhighlight-1.10.20/jquery.highlight.js"></script>
+<script src="libs/dt-plugin-searchhighlight-1.10.20/source.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/jszip-1.10.20/jszip.min.js"></script>
+<script src="libs/pdfmake-1.10.20/pdfmake.js"></script>
+<script src="libs/pdfmake-1.10.20/vfs_fonts.js"></script>
+<link href="libs/dt-ext-buttons-1.10.20/css/buttons.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-buttons-1.10.20/js/dataTables.buttons.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.20/js/buttons.flash.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.20/js/buttons.html5.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.20/js/buttons.colVis.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.20/js/buttons.print.min.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Login</a></li>
+<li class="divider"></li>
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="1" data-path="indledning.html"><a href="indledning.html"><i class="fa fa-check"></i><b>1</b> Indledning</a><ul>
+<li class="chapter" data-level="1.1" data-path="indledning.html"><a href="indledning.html#freestat-basisversion"><i class="fa fa-check"></i><b>1.1</b> Freestat basisversion</a></li>
+<li class="chapter" data-level="1.2" data-path="indledning.html"><a href="indledning.html#freestat-fuld-version"><i class="fa fa-check"></i><b>1.2</b> Freestat fuld version</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="datasæt-og-data.html"><a href="datasæt-og-data.html"><i class="fa fa-check"></i><b>2</b> Datasæt og data</a><ul>
+<li class="chapter" data-level="2.0.1" data-path="datasæt-og-data.html"><a href="datasæt-og-data.html#uni--bi--og-multivariate-datasæt"><i class="fa fa-check"></i><b>2.0.1</b> Uni- bi- og multivariate datasæt</a></li>
+<li class="chapter" data-level="2.0.2" data-path="datasæt-og-data.html"><a href="datasæt-og-data.html#kvalitative-variable"><i class="fa fa-check"></i><b>2.0.2</b> Kvalitative variable</a></li>
+<li class="chapter" data-level="2.0.3" data-path="datasæt-og-data.html"><a href="datasæt-og-data.html#kvantitative-variable"><i class="fa fa-check"></i><b>2.0.3</b> Kvantitative variable</a></li>
+<li class="chapter" data-level="2.0.4" data-path="datasæt-og-data.html"><a href="datasæt-og-data.html#skalatyper"><i class="fa fa-check"></i><b>2.0.4</b> Skalatyper</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="deskriptiv-statistik.html"><a href="deskriptiv-statistik.html"><i class="fa fa-check"></i><b>3</b> Deskriptiv statistik</a><ul>
+<li class="chapter" data-level="3.0.1" data-path="deskriptiv-statistik.html"><a href="deskriptiv-statistik.html#tryg-aktien"><i class="fa fa-check"></i><b>3.0.1</b> Tryg aktien</a></li>
+<li class="chapter" data-level="3.0.2" data-path="deskriptiv-statistik.html"><a href="deskriptiv-statistik.html#middelværdien"><i class="fa fa-check"></i><b>3.0.2</b> Middelværdien</a></li>
+<li class="chapter" data-level="3.0.3" data-path="deskriptiv-statistik.html"><a href="deskriptiv-statistik.html#variansen"><i class="fa fa-check"></i><b>3.0.3</b> Variansen</a></li>
+<li class="chapter" data-level="3.0.4" data-path="deskriptiv-statistik.html"><a href="deskriptiv-statistik.html#standardafvigelsen"><i class="fa fa-check"></i><b>3.0.4</b> Standardafvigelsen</a></li>
+<li class="chapter" data-level="3.0.5" data-path="deskriptiv-statistik.html"><a href="deskriptiv-statistik.html#modus"><i class="fa fa-check"></i><b>3.0.5</b> Modus</a></li>
+<li class="chapter" data-level="3.1" data-path="deskriptiv-statistik.html"><a href="deskriptiv-statistik.html#medianen-kvartiler-og-fraktilen"><i class="fa fa-check"></i><b>3.1</b> Medianen, kvartiler og fraktilen</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="deskriptiv-statistik.html"><a href="deskriptiv-statistik.html#fraktiler"><i class="fa fa-check"></i><b>3.1.1</b> Fraktiler</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="deskriptiv-statistik.html"><a href="deskriptiv-statistik.html#skævhed"><i class="fa fa-check"></i><b>3.2</b> Skævhed</a></li>
+<li class="chapter" data-level="3.3" data-path="deskriptiv-statistik.html"><a href="deskriptiv-statistik.html#kurtosis"><i class="fa fa-check"></i><b>3.3</b> Kurtosis</a></li>
+<li class="chapter" data-level="3.4" data-path="deskriptiv-statistik.html"><a href="deskriptiv-statistik.html#spørgsmål-deskriptiv-statistik"><i class="fa fa-check"></i><b>3.4</b> Spørgsmål deskriptiv statistik</a></li>
+<li class="chapter" data-level="3.5" data-path="deskriptiv-statistik.html"><a href="deskriptiv-statistik.html#selvtest"><i class="fa fa-check"></i><b>3.5</b> Selvtest</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="normalfordelingen.html"><a href="normalfordelingen.html"><i class="fa fa-check"></i><b>4</b> Normalfordelingen</a><ul>
+<li class="chapter" data-level="4.1" data-path="normalfordelingen.html"><a href="normalfordelingen.html#normalfordelt-stokastisk-variabel"><i class="fa fa-check"></i><b>4.1</b> Normalfordelt Stokastisk variabel</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="normalfordelingen.html"><a href="normalfordelingen.html#standard-normalfordelingen"><i class="fa fa-check"></i><b>4.1.1</b> Standard normalfordelingen</a></li>
+<li class="chapter" data-level="4.1.2" data-path="normalfordelingen.html"><a href="normalfordelingen.html#normalfordelingen-1"><i class="fa fa-check"></i><b>4.1.2</b> 68% Normalfordelingen</a></li>
+<li class="chapter" data-level="4.1.3" data-path="normalfordelingen.html"><a href="normalfordelingen.html#normalfordelingen-2"><i class="fa fa-check"></i><b>4.1.3</b> 90% Normalfordelingen</a></li>
+<li class="chapter" data-level="4.1.4" data-path="normalfordelingen.html"><a href="normalfordelingen.html#normalfordelingen-3"><i class="fa fa-check"></i><b>4.1.4</b> 95% Normalfordelingen</a></li>
+<li class="chapter" data-level="4.1.5" data-path="normalfordelingen.html"><a href="normalfordelingen.html#normalfordelingen-4"><i class="fa fa-check"></i><b>4.1.5</b> 99% Normalfordelingen</a></li>
+<li class="chapter" data-level="4.1.6" data-path="normalfordelingen.html"><a href="normalfordelingen.html#addition-af-normalfordelinger"><i class="fa fa-check"></i><b>4.1.6</b> Addition af normalfordelinger</a></li>
+<li class="chapter" data-level="4.1.7" data-path="normalfordelingen.html"><a href="normalfordelingen.html#linearkombinationer-af-normalfordelinger"><i class="fa fa-check"></i><b>4.1.7</b> Linearkombinationer af normalfordelinger</a></li>
+<li class="chapter" data-level="4.1.8" data-path="normalfordelingen.html"><a href="normalfordelingen.html#transformation-af-normalfordelinger"><i class="fa fa-check"></i><b>4.1.8</b> Transformation af normalfordelinger</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="normalfordelingen.html"><a href="normalfordelingen.html#normalfraktildiagram"><i class="fa fa-check"></i><b>4.2</b> Normalfraktildiagram</a></li>
+<li class="chapter" data-level="4.3" data-path="normalfordelingen.html"><a href="normalfordelingen.html#parametre-og-parameter-estimater"><i class="fa fa-check"></i><b>4.3</b> Parametre og parameter-estimater</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="normalfordelingen.html"><a href="normalfordelingen.html#parameter-estimat-for-middelværdi"><i class="fa fa-check"></i><b>4.3.1</b> Parameter-estimat for middelværdi</a></li>
+<li class="chapter" data-level="4.3.2" data-path="normalfordelingen.html"><a href="normalfordelingen.html#parameter-estimat-for-standardafvigelsen"><i class="fa fa-check"></i><b>4.3.2</b> Parameter-estimat for standardafvigelsen</a></li>
+<li class="chapter" data-level="4.3.3" data-path="normalfordelingen.html"><a href="normalfordelingen.html#data--stikprøve--og-populationsfordelingen"><i class="fa fa-check"></i><b>4.3.3</b> Data- stikprøve- og populationsfordelingen</a></li>
+<li class="chapter" data-level="4.3.4" data-path="normalfordelingen.html"><a href="normalfordelingen.html#den-centrale-grænseværdisætning-clt"><i class="fa fa-check"></i><b>4.3.4</b> Den centrale grænseværdisætning CLT</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="normalfordelingen.html"><a href="normalfordelingen.html#frihedsgrader"><i class="fa fa-check"></i><b>4.4</b> Frihedsgrader</a></li>
+<li class="chapter" data-level="4.5" data-path="normalfordelingen.html"><a href="normalfordelingen.html#t-fordelingen"><i class="fa fa-check"></i><b>4.5</b> t-fordelingen</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="konfidensintervaller.html"><a href="konfidensintervaller.html"><i class="fa fa-check"></i><b>5</b> Konfidensintervaller</a><ul>
+<li class="chapter" data-level="5.0.1" data-path="konfidensintervaller.html"><a href="konfidensintervaller.html#konfidensinterval-for-middelværdien"><i class="fa fa-check"></i><b>5.0.1</b> Konfidensinterval for middelværdien</a></li>
+<li class="chapter" data-level="5.0.2" data-path="konfidensintervaller.html"><a href="konfidensintervaller.html#eksempler-konfidensinterval-middelværdi"><i class="fa fa-check"></i><b>5.0.2</b> Eksempler konfidensinterval middelværdi</a></li>
+<li class="chapter" data-level="5.1" data-path="konfidensintervaller.html"><a href="konfidensintervaller.html#quiz-konfidensintervaller"><i class="fa fa-check"></i><b>5.1</b> Quiz konfidensintervaller</a></li>
+<li class="chapter" data-level="5.2" data-path="konfidensintervaller.html"><a href="konfidensintervaller.html#spørgsmål-konfidensinterval-og-fejlmargin"><i class="fa fa-check"></i><b>5.2</b> Spørgsmål konfidensinterval og fejlmargin</a></li>
+<li class="chapter" data-level="5.3" data-path="konfidensintervaller.html"><a href="konfidensintervaller.html#konfidensinterval-for-standardafvigelsen"><i class="fa fa-check"></i><b>5.3</b> Konfidensinterval for standardafvigelsen</a></li>
+<li class="chapter" data-level="5.4" data-path="konfidensintervaller.html"><a href="konfidensintervaller.html#spørgsmål-konfidensinterval-for-standardafvigelsen"><i class="fa fa-check"></i><b>5.4</b> Spørgsmål konfidensinterval for standardafvigelsen</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="hypotesetests-middelværdi.html"><a href="hypotesetests-middelværdi.html"><i class="fa fa-check"></i><b>6</b> Hypotesetests middelværdi</a><ul>
+<li class="chapter" data-level="6.1" data-path="hypotesetests-middelværdi.html"><a href="hypotesetests-middelværdi.html#hypotesetest-tosidet-alternativ-hypotese"><i class="fa fa-check"></i><b>6.1</b> Hypotesetest tosidet alternativ hypotese</a></li>
+<li class="chapter" data-level="6.2" data-path="hypotesetests-middelværdi.html"><a href="hypotesetests-middelværdi.html#tosidet-alternativ-hypotese-og-konfidensintervallet."><i class="fa fa-check"></i><b>6.2</b> Tosidet alternativ hypotese og konfidensintervallet.</a></li>
+<li class="chapter" data-level="6.3" data-path="hypotesetests-middelværdi.html"><a href="hypotesetests-middelværdi.html#ensidet-alternativ-hypotese"><i class="fa fa-check"></i><b>6.3</b> Ensidet alternativ hypotese</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="hypotesetests-middelværdi.html"><a href="hypotesetests-middelværdi.html#ensidet-alternativ-hypotese-opad"><i class="fa fa-check"></i><b>6.3.1</b> Ensidet alternativ hypotese opad</a></li>
+<li class="chapter" data-level="6.3.2" data-path="hypotesetests-middelværdi.html"><a href="hypotesetests-middelværdi.html#ensidet-alternativ-hypotese-nedad"><i class="fa fa-check"></i><b>6.3.2</b> Ensidet alternativ hypotese nedad</a></li>
+<li class="chapter" data-level="6.3.3" data-path="hypotesetests-middelværdi.html"><a href="hypotesetests-middelværdi.html#eksempel"><i class="fa fa-check"></i><b>6.3.3</b> Eksempel</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="hypotesetests-middelværdi.html"><a href="hypotesetests-middelværdi.html#standardafvigelse-test"><i class="fa fa-check"></i><b>6.4</b> Standardafvigelse test</a></li>
+<li class="chapter" data-level="6.5" data-path="hypotesetests-middelværdi.html"><a href="hypotesetests-middelværdi.html#spørgsmål-hypotesetests"><i class="fa fa-check"></i><b>6.5</b> Spørgsmål hypotesetests</a></li>
+<li class="chapter" data-level="6.6" data-path="hypotesetests-middelværdi.html"><a href="hypotesetests-middelværdi.html#spørgsmål-hypotesetests-og-normalfordeling"><i class="fa fa-check"></i><b>6.6</b> Spørgsmål hypotesetests og normalfordeling</a></li>
+<li class="chapter" data-level="6.7" data-path="hypotesetests-middelværdi.html"><a href="hypotesetests-middelværdi.html#quiz-hypoteser"><i class="fa fa-check"></i><b>6.7</b> Quiz hypoteser</a></li>
+<li class="chapter" data-level="6.8" data-path="hypotesetests-middelværdi.html"><a href="hypotesetests-middelværdi.html#quiz-hypotesetests"><i class="fa fa-check"></i><b>6.8</b> Quiz hypotesetests</a></li>
+<li class="chapter" data-level="6.9" data-path="hypotesetests-middelværdi.html"><a href="hypotesetests-middelværdi.html#selvtest-1"><i class="fa fa-check"></i><b>6.9</b> Selvtest</a></li>
+<li class="chapter" data-level="6.10" data-path="hypotesetests-middelværdi.html"><a href="hypotesetests-middelværdi.html#selvtest-2"><i class="fa fa-check"></i><b>6.10</b> Selvtest</a></li>
+<li class="chapter" data-level="6.11" data-path="hypotesetests-middelværdi.html"><a href="hypotesetests-middelværdi.html#selvtest-3"><i class="fa fa-check"></i><b>6.11</b> Selvtest</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="andel.html"><a href="andel.html"><i class="fa fa-check"></i><b>7</b> 1 Andel</a><ul>
+<li class="chapter" data-level="7.1" data-path="andel.html"><a href="andel.html#parameterestimat-for-andele"><i class="fa fa-check"></i><b>7.1</b> Parameterestimat for andele</a></li>
+<li class="chapter" data-level="7.2" data-path="andel.html"><a href="andel.html#konfidensinterval-for-en-andel"><i class="fa fa-check"></i><b>7.2</b> Konfidensinterval for en andel</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="andel.html"><a href="andel.html#fejlmargin-ved-andele"><i class="fa fa-check"></i><b>7.2.1</b> Fejlmargin ved andele</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="andel.html"><a href="andel.html#eksempler-konfidensinterval-for-andele"><i class="fa fa-check"></i><b>7.3</b> Eksempler, konfidensinterval for andele</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="andel.html"><a href="andel.html#tryg-aktien-2"><i class="fa fa-check"></i><b>7.3.1</b> Tryg aktien</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="andel.html"><a href="andel.html#spørgsmål-konfidensinterval-andele"><i class="fa fa-check"></i><b>7.4</b> Spørgsmål konfidensinterval andele</a></li>
+<li class="chapter" data-level="7.5" data-path="andel.html"><a href="andel.html#hypotesetest-1-andel"><i class="fa fa-check"></i><b>7.5</b> Hypotesetest 1 andel</a></li>
+<li class="chapter" data-level="7.6" data-path="andel.html"><a href="andel.html#hypotesetest-en-andel-tosidet-alternativ-hypotese"><i class="fa fa-check"></i><b>7.6</b> Hypotesetest en andel, tosidet alternativ hypotese</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="andel.html"><a href="andel.html#z-teststørrelsen"><i class="fa fa-check"></i><b>7.6.1</b> z-teststørrelsen</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="andel.html"><a href="andel.html#hypotesetest-en-andel-ensidet-alternativ-hypotese-nedad"><i class="fa fa-check"></i><b>7.7</b> Hypotesetest en andel, ensidet alternativ hypotese nedad</a></li>
+<li class="chapter" data-level="7.8" data-path="andel.html"><a href="andel.html#hypotesetest-en-andel-ensidet-alternativ-hypotese-opad"><i class="fa fa-check"></i><b>7.8</b> Hypotesetest en andel, ensidet alternativ hypotese opad</a></li>
+<li class="chapter" data-level="7.9" data-path="andel.html"><a href="andel.html#spørgsmål-hypotesetests-1-andel."><i class="fa fa-check"></i><b>7.9</b> Spørgsmål hypotesetests 1 andel.</a></li>
+<li class="chapter" data-level="7.10" data-path="andel.html"><a href="andel.html#selvtest-4"><i class="fa fa-check"></i><b>7.10</b> Selvtest</a></li>
+<li class="chapter" data-level="7.11" data-path="andel.html"><a href="andel.html#selvtest-5"><i class="fa fa-check"></i><b>7.11</b> Selvtest</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="andele.html"><a href="andele.html"><i class="fa fa-check"></i><b>8</b> 2 andele</a><ul>
+<li class="chapter" data-level="8.1" data-path="andele.html"><a href="andele.html#konfidensinterval-for-2-andele"><i class="fa fa-check"></i><b>8.1</b> Konfidensinterval for 2 andele</a></li>
+<li class="chapter" data-level="8.2" data-path="andele.html"><a href="andele.html#spørgsmål-2-andele-konfidensintervaller"><i class="fa fa-check"></i><b>8.2</b> Spørgsmål 2 andele konfidensintervaller</a></li>
+<li class="chapter" data-level="8.3" data-path="andele.html"><a href="andele.html#hypotesetests-2-andele"><i class="fa fa-check"></i><b>8.3</b> Hypotesetests 2 andele</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="andele.html"><a href="andele.html#eksempler"><i class="fa fa-check"></i><b>8.3.1</b> Eksempler</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="andele.html"><a href="andele.html#spørgsmål-2-andele"><i class="fa fa-check"></i><b>8.4</b> Spørgsmål 2 andele</a></li>
+<li class="chapter" data-level="8.5" data-path="andele.html"><a href="andele.html#selvtest-6"><i class="fa fa-check"></i><b>8.5</b> Selvtest</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="middelværdier.html"><a href="middelværdier.html"><i class="fa fa-check"></i><b>9</b> 2 Middelværdier</a><ul>
+<li class="chapter" data-level="9.1" data-path="middelværdier.html"><a href="middelværdier.html#konfidensinterval-for-2-middelværdier"><i class="fa fa-check"></i><b>9.1</b> Konfidensinterval for 2 middelværdier</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="middelværdier.html"><a href="middelværdier.html#pooled-og-unpooled-t-test"><i class="fa fa-check"></i><b>9.1.1</b> Pooled og unpooled t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="middelværdier.html"><a href="middelværdier.html#varianshomogenitet"><i class="fa fa-check"></i><b>9.2</b> Varianshomogenitet</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="middelværdier.html"><a href="middelværdier.html#forudsætninger"><i class="fa fa-check"></i><b>9.2.1</b> Forudsætninger</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="middelværdier.html"><a href="middelværdier.html#sammenligning-af-2-middelværdier-ens-varians-pooled-t-test"><i class="fa fa-check"></i><b>9.3</b> Sammenligning af 2 middelværdier ens varians Pooled t-test</a></li>
+<li class="chapter" data-level="9.4" data-path="middelværdier.html"><a href="middelværdier.html#sammenligning-af-2-middelværdier-uens-varians-unpooled-t-test."><i class="fa fa-check"></i><b>9.4</b> Sammenligning af 2 middelværdier uens varians Unpooled t-test.</a></li>
+<li class="chapter" data-level="9.5" data-path="middelværdier.html"><a href="middelværdier.html#parret-t-test"><i class="fa fa-check"></i><b>9.5</b> Parret t-test</a></li>
+<li class="chapter" data-level="9.6" data-path="middelværdier.html"><a href="middelværdier.html#spørgsmål-2-middelværdier"><i class="fa fa-check"></i><b>9.6</b> Spørgsmål 2 middelværdier</a></li>
+<li class="chapter" data-level="9.7" data-path="middelværdier.html"><a href="middelværdier.html#selvtest-7"><i class="fa fa-check"></i><b>9.7</b> Selvtest</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="korrelation.html"><a href="korrelation.html"><i class="fa fa-check"></i><b>10</b> Korrelation</a><ul>
+<li class="chapter" data-level="10.0.1" data-path="korrelation.html"><a href="korrelation.html#spuriøse-korrelationer"><i class="fa fa-check"></i><b>10.0.1</b> Spuriøse korrelationer</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="lineær-regressionsanalyse.html"><a href="lineær-regressionsanalyse.html"><i class="fa fa-check"></i><b>11</b> Lineær regressionsanalyse</a><ul>
+<li class="chapter" data-level="11.1" data-path="lineær-regressionsanalyse.html"><a href="lineær-regressionsanalyse.html#joe-and-the-juice"><i class="fa fa-check"></i><b>11.1</b> Joe and The Juice</a></li>
+<li class="chapter" data-level="11.2" data-path="lineær-regressionsanalyse.html"><a href="lineær-regressionsanalyse.html#freestat-output-lineær-regression-joe-and-the-juice"><i class="fa fa-check"></i><b>11.2</b> Freestat output lineær regression Joe and The Juice</a></li>
+<li class="chapter" data-level="11.3" data-path="lineær-regressionsanalyse.html"><a href="lineær-regressionsanalyse.html#forudsætninger-lineær-regression."><i class="fa fa-check"></i><b>11.3</b> Forudsætninger lineær regression.</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="lineær-regressionsanalyse.html"><a href="lineær-regressionsanalyse.html#linearitet"><i class="fa fa-check"></i><b>11.3.1</b> Linearitet</a></li>
+<li class="chapter" data-level="11.3.2" data-path="lineær-regressionsanalyse.html"><a href="lineær-regressionsanalyse.html#varianshomogenitet-1"><i class="fa fa-check"></i><b>11.3.2</b> Varianshomogenitet</a></li>
+<li class="chapter" data-level="11.3.3" data-path="lineær-regressionsanalyse.html"><a href="lineær-regressionsanalyse.html#uafhængighed-residualer"><i class="fa fa-check"></i><b>11.3.3</b> Uafhængighed residualer</a></li>
+<li class="chapter" data-level="11.3.4" data-path="lineær-regressionsanalyse.html"><a href="lineær-regressionsanalyse.html#normalitet-residualer"><i class="fa fa-check"></i><b>11.3.4</b> Normalitet residualer</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="lineær-regressionsanalyse.html"><a href="lineær-regressionsanalyse.html#simpel-lineær-regression-rømø"><i class="fa fa-check"></i><b>11.4</b> Simpel lineær regression Rømø</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="lineær-regressionsanalyse.html"><a href="lineær-regressionsanalyse.html#video-simpel-lineær-regression-pi-og-ki"><i class="fa fa-check"></i><b>11.4.1</b> Video simpel lineær regression PI og KI</a></li>
+<li class="chapter" data-level="11.4.2" data-path="lineær-regressionsanalyse.html"><a href="lineær-regressionsanalyse.html#video-simpel-lineær-regression-pi-og-ki-1"><i class="fa fa-check"></i><b>11.4.2</b> Video simpel lineær regression PI og KI</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="lineær-regressionsanalyse.html"><a href="lineær-regressionsanalyse.html#multipel-lineær-regression"><i class="fa fa-check"></i><b>11.5</b> Multipel lineær regression</a><ul>
+<li class="chapter" data-level="11.5.1" data-path="lineær-regressionsanalyse.html"><a href="lineær-regressionsanalyse.html#dummy-variable"><i class="fa fa-check"></i><b>11.5.1</b> Dummy variable</a></li>
+<li class="chapter" data-level="11.5.2" data-path="lineær-regressionsanalyse.html"><a href="lineær-regressionsanalyse.html#forudsætning-multikollinearitet"><i class="fa fa-check"></i><b>11.5.2</b> Forudsætning multikollinearitet</a></li>
+<li class="chapter" data-level="11.5.3" data-path="lineær-regressionsanalyse.html"><a href="lineær-regressionsanalyse.html#multipel-lineær-regression-forudsagt-værdi"><i class="fa fa-check"></i><b>11.5.3</b> Multipel lineær regression forudsagt værdi</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="lineær-regressionsanalyse.html"><a href="lineær-regressionsanalyse.html#spørgsmål-lineær-regression"><i class="fa fa-check"></i><b>11.6</b> Spørgsmål lineær regression</a></li>
+<li class="chapter" data-level="11.7" data-path="lineær-regressionsanalyse.html"><a href="lineær-regressionsanalyse.html#selvtest-8"><i class="fa fa-check"></i><b>11.7</b> Selvtest</a></li>
+<li class="chapter" data-level="11.8" data-path="lineær-regressionsanalyse.html"><a href="lineær-regressionsanalyse.html#selvtest-9"><i class="fa fa-check"></i><b>11.8</b> Selvtest</a></li>
+<li class="chapter" data-level="11.9" data-path="lineær-regressionsanalyse.html"><a href="lineær-regressionsanalyse.html#selvtest-10"><i class="fa fa-check"></i><b>11.9</b> Selvtest</a></li>
+<li class="chapter" data-level="11.10" data-path="lineær-regressionsanalyse.html"><a href="lineær-regressionsanalyse.html#quiz"><i class="fa fa-check"></i><b>11.10</b> Quiz</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="binomialfordelingen-premium.html"><a href="binomialfordelingen-premium.html"><i class="fa fa-check"></i><b>12</b> <font color="red">Binomialfordelingen<sup> Premium </font></sup></a><ul>
+<li class="chapter" data-level="12.1" data-path="binomialfordelingen-premium.html"><a href="binomialfordelingen-premium.html#selvtest-premium"><i class="fa fa-check"></i><b>12.1</b> <font color="red">Selvtest<sup> Premium </font></sup></a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="den-hypergeometriske-fordeling-premium.html"><a href="den-hypergeometriske-fordeling-premium.html"><i class="fa fa-check"></i><b>13</b> <font color="red">Den hypergeometriske fordeling<sup> Premium </font></sup></a><ul>
+<li class="chapter" data-level="13.1" data-path="den-hypergeometriske-fordeling-premium.html"><a href="den-hypergeometriske-fordeling-premium.html#selvtest-premium-1"><i class="fa fa-check"></i><b>13.1</b> <font color="red">Selvtest<sup> Premium </font></sup></a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="poisson-fordelingen-premium.html"><a href="poisson-fordelingen-premium.html"><i class="fa fa-check"></i><b>14</b> <font color="red">Poisson fordelingen<sup> Premium </font></sup></a><ul>
+<li class="chapter" data-level="14.1" data-path="poisson-fordelingen-premium.html"><a href="poisson-fordelingen-premium.html#selvtest-premium-2"><i class="fa fa-check"></i><b>14.1</b> <font color="red">Selvtest<sup> Premium </font></sup></a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="stikprøveteori-premium.html"><a href="stikprøveteori-premium.html"><i class="fa fa-check"></i><b>15</b> <font color="red">Stikprøveteori<sup> Premium </font></sup></a><ul>
+<li class="chapter" data-level="15.1" data-path="stikprøveteori-premium.html"><a href="stikprøveteori-premium.html#bekvemmelighedsudvælgelse-premium"><i class="fa fa-check"></i><b>15.1</b> <font color="red">Bekvemmelighedsudvælgelse<sup> Premium </font></sup></a></li>
+<li class="chapter" data-level="15.2" data-path="stikprøveteori-premium.html"><a href="stikprøveteori-premium.html#snowballing-premium"><i class="fa fa-check"></i><b>15.2</b> <font color="red">Snowballing<sup> Premium </font></sup></a></li>
+<li class="chapter" data-level="15.3" data-path="stikprøveteori-premium.html"><a href="stikprøveteori-premium.html#simpel-tilfældig-udvælgelse-premium"><i class="fa fa-check"></i><b>15.3</b> <font color="red">Simpel tilfældig udvælgelse<sup> Premium </font></sup></a></li>
+<li class="chapter" data-level="15.4" data-path="stikprøveteori-premium.html"><a href="stikprøveteori-premium.html#systematisk-udvælgelse-premium"><i class="fa fa-check"></i><b>15.4</b> <font color="red">Systematisk udvælgelse<sup> Premium </font></sup></a></li>
+<li class="chapter" data-level="15.5" data-path="stikprøveteori-premium.html"><a href="stikprøveteori-premium.html#stratificeret-udvælgelse-premium"><i class="fa fa-check"></i><b>15.5</b> <font color="red">Stratificeret udvælgelse<sup> Premium </font></sup></a><ul>
+<li class="chapter" data-level="15.5.1" data-path="stikprøveteori-premium.html"><a href="stikprøveteori-premium.html#proportional-allokering-premium"><i class="fa fa-check"></i><b>15.5.1</b> <font color="red">Proportional allokering<sup> Premium </font></sup></a></li>
+<li class="chapter" data-level="15.5.2" data-path="stikprøveteori-premium.html"><a href="stikprøveteori-premium.html#optimal-allokering-premium"><i class="fa fa-check"></i><b>15.5.2</b> <font color="red">Optimal allokering<sup> Premium </font></sup></a></li>
+<li class="chapter" data-level="15.5.3" data-path="stikprøveteori-premium.html"><a href="stikprøveteori-premium.html#poststratifikation-premium"><i class="fa fa-check"></i><b>15.5.3</b> <font color="red">Poststratifikation<sup> Premium </font></sup></a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="stikprøveteori-premium.html"><a href="stikprøveteori-premium.html#klyngeudvælgelse-eller-cluster-udvælgelse-premium"><i class="fa fa-check"></i><b>15.6</b> <font color="red">Klyngeudvælgelse eller cluster udvælgelse<sup> Premium </font></sup></a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="sandsynligheder.html"><a href="sandsynligheder.html"><i class="fa fa-check"></i><b>16</b> Sandsynligheder</a><ul>
+<li class="chapter" data-level="16.0.1" data-path="sandsynligheder.html"><a href="sandsynligheder.html#forenings--og-fælleshændelser"><i class="fa fa-check"></i><b>16.0.1</b> Forenings- og fælleshændelser</a></li>
+<li class="chapter" data-level="16.1" data-path="sandsynligheder.html"><a href="sandsynligheder.html#betingede-sandsynligheder"><i class="fa fa-check"></i><b>16.1</b> Betingede sandsynligheder</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="sandsynligheder.html"><a href="sandsynligheder.html#race-og-dødsdom-eksempel"><i class="fa fa-check"></i><b>16.1.1</b> Race og dødsdom eksempel</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="sandsynligheder.html"><a href="sandsynligheder.html#uafhængighed"><i class="fa fa-check"></i><b>16.2</b> Uafhængighed</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html"><i class="fa fa-check"></i><b>17</b> Chi i anden tests</a><ul>
+<li class="chapter" data-level="17.1" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#goodness-of-fit-test"><i class="fa fa-check"></i><b>17.1</b> Goodness of fit test</a></li>
+<li class="chapter" data-level="17.2" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#forudsætning"><i class="fa fa-check"></i><b>17.2</b> Forudsætning</a></li>
+<li class="chapter" data-level="17.3" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#chi-i-anden-test"><i class="fa fa-check"></i><b>17.3</b> Chi i anden test</a></li>
+<li class="chapter" data-level="17.4" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#chi-i-anden-test-2"><i class="fa fa-check"></i><b>17.4</b> Chi i anden test 2</a><ul>
+<li class="chapter" data-level="17.4.1" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#uafhængighed-1"><i class="fa fa-check"></i><b>17.4.1</b> Uafhængighed</a></li>
+<li class="chapter" data-level="17.4.2" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#anmeldte-skader-fordelt-på-regioner-og-antal-skader"><i class="fa fa-check"></i><b>17.4.2</b> Anmeldte skader fordelt på regioner og antal skader</a></li>
+</ul></li>
+<li class="chapter" data-level="17.5" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#selvtest-11"><i class="fa fa-check"></i><b>17.5</b> Selvtest</a></li>
+<li class="chapter" data-level="17.6" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#selvtest-12"><i class="fa fa-check"></i><b>17.6</b> Selvtest</a></li>
+<li class="chapter" data-level="17.7" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#quiz-chi-i-anden-tests"><i class="fa fa-check"></i><b>17.7</b> Quiz Chi i anden tests</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="anova-premium.html"><a href="anova-premium.html"><i class="fa fa-check"></i><b>18</b> <font color="red">ANOVA<sup> Premium </font></sup></a><ul>
+<li class="chapter" data-level="18.1" data-path="anova-premium.html"><a href="anova-premium.html#selvtest-premium-3"><i class="fa fa-check"></i><b>18.1</b> <font color="red">Selvtest<sup> Premium </font></sup></a></li>
+<li class="chapter" data-level="18.2" data-path="anova-premium.html"><a href="anova-premium.html#selvtest-premium-4"><i class="fa fa-check"></i><b>18.2</b> <font color="red">Selvtest<sup> Premium </font></sup></a></li>
+<li class="chapter" data-level="18.3" data-path="anova-premium.html"><a href="anova-premium.html#quiz-anova-premium"><i class="fa fa-check"></i><b>18.3</b> <font color="red">Quiz ANOVA<sup> Premium </font></sup></a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="cran-r-premium.html"><a href="cran-r-premium.html"><i class="fa fa-check"></i><b>19</b> <font color="red">Cran R<sup> Premium </font></sup></a><ul>
+<li class="chapter" data-level="19.1" data-path="cran-r-premium.html"><a href="cran-r-premium.html#r-video-tutorials-premium"><i class="fa fa-check"></i><b>19.1</b> <font color="red">R video-tutorials<sup> Premium </font></sup></a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="faktoranalyse-premium.html"><a href="faktoranalyse-premium.html"><i class="fa fa-check"></i><b>20</b> <font color="red">Faktoranalyse<sup> Premium </font></sup></a><ul>
+<li class="chapter" data-level="20.1" data-path="faktoranalyse-premium.html"><a href="faktoranalyse-premium.html#hvilke-faktorer-er-vigtige-når-man-køber-en-ny-computer-premium"><i class="fa fa-check"></i><b>20.1</b> <font color="red">Hvilke faktorer er vigtige når man køber en ny computer:<sup> Premium </font></sup></a></li>
+<li class="chapter" data-level="20.2" data-path="faktoranalyse-premium.html"><a href="faktoranalyse-premium.html#forudsætninger-for-faktoranalysen-premium"><i class="fa fa-check"></i><b>20.2</b> <font color="red">Forudsætninger for faktoranalysen<sup> Premium </font></sup></a></li>
+<li class="chapter" data-level="20.3" data-path="faktoranalyse-premium.html"><a href="faktoranalyse-premium.html#selve-faktoranalysen-premium"><i class="fa fa-check"></i><b>20.3</b> <font color="red">Selve Faktoranalysen<sup> Premium </font></sup></a></li>
+<li class="chapter" data-level="20.4" data-path="faktoranalyse-premium.html"><a href="faktoranalyse-premium.html#hvor-mange-faktorer-bør-benyttes-premium"><i class="fa fa-check"></i><b>20.4</b> <font color="red">Hvor mange faktorer bør benyttes?<sup> Premium </font></sup></a><ul>
+<li class="chapter" data-level="20.4.1" data-path="faktoranalyse-premium.html"><a href="faktoranalyse-premium.html#eigenvalues-metoden-premium"><i class="fa fa-check"></i><b>20.4.1</b> <font color="red">Eigenvalues metoden<sup> Premium </font></sup></a></li>
+<li class="chapter" data-level="20.4.2" data-path="faktoranalyse-premium.html"><a href="faktoranalyse-premium.html#eigenvalues-metoden-premium-1"><i class="fa fa-check"></i><b>20.4.2</b> <font color="red">Eigenvalues metoden<sup> Premium </font></sup></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="klyngeanalyse-premium.html"><a href="klyngeanalyse-premium.html"><i class="fa fa-check"></i><b>21</b> <font color="red">Klyngeanalyse<sup> Premium </font></sup></a><ul>
+<li class="chapter" data-level="21.1" data-path="klyngeanalyse-premium.html"><a href="klyngeanalyse-premium.html#hierakisk-klyngeanalyse-hclust-kommandoen-premium"><i class="fa fa-check"></i><b>21.1</b> <font color="red">Hierakisk klyngeanalyse hclust kommandoen<sup> Premium </font></sup></a></li>
+<li class="chapter" data-level="21.2" data-path="klyngeanalyse-premium.html"><a href="klyngeanalyse-premium.html#ikke-hierakisk-klyngeanalyse-kmeans-kommandoen-premium"><i class="fa fa-check"></i><b>21.2</b> <font color="red">Ikke hierakisk klyngeanalyse kmeans kommandoen<sup> Premium </font></sup></a></li>
+<li class="chapter" data-level="21.3" data-path="klyngeanalyse-premium.html"><a href="klyngeanalyse-premium.html#validering-med-anova-premium"><i class="fa fa-check"></i><b>21.3</b> <font color="red">Validering med ANOVA<sup> Premium </font></sup></a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="tidsrækker-og-arima-premium.html"><a href="tidsrækker-og-arima-premium.html"><i class="fa fa-check"></i><b>22</b> <font color="red">Tidsrækker og ARIMA<sup> Premium </font></sup></a><ul>
+<li class="chapter" data-level="22.1" data-path="tidsrækker-og-arima-premium.html"><a href="tidsrækker-og-arima-premium.html#arima000-premium"><i class="fa fa-check"></i><b>22.1</b> <font color="red">ARIMA(0,0,0)<sup> Premium </font></sup></a></li>
+<li class="chapter" data-level="22.2" data-path="tidsrækker-og-arima-premium.html"><a href="tidsrækker-og-arima-premium.html#arima100-eller-ar1-autoregression-premium"><i class="fa fa-check"></i><b>22.2</b> <font color="red">ARIMA(1,0,0) eller AR(1) autoregression<sup> Premium </font></sup></a></li>
+<li class="chapter" data-level="22.3" data-path="tidsrækker-og-arima-premium.html"><a href="tidsrækker-og-arima-premium.html#arima010-eller-i1-integrated-premium"><i class="fa fa-check"></i><b>22.3</b> <font color="red">ARIMA(0,1,0) eller I(1) Integrated<sup> Premium </font></sup></a></li>
+<li class="chapter" data-level="22.4" data-path="tidsrækker-og-arima-premium.html"><a href="tidsrækker-og-arima-premium.html#arima001-eller-ma1-moving-average-premium"><i class="fa fa-check"></i><b>22.4</b> <font color="red">ARIMA(0,0,1) eller MA(1) Moving average<sup> Premium </font></sup></a></li>
+<li class="chapter" data-level="22.5" data-path="tidsrækker-og-arima-premium.html"><a href="tidsrækker-og-arima-premium.html#plots-med-forskellige-modeller-premium"><i class="fa fa-check"></i><b>22.5</b> <font color="red">Plots med forskellige modeller<sup> Premium </font></sup></a></li>
+<li class="chapter" data-level="22.6" data-path="tidsrækker-og-arima-premium.html"><a href="tidsrækker-og-arima-premium.html#arima-af-højere-orden-premium"><i class="fa fa-check"></i><b>22.6</b> <font color="red">ARIMA af højere orden<sup> Premium </font></sup></a></li>
+<li class="chapter" data-level="22.7" data-path="tidsrækker-og-arima-premium.html"><a href="tidsrækker-og-arima-premium.html#arima-og-sæsonalitet-premium"><i class="fa fa-check"></i><b>22.7</b> <font color="red">ARIMA og sæsonalitet<sup> Premium </font></sup></a></li>
+<li class="chapter" data-level="22.8" data-path="tidsrækker-og-arima-premium.html"><a href="tidsrækker-og-arima-premium.html#arima-eksempler-premium"><i class="fa fa-check"></i><b>22.8</b> <font color="red">ARIMA eksempler<sup> Premium </font></sup></a><ul>
+<li class="chapter" data-level="22.8.1" data-path="tidsrækker-og-arima-premium.html"><a href="tidsrækker-og-arima-premium.html#traktorer-premium"><i class="fa fa-check"></i><b>22.8.1</b> <font color="red">Traktorer<sup> Premium </font></sup></a></li>
+<li class="chapter" data-level="22.8.2" data-path="tidsrækker-og-arima-premium.html"><a href="tidsrækker-og-arima-premium.html#detail-debet-card-forbrug-på-island-millioner-isk.-premium"><i class="fa fa-check"></i><b>22.8.2</b> <font color="red">Detail debet card forbrug på Island (millioner ISK).<sup> Premium </font></sup></a></li>
+</ul></li>
+<li class="chapter" data-level="22.9" data-path="tidsrækker-og-arima-premium.html"><a href="tidsrækker-og-arima-premium.html#forecast-aktiekurser-premium"><i class="fa fa-check"></i><b>22.9</b> <font color="red">Forecast Aktiekurser<sup> Premium </font></sup></a><ul>
+<li class="chapter" data-level="22.9.1" data-path="tidsrækker-og-arima-premium.html"><a href="tidsrækker-og-arima-premium.html#eksporter-aktiekurser-til-excel-premium"><i class="fa fa-check"></i><b>22.9.1</b> <font color="red">Eksporter Aktiekurser til Excel<sup> Premium </font></sup></a></li>
+</ul></li>
+<li class="chapter" data-level="22.10" data-path="tidsrækker-og-arima-premium.html"><a href="tidsrækker-og-arima-premium.html#aktieafkast-premium"><i class="fa fa-check"></i><b>22.10</b> <font color="red">Aktieafkast<sup> Premium </font></sup></a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="podcasts.html"><a href="podcasts.html"><i class="fa fa-check"></i><b>23</b> Podcasts</a></li>
+<li class="chapter" data-level="24" data-path="materialer.html"><a href="materialer.html"><i class="fa fa-check"></i><b>24</b> Materialer</a><ul>
+<li class="chapter" data-level="24.1" data-path="materialer.html"><a href="materialer.html#videoer-teori"><i class="fa fa-check"></i><b>24.1</b> Videoer teori</a><ul>
+<li class="chapter" data-level="24.1.1" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#chi-i-anden-test"><i class="fa fa-check"></i><b>24.1.1</b> Chi i anden test</a></li>
+<li class="chapter" data-level="24.1.2" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#chi-i-anden-test-2"><i class="fa fa-check"></i><b>24.1.2</b> Chi i anden test 2</a></li>
+<li class="chapter" data-level="24.1.3" data-path="materialer.html"><a href="materialer.html#anova"><i class="fa fa-check"></i><b>24.1.3</b> Anova</a></li>
+</ul></li>
+<li class="chapter" data-level="24.2" data-path="materialer.html"><a href="materialer.html#freestat-fin"><i class="fa fa-check"></i><b>24.2</b> Freestat FIN</a></li>
+<li class="chapter" data-level="24.3" data-path="materialer.html"><a href="materialer.html#eksamensvideoer"><i class="fa fa-check"></i><b>24.3</b> Eksamensvideoer</a></li>
+<li class="chapter" data-level="24.4" data-path="materialer.html"><a href="materialer.html#eksamensvideoer-au-smartlearning"><i class="fa fa-check"></i><b>24.4</b> Eksamensvideoer AU Smartlearning</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="ordliste.html"><a href="ordliste.html"><i class="fa fa-check"></i><b>25</b> Ordliste</a></li>
+<li class="divider"></li>
+<li><a href="./">Login</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistik</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="middelværdier" class="section level1">
+<h1><span class="header-section-number">Kapitel 9</span> 2 Middelværdier</h1>
+<!-- ```{r, echo=FALSE, results='asis'} -->
+<!-- cat(readLines('np.html')) -->
+<!-- ``` -->
+<div id="konfidensinterval-for-2-middelværdier" class="section level2">
+<h2><span class="header-section-number">9.1</span> Konfidensinterval for 2 middelværdier</h2>
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class="embed-container">
+<iframe src="https://player.vimeo.com/video/226073803" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+</iframe>
+</div>
+<div id="pooled-og-unpooled-t-test" class="section level3">
+<h3><span class="header-section-number">9.1.1</span> Pooled og unpooled t-test</h3>
+<p>Vi kan ofte være interesseret i at i at sammenligne middelværdier, til dette kan vi benytte en af flere tests. Hvis vi har 2 <span class="hl"><span id="htmlwidget-1c114bdbc11befd4a79f" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-1c114bdbc11befd4a79f">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>En kvantitativ variabel, er populært sagt en numerisk variabel man kan \"regne med \" fx. finde gennemsnit, median, standardafvigelse, fraktiler osv. Eksempler på kvantitative variable er:<i><br>\n  Mænds højde i cm.<br>\n  {176, 188, 169, 177, 181, 182,...}<br>\n  Aktiekurs<br>\n  {437.39, 437.78, 432.12, 431.03, 433.83, 433.81}<br>\n  Antal børn i familien<br>\n  {0, 1, 0, 3, 2, 1,0,1,0,...}<br>\n  Nedbørsmængde i mm. i Dragør<br>\n  {0,00, 0,02, 0,03, 0.12, 0.08, 1,12,1,43,1,21,0,03,...}<br>\n  Indholdet i Coca Cola dåser i ml.<br>\n  {333.12, 333.08, 332.82, 332,73, 332.93,...}<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/datast-og-data.html#kvalitative-variable\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om kvantitative variable!<\/a><\/h4>","text":"kvantitative"},"evals":[],"jsHooks":[]}</script></span> stikprøver, kan vi undersøge om forskellen i middelværdierne er signifikant forskellig. Det er muligt at bruge en pooled t-test, hvis vi har ens standardafvigelser og dermed ens varianser for de 2 stikprøver. Man bruger en unpooled t-test, hvis varianserne ikke er ens. Vi kan teste om varianserne er ens, en sådan test for <span class="hl"><span id="htmlwidget-26a7930a8a43ac921953" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-26a7930a8a43ac921953">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Varianshomogenitet betyder der er ens varianser for populationerne.<br>\n<i>Hvis fx. vi har 2 stikprøver med højder for CBS og Cphbusiness studerende, vil varianshomogenitet betyde, at der er samme variation i de 2 populationer.<br>\nTestet kunne se ud som nedenfor, bemærk er der varianshomogenitet, er standardafvigelserne også altid ens.<br>\nH<sub>0<\/sub>: &sigma;<sub>CBS<\/sub>=&sigma;<sub>Cph<\/sub> (Der er Varianshomogenitet)<br>\nH<sub>1<\/sub>: &sigma;<sub>CBS<\/sub>≠&sigma;<sub>Cph<\/sub> (Der er ikke varianshomogenitet)<br><br>\n<a href=\"https://s.tepedu.dk/middelv%C3%A6rdier.html#varianshomogenitet\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om varianshomogenitet!<\/a><\/i>\n<\/h4>","text":"varianshomogenitet"},"evals":[],"jsHooks":[]}</script></span>, findes i det meste software incl. freestat. Hvis man ikke har mulighed for at teste, kan man bruge tommelfingerreglen: Hvis den største af de 2 stikprøvers standardafvigelse, er mere end dobbelt så stor, som den lille stikprøves standardafvigelse, benyttes unpooled t-test.</p>
+<p>Vi ser igen på eksemplet med ejendomsmægleren der undersøgte kundernes afstand til filialerne. Den gennemsnitlige afstand til nærmeste filial var, 748 meter i <span class="hl"><span id="htmlwidget-d0dddbb8e6561e463b78" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-d0dddbb8e6561e463b78">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>En stikprøve, er et udsnit af populationen (den store mængde vi ønsker at udtale os om), hvis stikprøven afspejler populationen korrekt, siger vi stikprøven er repæsentativ.<br>\n  <i>Vi bruger stikprøver, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n    <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om stikprøver!<\/a>\n  <br><\/h4>","text":"stikprøven"},"evals":[],"jsHooks":[]}</script></span> med 200 respondenter. Standardafvigelsen er 102 meter.</p>
+<p>Mægleren har data fra en tilsvarende undersøgelse hos en konkurrerende kæde, her er den gennemsnitlige afstand 702 meter og <span class="hl"><span id="htmlwidget-57a10d76a2059646aae0" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-57a10d76a2059646aae0">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Standardafvigelsen fortæller hvor meget en variabel typisk varierer omkring middelværdien.<br>\n  Standardafvigelsen også kaldet spredningen, findes som kvadratroden af variansen, i modsætning til variansen er standardafvigelsen i samme enhed som variablen hvilket gør tolkning nemmere.<br><br>\n  Kursen for en aktie med middelkurs 100 Kr. og standardafvigelse 1 svinger meget mindre, end en aktie med middelkurs 100 og standardafvigelse 10. Da investorer er risikoaverse vil de foretrække aktien med den mindste standardafvigelse.<br><br>\n  <a href=\"https://s.tepedu.dk/deskriptiv-statistik.html#standardafvigelsen\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om standardafvigelsen!<\/a>\n<\/h4>","text":"standardafvigelsen"},"evals":[],"jsHooks":[]}</script></span> er 89 i en <span class="hl"><span id="htmlwidget-a125a1b970f7fa6f75e3" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-a125a1b970f7fa6f75e3">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>En stikprøve, er et udsnit af populationen (den store mængde vi ønsker at udtale os om), hvis stikprøven afspejler populationen korrekt, siger vi stikprøven er repæsentativ.<br>\n  <i>Vi bruger stikprøver, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n    <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om stikprøver!<\/a>\n  <br><\/h4>","text":"stikprøve"},"evals":[],"jsHooks":[]}</script></span> af størrelse 40.</p>
+<p>I Freestat kan man sætte de 2 stikprøver, ind analysen Pooled t-test <span class="hl"><span id="htmlwidget-3cb9dbf8035a38b60638" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-3cb9dbf8035a38b60638">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Varianshomogenitet betyder der er ens varianser for populationerne.<br>\n<i>Hvis fx. vi har 2 stikprøver med højder for CBS og Cphbusiness studerende, vil varianshomogenitet betyde, at der er samme variation i de 2 populationer.<br>\nTestet kunne se ud som nedenfor, bemærk er der varianshomogenitet, er standardafvigelserne også altid ens.<br>\nH<sub>0<\/sub>: &sigma;<sub>CBS<\/sub>=&sigma;<sub>Cph<\/sub> (Der er Varianshomogenitet)<br>\nH<sub>1<\/sub>: &sigma;<sub>CBS<\/sub>≠&sigma;<sub>Cph<\/sub> (Der er ikke varianshomogenitet)<br><br>\n<a href=\"https://s.tepedu.dk/middelv%C3%A6rdier.html#varianshomogenitet\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om varianshomogenitet!<\/a><\/i>\n<\/h4>","text":"varianshomogenitet"},"evals":[],"jsHooks":[]}</script></span> i fanen Pooled. Vi får følgende output.</p>
+<p><img src="img/freestatmaeglerpooled.png" /></p>
+<p>Her har vi som ses af output fra Freestat, valgt mæglerens egen undersøgelse som 1. <span class="hl"><span id="htmlwidget-e87d43bab8bf40c9e5cd" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-e87d43bab8bf40c9e5cd">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>En stikprøve, er et udsnit af populationen (den store mængde vi ønsker at udtale os om), hvis stikprøven afspejler populationen korrekt, siger vi stikprøven er repæsentativ.<br>\n  <i>Vi bruger stikprøver, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n    <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om stikprøver!<\/a>\n  <br><\/h4>","text":"stikprøve"},"evals":[],"jsHooks":[]}</script></span>, og konkurrentens som 2. <span class="hl"><span id="htmlwidget-93650d3a940de7fd2621" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-93650d3a940de7fd2621">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>En stikprøve, er et udsnit af populationen (den store mængde vi ønsker at udtale os om), hvis stikprøven afspejler populationen korrekt, siger vi stikprøven er repæsentativ.<br>\n  <i>Vi bruger stikprøver, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n    <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om stikprøver!<\/a>\n  <br><\/h4>","text":"stikprøve"},"evals":[],"jsHooks":[]}</script></span>. Vi kan med 95% sikkerhed sige at forskellen mellem mæglerens og konkurrentens kunders gennemsnitlige afstand til filial ligger mellem 11,9 og 80.1 meter (markeret med rødt). Da 0 ikke er indeholdt i <span class="hl"><span id="htmlwidget-fdc1a583fb435dd6fdaa" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-fdc1a583fb435dd6fdaa">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Konfidensintervallet beregnes ud fra en stikprøve, og angiver nedre og øvre grænser indenfor hvilke populations parameteren, ligger med en vis sandsynlighed.<br>\n  <i>Er 95% konfidensintervallet for mænds gennemsnitlige højde fx. 172 cm. og 182 cm. kan vi sige:<br>\n  Vi kan med 95% sandsynlighed sige den gennemsnitlige højde for mænd i populationen, ligger mellem 172 cm. og 182 cm.<br>\n  Jo større stikprøve og jo lavere sikkerhed (konfidensniveau), jo mere præcist bliver vore konfidensinterval (interval estimatet), dvs intervallet bliver smallere.<br>\n  Vi kan beregne konfidensintervaller for parametre vi estimerer, fx. gennemsnittet, standardafvigelsen, andelen etc.<br>\n  I modsætning til et punktestimat for fx. middelværdien, fortæller konfidensintervallet os noget om kvaliteten af vort estimat/gæt, ud fra bredden af konfidensintervallet.<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/konfidensintervaller.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om konfidensintervallet!<\/a>\n  <br><\/h4>","text":"konfidensintervallet"},"evals":[],"jsHooks":[]}</script></span> kan vi konstatere at denne forskel er signifikant, der er altså forskel på afstanden til nærmeste filial i de 2 kæder. Vi kan undersøge om vi også er 99% sikre på konklusionen ved at ændre <span class="hl"><span id="htmlwidget-5948bb27866a2811e9d2" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-5948bb27866a2811e9d2">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Signifikansniveauet &alpha; typisk 1%, 5% eller 10%, fastsættes inden et test og sammenlignes med p-værdien.<br>\n  Er p-værdien mindre end signifikansniveauet forkastes nulhypotesen, ellers ikke.<br>\n  <i>Signifikansniveauet angiver sandsynligheden for at forkaste en sand nulhypotese (en type 1 fejl også kaldet en falsk positiv)<br>\n  Medicinal industrien arbejder ofte med 1% signifikansniveau, hvor et test kunne være:<br>\n  H<sub>0<\/sub>: Medicinen har ingen effekt<br>\n  H<sub>1<\/sub>: Medicinen har effekt<br>\n  Med 1% signifikansniveau, begås en type 1 fejl kun i et ud af 100 tests.<br>\n  En type 1 fejl vil her betyde, at man fejlagtigt konkluderer at et medicinal produkt uden effekt virker.<br>\n  Signifikansniveauet kan bruges til at bestemme konfidensniveauet 1-&alpha;, der angiver sandsynligheden for korrekt ikke at forkaste en sand nulhypotese <\/i><br><br>\n  <a href=\"https://s.tepedu.dk/hypotesetests-middelvrdi.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om signifikansniveauet!<\/a>\n  <\/h4>","text":"signifikansniveauet"},"evals":[],"jsHooks":[]}</script></span> til 1%, jo et bredere <span class="hl"><span id="htmlwidget-2ab8c2c84f9dcc97b84c" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-2ab8c2c84f9dcc97b84c">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Konfidensintervallet beregnes ud fra en stikprøve, og angiver nedre og øvre grænser indenfor hvilke populations parameteren, ligger med en vis sandsynlighed.<br>\n  <i>Er 95% konfidensintervallet for mænds gennemsnitlige højde fx. 172 cm. og 182 cm. kan vi sige:<br>\n  Vi kan med 95% sandsynlighed sige den gennemsnitlige højde for mænd i populationen, ligger mellem 172 cm. og 182 cm.<br>\n  Jo større stikprøve og jo lavere sikkerhed (konfidensniveau), jo mere præcist bliver vore konfidensinterval (interval estimatet), dvs intervallet bliver smallere.<br>\n  Vi kan beregne konfidensintervaller for parametre vi estimerer, fx. gennemsnittet, standardafvigelsen, andelen etc.<br>\n  I modsætning til et punktestimat for fx. middelværdien, fortæller konfidensintervallet os noget om kvaliteten af vort estimat/gæt, ud fra bredden af konfidensintervallet.<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/konfidensintervaller.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om konfidensintervallet!<\/a>\n  <br><\/h4>","text":"konfidensinterval"},"evals":[],"jsHooks":[]}</script></span>, da præcisionen falder, når sikkerheden stiger.</p>
+<p>Det er ikke så vigtigt hvilken <span class="hl"><span id="htmlwidget-950858c253440572c5d9" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-950858c253440572c5d9">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>En stikprøve, er et udsnit af populationen (den store mængde vi ønsker at udtale os om), hvis stikprøven afspejler populationen korrekt, siger vi stikprøven er repæsentativ.<br>\n  <i>Vi bruger stikprøver, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n    <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om stikprøver!<\/a>\n  <br><\/h4>","text":"stikprøve"},"evals":[],"jsHooks":[]}</script></span>, der er 1. og 2. <span class="hl"><span id="htmlwidget-2abb52d6b8131111994f" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-2abb52d6b8131111994f">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>En stikprøve, er et udsnit af populationen (den store mængde vi ønsker at udtale os om), hvis stikprøven afspejler populationen korrekt, siger vi stikprøven er repæsentativ.<br>\n  <i>Vi bruger stikprøver, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n    <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om stikprøver!<\/a>\n  <br><\/h4>","text":"stikprøve"},"evals":[],"jsHooks":[]}</script></span>, men det er væsentligt for tolkningen af <span class="hl"><span id="htmlwidget-80f5daf85940f123336f" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-80f5daf85940f123336f">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Konfidensintervallet beregnes ud fra en stikprøve, og angiver nedre og øvre grænser indenfor hvilke populations parameteren, ligger med en vis sandsynlighed.<br>\n  <i>Er 95% konfidensintervallet for mænds gennemsnitlige højde fx. 172 cm. og 182 cm. kan vi sige:<br>\n  Vi kan med 95% sandsynlighed sige den gennemsnitlige højde for mænd i populationen, ligger mellem 172 cm. og 182 cm.<br>\n  Jo større stikprøve og jo lavere sikkerhed (konfidensniveau), jo mere præcist bliver vore konfidensinterval (interval estimatet), dvs intervallet bliver smallere.<br>\n  Vi kan beregne konfidensintervaller for parametre vi estimerer, fx. gennemsnittet, standardafvigelsen, andelen etc.<br>\n  I modsætning til et punktestimat for fx. middelværdien, fortæller konfidensintervallet os noget om kvaliteten af vort estimat/gæt, ud fra bredden af konfidensintervallet.<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/konfidensintervaller.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om konfidensintervallet!<\/a>\n  <br><\/h4>","text":"konfidensintervallet"},"evals":[],"jsHooks":[]}</script></span>. Bemærk konfidensintervallets øvre grænse, vil hvis man bytter rundt, blive den nedre grænse med fortegnsskift, og tilsvarende for den nedre grænse. Begge grænser i <span class="hl"><span id="htmlwidget-5627cb03e034555cc0ad" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-5627cb03e034555cc0ad">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Konfidensintervallet beregnes ud fra en stikprøve, og angiver nedre og øvre grænser indenfor hvilke populations parameteren, ligger med en vis sandsynlighed.<br>\n  <i>Er 95% konfidensintervallet for mænds gennemsnitlige højde fx. 172 cm. og 182 cm. kan vi sige:<br>\n  Vi kan med 95% sandsynlighed sige den gennemsnitlige højde for mænd i populationen, ligger mellem 172 cm. og 182 cm.<br>\n  Jo større stikprøve og jo lavere sikkerhed (konfidensniveau), jo mere præcist bliver vore konfidensinterval (interval estimatet), dvs intervallet bliver smallere.<br>\n  Vi kan beregne konfidensintervaller for parametre vi estimerer, fx. gennemsnittet, standardafvigelsen, andelen etc.<br>\n  I modsætning til et punktestimat for fx. middelværdien, fortæller konfidensintervallet os noget om kvaliteten af vort estimat/gæt, ud fra bredden af konfidensintervallet.<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/konfidensintervaller.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om konfidensintervallet!<\/a>\n  <br><\/h4>","text":"konfidensintervallet"},"evals":[],"jsHooks":[]}</script></span> er positive, forskellen måles altid som 1. <span class="hl"><span id="htmlwidget-6c39f62821069078789e" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-6c39f62821069078789e">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>En stikprøve, er et udsnit af populationen (den store mængde vi ønsker at udtale os om), hvis stikprøven afspejler populationen korrekt, siger vi stikprøven er repæsentativ.<br>\n  <i>Vi bruger stikprøver, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n    <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om stikprøver!<\/a>\n  <br><\/h4>","text":"stikprøve"},"evals":[],"jsHooks":[]}</script></span> minus 2. <span class="hl"><span id="htmlwidget-a458db2ea7a84a364216" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-a458db2ea7a84a364216">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>En stikprøve, er et udsnit af populationen (den store mængde vi ønsker at udtale os om), hvis stikprøven afspejler populationen korrekt, siger vi stikprøven er repæsentativ.<br>\n  <i>Vi bruger stikprøver, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n    <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om stikprøver!<\/a>\n  <br><\/h4>","text":"stikprøve"},"evals":[],"jsHooks":[]}</script></span>, specielt i dette tilfælde altså kædens egen undersøgelse minus konkurrentens undersøgelse. Det er altid en MEGET god ide, at holde fuldstændig styr på hvilken <span class="hl"><span id="htmlwidget-59d458418946012a513f" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-59d458418946012a513f">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>En stikprøve, er et udsnit af populationen (den store mængde vi ønsker at udtale os om), hvis stikprøven afspejler populationen korrekt, siger vi stikprøven er repæsentativ.<br>\n  <i>Vi bruger stikprøver, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n    <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om stikprøver!<\/a>\n  <br><\/h4>","text":"stikprøve"},"evals":[],"jsHooks":[]}</script></span>, der er 1. og 2., hvilket vi senere vil se i forbindelse med hypotestests med <span class="hl"><span id="htmlwidget-95bb3c9b855833941a6b" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-95bb3c9b855833941a6b">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Ensidet alternativhypotese H<sub>1<\/sub> betyder vi tester ikke med tosidet alternativ hypotese ≠, vi tester enten > eller >.<br>\n<i>Eksempler på ensidede alternativhypoteser er:<br>\nH<sub>1<\/sub>: &mu;<45 (Middelværdien er mindre end 45)<br>\nH<sub>1<\/sub>: &mu;>45 (Middelværdien er større end 45)<br>\nHvilket vil føre til 2 mulige tests:<br>\nEnten ensidet nedad, vi forkaster nulhypotesen hvis middelværdien er signifikant mindre end 45:<br>\nH<sub>0<\/sub>: &mu;≥45 (Middelværdien er mindst 45)<br>\nH<sub>1<\/sub>: &mu;<45 (Middelværdien er mindre end 45)<br>\nEller ensidet opad, vi forkaster nulhypotesen hvis middelværdien er signifikant større end 45:<br>\nH<sub>1<\/sub>: &mu;≤45 (Middelværdien er højst 45)<br><br>\nH<sub>1<\/sub>: &mu;>45 (Middelværdien er større end 45)<br><br>\n<a href=\"https://s.tepedu.dk/hypotesetests-middelv%C3%A6rdi.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om hypotesetests!<\/a><\/i>\n<\/h4>","text":"ensidet"},"evals":[],"jsHooks":[]}</script></span> alternativhypotese.</p>
+<p>Vi skal undersøge om varianserne er ens, tommelfingerreglen er overholdt, da <span class="hl"><span id="htmlwidget-8d48ba22f940beffc4b6" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-8d48ba22f940beffc4b6">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Standardafvigelsen fortæller hvor meget en variabel typisk varierer omkring middelværdien.<br>\n  Standardafvigelsen også kaldet spredningen, findes som kvadratroden af variansen, i modsætning til variansen er standardafvigelsen i samme enhed som variablen hvilket gør tolkning nemmere.<br><br>\n  Kursen for en aktie med middelkurs 100 Kr. og standardafvigelse 1 svinger meget mindre, end en aktie med middelkurs 100 og standardafvigelse 10. Da investorer er risikoaverse vil de foretrække aktien med den mindste standardafvigelse.<br><br>\n  <a href=\"https://s.tepedu.dk/deskriptiv-statistik.html#standardafvigelsen\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om standardafvigelsen!<\/a>\n<\/h4>","text":"standardafvigelsen"},"evals":[],"jsHooks":[]}</script></span> for den store <span class="hl"><span id="htmlwidget-1a446aa6ca141057731e" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-1a446aa6ca141057731e">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>En stikprøve, er et udsnit af populationen (den store mængde vi ønsker at udtale os om), hvis stikprøven afspejler populationen korrekt, siger vi stikprøven er repæsentativ.<br>\n  <i>Vi bruger stikprøver, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n    <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om stikprøver!<\/a>\n  <br><\/h4>","text":"stikprøve"},"evals":[],"jsHooks":[]}</script></span> <span class="math inline">\(\hat{\sigma}_1=102\)</span>, ikke er mere end dobbelt så stor, som <span class="hl"><span id="htmlwidget-c1332d9d618927db5309" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-c1332d9d618927db5309">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Standardafvigelsen fortæller hvor meget en variabel typisk varierer omkring middelværdien.<br>\n  Standardafvigelsen også kaldet spredningen, findes som kvadratroden af variansen, i modsætning til variansen er standardafvigelsen i samme enhed som variablen hvilket gør tolkning nemmere.<br><br>\n  Kursen for en aktie med middelkurs 100 Kr. og standardafvigelse 1 svinger meget mindre, end en aktie med middelkurs 100 og standardafvigelse 10. Da investorer er risikoaverse vil de foretrække aktien med den mindste standardafvigelse.<br><br>\n  <a href=\"https://s.tepedu.dk/deskriptiv-statistik.html#standardafvigelsen\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om standardafvigelsen!<\/a>\n<\/h4>","text":"standardafvigelsen"},"evals":[],"jsHooks":[]}</script></span> for den lille <span class="hl"><span id="htmlwidget-56696371434cbdd6ceab" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-56696371434cbdd6ceab">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>En stikprøve, er et udsnit af populationen (den store mængde vi ønsker at udtale os om), hvis stikprøven afspejler populationen korrekt, siger vi stikprøven er repæsentativ.<br>\n  <i>Vi bruger stikprøver, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n    <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om stikprøver!<\/a>\n  <br><\/h4>","text":"stikprøve"},"evals":[],"jsHooks":[]}</script></span> <span class="math inline">\(\hat{\sigma}_2=89\)</span>. Vi har dog en mere præcis metode, nederst til højre markeret med blåt testes <span class="hl"><span id="htmlwidget-c91cf2bb925e702786f6" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-c91cf2bb925e702786f6">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Varianshomogenitet betyder der er ens varianser for populationerne.<br>\n<i>Hvis fx. vi har 2 stikprøver med højder for CBS og Cphbusiness studerende, vil varianshomogenitet betyde, at der er samme variation i de 2 populationer.<br>\nTestet kunne se ud som nedenfor, bemærk er der varianshomogenitet, er standardafvigelserne også altid ens.<br>\nH<sub>0<\/sub>: &sigma;<sub>CBS<\/sub>=&sigma;<sub>Cph<\/sub> (Der er Varianshomogenitet)<br>\nH<sub>1<\/sub>: &sigma;<sub>CBS<\/sub>≠&sigma;<sub>Cph<\/sub> (Der er ikke varianshomogenitet)<br><br>\n<a href=\"https://s.tepedu.dk/middelv%C3%A6rdier.html#varianshomogenitet\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om varianshomogenitet!<\/a><\/i>\n<\/h4>","text":"varianshomogenitet"},"evals":[],"jsHooks":[]}</script></span> automatisk. Vi har endnu ikke gennemgået hvorledes hypotesetests opstilles og aflæses, men vi kan godt forstå sidste del i konklusionen af hypotesetesten, “varianserne er ens”.</p>
+<p>Vi kan som nævnt, ændre signifinkansniveauet til 1% se om <span class="hl"><span id="htmlwidget-e662f59d88f8f3e7f4fd" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-e662f59d88f8f3e7f4fd">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Konfidensintervallet beregnes ud fra en stikprøve, og angiver nedre og øvre grænser indenfor hvilke populations parameteren, ligger med en vis sandsynlighed.<br>\n  <i>Er 95% konfidensintervallet for mænds gennemsnitlige højde fx. 172 cm. og 182 cm. kan vi sige:<br>\n  Vi kan med 95% sandsynlighed sige den gennemsnitlige højde for mænd i populationen, ligger mellem 172 cm. og 182 cm.<br>\n  Jo større stikprøve og jo lavere sikkerhed (konfidensniveau), jo mere præcist bliver vore konfidensinterval (interval estimatet), dvs intervallet bliver smallere.<br>\n  Vi kan beregne konfidensintervaller for parametre vi estimerer, fx. gennemsnittet, standardafvigelsen, andelen etc.<br>\n  I modsætning til et punktestimat for fx. middelværdien, fortæller konfidensintervallet os noget om kvaliteten af vort estimat/gæt, ud fra bredden af konfidensintervallet.<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/konfidensintervaller.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om konfidensintervallet!<\/a>\n  <br><\/h4>","text":"konfidensintervallet"},"evals":[],"jsHooks":[]}</script></span> nu indeholder 0.</p>
+<p>Vi kan med 99% sikkerhed sige, at forskellen mellem mæglerens og konkurrentens kunders gennemsnitlige afstand til filial ligger mellem 1,1 og 90.9 meter. Vi er altså relativt sikre på vor konklusion, om forskel i afstande til nærmeste filial for de 2 kæder.</p>
+<p><img src="img/freestatpooledmaegler2.png" /></p>
+</div>
+</div>
+<div id="varianshomogenitet" class="section level2">
+<h2><span class="header-section-number">9.2</span> Varianshomogenitet</h2>
+<div id="forudsætninger" class="section level3">
+<h3><span class="header-section-number">9.2.1</span> Forudsætninger</h3>
+<p>En forudsætning for at benytte pooled t-test, til at undersøge om 2 middelværdier kan antages at være identiske, er at der er <span class="hl"><span id="htmlwidget-add9c645fd078cf9ac80" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-add9c645fd078cf9ac80">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Varianshomogenitet betyder der er ens varianser for populationerne.<br>\n<i>Hvis fx. vi har 2 stikprøver med højder for CBS og Cphbusiness studerende, vil varianshomogenitet betyde, at der er samme variation i de 2 populationer.<br>\nTestet kunne se ud som nedenfor, bemærk er der varianshomogenitet, er standardafvigelserne også altid ens.<br>\nH<sub>0<\/sub>: &sigma;<sub>CBS<\/sub>=&sigma;<sub>Cph<\/sub> (Der er Varianshomogenitet)<br>\nH<sub>1<\/sub>: &sigma;<sub>CBS<\/sub>≠&sigma;<sub>Cph<\/sub> (Der er ikke varianshomogenitet)<br><br>\n<a href=\"https://s.tepedu.dk/middelv%C3%A6rdier.html#varianshomogenitet\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om varianshomogenitet!<\/a><\/i>\n<\/h4>","text":"varianshomogenitet"},"evals":[],"jsHooks":[]}</script></span>. For at vi må undersøge om populations varianserne er ens, skal vi først undersøge om populationerne kan antages normalfordelte. Det nemmeste er at undersøge forudsætningen om normalfordelte populationer ved at se på normalfraktildiagrammerne.</p>
+<p>I filen <a href="https://drive.google.com/uc?export=download&amp;id=0B1E7VnhxsDMlUklCZWNocEIyVnM">huspriser</a>, er indsamlet stikprøver af 22 huspriser fra 2016 og 20 huspriser fra 2007. Hvis vi vil undersøge om der er signifikant forskel i prisen vha. <span class="hl"><span id="htmlwidget-9ffa60e7e987fc8024b5" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-9ffa60e7e987fc8024b5">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Konfidensintervallet beregnes ud fra en stikprøve, og angiver nedre og øvre grænser indenfor hvilke populations parameteren, ligger med en vis sandsynlighed.<br>\n  <i>Er 95% konfidensintervallet for mænds gennemsnitlige højde fx. 172 cm. og 182 cm. kan vi sige:<br>\n  Vi kan med 95% sandsynlighed sige den gennemsnitlige højde for mænd i populationen, ligger mellem 172 cm. og 182 cm.<br>\n  Jo større stikprøve og jo lavere sikkerhed (konfidensniveau), jo mere præcist bliver vore konfidensinterval (interval estimatet), dvs intervallet bliver smallere.<br>\n  Vi kan beregne konfidensintervaller for parametre vi estimerer, fx. gennemsnittet, standardafvigelsen, andelen etc.<br>\n  I modsætning til et punktestimat for fx. middelværdien, fortæller konfidensintervallet os noget om kvaliteten af vort estimat/gæt, ud fra bredden af konfidensintervallet.<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/konfidensintervaller.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om konfidensintervallet!<\/a>\n  <br><\/h4>","text":"konfidensintervallet"},"evals":[],"jsHooks":[]}</script></span>, skal vi tjekke at begge stikprøver stammer fra normalfordelinger. Vi kan til dette benytte <span class="hl"><span id="htmlwidget-d5672421496d1d0e3689" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-d5672421496d1d0e3689">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Normalfraktildiagrammer kan bruges til at afgøre, om en stikprøve kan antages at stamme fra normalfordelt population.<br>\n<i>Hvis punkterne ligger pænt omkring den rette linje er normalitetsbetingelsen opfyldt.\nVed test af fx. en mindre kvantitaiv stikprøve og varianshomogenitet forudsættes at variablene opfylder normalitetsbetingelsen.<\/i><br><br>\n<a href=\"https://s.tepedu.dk/normalfordelingen.html#normalfraktildiagram\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om normalfraktildiagrammer!<\/a>\n<\/h4>","text":"normalfraktildiagrammer"},"evals":[],"jsHooks":[]}</script></span> for de 2 stikprøver.</p>
+<p><img src="_main_files/figure-html/qqplots-1.svg" width="864" /></p>
+<p>Her vil det ofte være lidt af en skønssag at vurdere om <span class="hl"><span id="htmlwidget-7853a1e12266ad6b2e21" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-7853a1e12266ad6b2e21">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>En stikprøve, er et udsnit af populationen (den store mængde vi ønsker at udtale os om), hvis stikprøven afspejler populationen korrekt, siger vi stikprøven er repæsentativ.<br>\n  <i>Vi bruger stikprøver, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n    <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om stikprøver!<\/a>\n  <br><\/h4>","text":"stikprøven"},"evals":[],"jsHooks":[]}</script></span> stammer fra en normalfordelt population, bemærk små afvigelser fra linjen vil ved mindre stikprøver, virke voldsommere end ved større stikprøver, da vi jo har “zoomet”" ind i <span class="hl"><span id="htmlwidget-fe671b3aba4bb00d4439" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-fe671b3aba4bb00d4439">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Normalfraktildiagrammer kan bruges til at afgøre, om en stikprøve kan antages at stamme fra normalfordelt population.<br>\n<i>Hvis punkterne ligger pænt omkring den rette linje er normalitetsbetingelsen opfyldt.\nVed test af fx. en mindre kvantitaiv stikprøve og varianshomogenitet forudsættes at variablene opfylder normalitetsbetingelsen.<\/i><br><br>\n<a href=\"https://s.tepedu.dk/normalfordelingen.html#normalfraktildiagram\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om normalfraktildiagrammer!<\/a>\n<\/h4>","text":"normalfraktildiagrammet"},"evals":[],"jsHooks":[]}</script></span>. I dette eksempel, kan vi godt konkludere at data stammer, fra en normalfordelt population. Afvigelser i enderne tillades i højere grad, end afvigelser omkring midten af diagrammet.</p>
+<p>I Freestat genereres <span class="hl"><span id="htmlwidget-4309e57fb6b9f38b9d55" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-4309e57fb6b9f38b9d55">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Normalfraktildiagrammer kan bruges til at afgøre, om en stikprøve kan antages at stamme fra normalfordelt population.<br>\n<i>Hvis punkterne ligger pænt omkring den rette linje er normalitetsbetingelsen opfyldt.\nVed test af fx. en mindre kvantitaiv stikprøve og varianshomogenitet forudsættes at variablene opfylder normalitetsbetingelsen.<\/i><br><br>\n<a href=\"https://s.tepedu.dk/normalfordelingen.html#normalfraktildiagram\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om normalfraktildiagrammer!<\/a>\n<\/h4>","text":"normalfraktildiagrammer"},"evals":[],"jsHooks":[]}</script></span> direkte for en <span class="hl"><span id="htmlwidget-f3cc907d0733d5bc0a4e" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-f3cc907d0733d5bc0a4e">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>En stikprøve, er et udsnit af populationen (den store mængde vi ønsker at udtale os om), hvis stikprøven afspejler populationen korrekt, siger vi stikprøven er repæsentativ.<br>\n  <i>Vi bruger stikprøver, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n    <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om stikprøver!<\/a>\n  <br><\/h4>","text":"stikprøve"},"evals":[],"jsHooks":[]}</script></span>, når data indsættes i en <span class="hl"><span id="htmlwidget-5bcb5d330a2b7539eab6" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-5bcb5d330a2b7539eab6">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>En stikprøve, er et udsnit af populationen (den store mængde vi ønsker at udtale os om), hvis stikprøven afspejler populationen korrekt, siger vi stikprøven er repæsentativ.<br>\n  <i>Vi bruger stikprøver, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n    <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om stikprøver!<\/a>\n  <br><\/h4>","text":"stikprøve"},"evals":[],"jsHooks":[]}</script></span>.</p>
+</div>
+</div>
+<div id="sammenligning-af-2-middelværdier-ens-varians-pooled-t-test" class="section level2">
+<h2><span class="header-section-number">9.3</span> Sammenligning af 2 middelværdier ens varians Pooled t-test</h2>
+<p>Hvis vi har 2 stikprøver og ønsker at sammenligne middelværdierne kan vi benytte en pooled t-test, hvis de 2 populationer har samme standardafvigelse.</p>
+<p>Man kan undersøge om stikprøvernes varianser er homogene, dette gøres ved en test af om standardafvigelserne er ens:</p>
+<p><span class="math display">\[H_0:\sigma_1=\sigma_2\]</span>
+<span class="math display">\[H_1:\sigma_1 \neq \sigma_2\]</span></p>
+<p>Eller ækvivalent om varianserne er ens:</p>
+<p><span class="math display">\[H_0:\sigma^2_1=\sigma^2_2\]</span>
+<span class="math display">\[H_1:\sigma^2_1 \neq \sigma^2_2\]</span></p>
+<p>For at konkludere om <span class="hl"><span id="htmlwidget-133647055c249203e760" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-133647055c249203e760">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Nulhypotesen H<sub>0<\/sub> er vores grundtro i et hypotesetest, vi har altid lighedstegn i nulhypotesen. Der skal stærke beviser til at forkaste nulhypotesen.<br>\n<i>Eksempler på nulhypoteser er:<br>\nH<sub>0<\/sub>: &mu;=45 (Middelværdien er 45)<br>\nH<sub>0<\/sub>: &mu;≤45 (Middelværdien er højst 45)<br>\nH<sub>0<\/sub>: &mu;≥45 (Middelværdien er mindst 45)<br><br>\n<a href=\"https://s.tepedu.dk/hypotesetests-middelv%C3%A6rdi.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om hypotesetests!<\/a><\/i>\n<\/h4>","text":"nulhypotesen"},"evals":[],"jsHooks":[]}</script></span> skal forkastes, bestemmes <span class="hl"><span id="htmlwidget-d4100942c4dc3d179c18" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-d4100942c4dc3d179c18">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Signifikanssandsynligheden også kaldet p-værdien er et tal mellem 0 og 1, den angiver sandsynligheden for, hvis nulhypotesen er sand, at få en mere ekstrem teststørrelse, end den vi har fået i testet (teststørrelsen måler forskellen mellem fx. stikprøvegennemsnit og middelværdien antaget i nulhypotesen). <br>\n  Jo lavere p-værdi, des mindre tror vi på nulhypotesen<br><br>\n  <i>Antag fx. at vi har en stikprøve af 100 mænds højde, med et gennemsnit på 176.32 cm.<br>\n  Vi ønsker at teste om middel højden i populationen, kan antages at være 210 cm dvs. <br>\n  H<sub>0<\/sub>: &mu;=210<br>\n  H<sub>1<\/sub>: &mu;&ne;210<br>\n  Vi vil her få en meget negativ teststørrelse, hvilket giver en mikroskopisk lille p-værdi.<br>Det vil være nærmest umuligt at få en mere ekstrem teststørrelse, hvis den sande middelhøjde er 210 cm.<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/hypotesetests-middelvrdi.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om signifikanssandsynligheder!<\/a>\n  <\/h4>","text":"signifikanssandsynligheden"},"evals":[],"jsHooks":[]}</script></span> vha. et F-test. Man kan fx forestille sig en bank ønsker at undersøge om mænd og kvinder, har samme indestående på deres lønkonti. Her kan man, hvis varianserne er ens (de vil normalt ikke være kendte), benytte en pooled t-test. Vi går her ikke i detaljer, med formlerne til beregning af <span class="hl"><span id="htmlwidget-f0ff34ee32dc6292e8a9" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-f0ff34ee32dc6292e8a9">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Teststørrelsen kan populært forklares, som forskellen mellem observeret i stikprøven og forventet under nulhypotesen.<br><br>\n  Teststørrelsen er et udtryk for forskellen mellem fx. gennemsnit, andel eller antal i stikprøven i forhold til påstanden i nulhypotesen H<sub>0<\/sub>.<br>\n  Teststørrelsen korrigerer for stikprøvestørrelse og standardafvigelse, men beregnes forskelligt afhængigt af hvilket test der udføres.<br>\n  <i>Testes fx. middelværdi &mu; eller eller hældning i lineær regression &beta;, benyttes t-teststørrelsen<br>\n  Testes andele kan fx. z-teststørrelsen benyttes<br>Antag fx. at vi har en stikprøve af 100 mænds højde, med et gennemsnit på 176.32 cm.<br>\n  Vi ønsker at teste om middel højden i populationen, kan antages at være 210 cm dvs. <br>\n  H<sub>0<\/sub>: &mu;=210<br>\n  H<sub>1<\/sub>: &mu;&ne;210<br>\n  Vi vil her få en meget negativ teststørrelse, 176.32-210 divideret med standardfejlen for middelværdien SEM<br>\n  Ønskede at teste om middel højden i populationen, kunne antages at være 150 cm ud fra samme stikprøve ville vi få et meget positiv teststørrelse, 176.32-150 divideret med standardfejlen for middelværdien SEM<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/hypotesetests-middelvrdi.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om teststørrelser!<\/a>\n  <\/h4>","text":"teststørrelsen"},"evals":[],"jsHooks":[]}</script></span>, software regner dette ud for os.</p>
+<div class="Keats">
+<p>“I guess I think of lotteries as a tax on the mathematically challenged.”
+- Roger Jones</p>
+</div>
+<p>Man skal ligesom ved små stikprøver i test af en middelværdi, sikre sig normalitet i <span class="hl"><span id="htmlwidget-86e33bddcdf22dbfe519" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-86e33bddcdf22dbfe519">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Populationen er den store mængde, vi ønsker at udtale os om. Fx alle iphone brugere i København, alle kontohavere i Danske Bank, alle danske kvinder etc.<br>\n  <i>Vi bruger som redskab stikprøver som er en lille del af populationen til at udtale os om populationen, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om populationen!<\/a>\n  <br><\/h4>","text":"populationen"},"evals":[],"jsHooks":[]}</script></span>. Dette kan på samme måde gøres visuelt i et <span class="hl"><span id="htmlwidget-442674562b1b99954532" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-442674562b1b99954532">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Normalfraktildiagrammer kan bruges til at afgøre, om en stikprøve kan antages at stamme fra normalfordelt population.<br>\n<i>Hvis punkterne ligger pænt omkring den rette linje er normalitetsbetingelsen opfyldt.\nVed test af fx. en mindre kvantitaiv stikprøve og varianshomogenitet forudsættes at variablene opfylder normalitetsbetingelsen.<\/i><br><br>\n<a href=\"https://s.tepedu.dk/normalfordelingen.html#normalfraktildiagram\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om normalfraktildiagrammer!<\/a>\n<\/h4>","text":"normalfraktildiagram"},"evals":[],"jsHooks":[]}</script></span> for de 2 stikprøver.</p>
+<div id="eksempler-1" class="section level4">
+<h4><span class="header-section-number">9.3.0.1</span> Eksempler</h4>
+<div id="statistik-karakterer-1" class="section level5">
+<h5><span class="header-section-number">9.3.0.1.1</span> Statistik karakterer</h5>
+<p>Vi ser igen på datasættet for <a href="https://drive.google.com/uc?export=download&amp;id=0B1E7VnhxsDMlRURnNjk0UnJSYzQ">statistik karakterer</a>.
+Vi kunne være interesseret i, at teste om kvinder får højere karakterer end mænd. Der er 29 kvinder i og 25 mænd i <span class="hl"><span id="htmlwidget-819f57175f1bff015e16" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-819f57175f1bff015e16">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>En stikprøve, er et udsnit af populationen (den store mængde vi ønsker at udtale os om), hvis stikprøven afspejler populationen korrekt, siger vi stikprøven er repæsentativ.<br>\n  <i>Vi bruger stikprøver, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n    <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om stikprøver!<\/a>\n  <br><\/h4>","text":"stikprøven"},"evals":[],"jsHooks":[]}</script></span>. Da begge stikprøver er mindre end 30, skal vi undersøge om <span class="hl"><span id="htmlwidget-4ec4847ea56bbc825d23" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-4ec4847ea56bbc825d23">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>En stikprøve, er et udsnit af populationen (den store mængde vi ønsker at udtale os om), hvis stikprøven afspejler populationen korrekt, siger vi stikprøven er repæsentativ.<br>\n  <i>Vi bruger stikprøver, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n    <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om stikprøver!<\/a>\n  <br><\/h4>","text":"stikprøven"},"evals":[],"jsHooks":[]}</script></span> kan antages at stamme fra en normalfordelt population. Dette efterprøves i 2 <span class="hl"><span id="htmlwidget-eff7a0e86e0379d65f80" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-eff7a0e86e0379d65f80">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Normalfraktildiagrammer kan bruges til at afgøre, om en stikprøve kan antages at stamme fra normalfordelt population.<br>\n<i>Hvis punkterne ligger pænt omkring den rette linje er normalitetsbetingelsen opfyldt.\nVed test af fx. en mindre kvantitaiv stikprøve og varianshomogenitet forudsættes at variablene opfylder normalitetsbetingelsen.<\/i><br><br>\n<a href=\"https://s.tepedu.dk/normalfordelingen.html#normalfraktildiagram\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om normalfraktildiagrammer!<\/a>\n<\/h4>","text":"normalfraktildiagrammer"},"evals":[],"jsHooks":[]}</script></span>. I Freestat kan man enkeltvis paste begge fordelinger ind i en <span class="hl"><span id="htmlwidget-8caaaf4851cadd520c2a" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-8caaaf4851cadd520c2a">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>En kvantitativ variabel, er populært sagt en numerisk variabel man kan \"regne med \" fx. finde gennemsnit, median, standardafvigelse, fraktiler osv. Eksempler på kvantitative variable er:<i><br>\n  Mænds højde i cm.<br>\n  {176, 188, 169, 177, 181, 182,...}<br>\n  Aktiekurs<br>\n  {437.39, 437.78, 432.12, 431.03, 433.83, 433.81}<br>\n  Antal børn i familien<br>\n  {0, 1, 0, 3, 2, 1,0,1,0,...}<br>\n  Nedbørsmængde i mm. i Dragør<br>\n  {0,00, 0,02, 0,03, 0.12, 0.08, 1,12,1,43,1,21,0,03,...}<br>\n  Indholdet i Coca Cola dåser i ml.<br>\n  {333.12, 333.08, 332.82, 332,73, 332.93,...}<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/datast-og-data.html#kvalitative-variable\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om kvantitative variable!<\/a><\/h4>","text":"kvantitativ"},"evals":[],"jsHooks":[]}</script></span> <span class="hl"><span id="htmlwidget-08d3243911874a351cdf" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-08d3243911874a351cdf">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>En stikprøve, er et udsnit af populationen (den store mængde vi ønsker at udtale os om), hvis stikprøven afspejler populationen korrekt, siger vi stikprøven er repæsentativ.<br>\n  <i>Vi bruger stikprøver, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n    <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om stikprøver!<\/a>\n  <br><\/h4>","text":"stikprøve"},"evals":[],"jsHooks":[]}</script></span>, og indsætte de 2 <span class="hl"><span id="htmlwidget-91b4bcd7bca3a9728227" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-91b4bcd7bca3a9728227">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Normalfraktildiagrammer kan bruges til at afgøre, om en stikprøve kan antages at stamme fra normalfordelt population.<br>\n<i>Hvis punkterne ligger pænt omkring den rette linje er normalitetsbetingelsen opfyldt.\nVed test af fx. en mindre kvantitaiv stikprøve og varianshomogenitet forudsættes at variablene opfylder normalitetsbetingelsen.<\/i><br><br>\n<a href=\"https://s.tepedu.dk/normalfordelingen.html#normalfraktildiagram\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om normalfraktildiagrammer!<\/a>\n<\/h4>","text":"normalfraktildiagrammer"},"evals":[],"jsHooks":[]}</script></span>, nedenfor er indsat Freestat <span class="hl"><span id="htmlwidget-f8d2f461463ac129c5a7" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-f8d2f461463ac129c5a7">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Normalfraktildiagrammer kan bruges til at afgøre, om en stikprøve kan antages at stamme fra normalfordelt population.<br>\n<i>Hvis punkterne ligger pænt omkring den rette linje er normalitetsbetingelsen opfyldt.\nVed test af fx. en mindre kvantitaiv stikprøve og varianshomogenitet forudsættes at variablene opfylder normalitetsbetingelsen.<\/i><br><br>\n<a href=\"https://s.tepedu.dk/normalfordelingen.html#normalfraktildiagram\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om normalfraktildiagrammer!<\/a>\n<\/h4>","text":"normalfraktildiagrammet"},"evals":[],"jsHooks":[]}</script></span> for kvinder.</p>
+<p><img src="img/freestatqqplotkarakterer.png" /></p>
+<p>Herunder er indsat Freestat <span class="hl"><span id="htmlwidget-62ef7c4a1c3cac95a0b6" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-62ef7c4a1c3cac95a0b6">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Normalfraktildiagrammer kan bruges til at afgøre, om en stikprøve kan antages at stamme fra normalfordelt population.<br>\n<i>Hvis punkterne ligger pænt omkring den rette linje er normalitetsbetingelsen opfyldt.\nVed test af fx. en mindre kvantitaiv stikprøve og varianshomogenitet forudsættes at variablene opfylder normalitetsbetingelsen.<\/i><br><br>\n<a href=\"https://s.tepedu.dk/normalfordelingen.html#normalfraktildiagram\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om normalfraktildiagrammer!<\/a>\n<\/h4>","text":"normalfraktildiagrammet"},"evals":[],"jsHooks":[]}</script></span> for mænd.</p>
+<p><img src="img/freestatqqplotkarakterermand.png" /></p>
+<p>Vi har nok på forhånd en formodning om at statistik karakterer generelt, følger en bimodal fordeling, enten får man en lav eller høj karakter. Man kan godt ane denne tendens, da vi kan se data ikke ligger helt pænt omkring den rette linje. Bemærk observationerne, illustreret ved punkter, ligger på rette linjer. Dette skyldes vi jo har hele karakterer. Vi konstaterer der synes at være problemer med normaliteten af populationerne, og dermed kvaliteten, præcisionen i analysen. Vi går imidlertid her videre videre med en pooled t-test hvis varianserne for mænd og kvinder er ens, ellers skal vi benytte en unpooled t-test.</p>
+<p><span class="math display">\[H_0:\sigma^2_{kvinde}=\sigma^2_{mand}\]</span>
+<span class="math display">\[H_1:\sigma^2_{kvinde} \neq \sigma^2_{mand}\]</span></p>
+<p>Vi konstaterer at <span class="hl"><span id="htmlwidget-6a97d37b2f09721bded0" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-6a97d37b2f09721bded0">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Signifikanssandsynligheden også kaldet p-værdien er et tal mellem 0 og 1, den angiver sandsynligheden for, hvis nulhypotesen er sand, at få en mere ekstrem teststørrelse, end den vi har fået i testet (teststørrelsen måler forskellen mellem fx. stikprøvegennemsnit og middelværdien antaget i nulhypotesen). <br>\n  Jo lavere p-værdi, des mindre tror vi på nulhypotesen<br><br>\n  <i>Antag fx. at vi har en stikprøve af 100 mænds højde, med et gennemsnit på 176.32 cm.<br>\n  Vi ønsker at teste om middel højden i populationen, kan antages at være 210 cm dvs. <br>\n  H<sub>0<\/sub>: &mu;=210<br>\n  H<sub>1<\/sub>: &mu;&ne;210<br>\n  Vi vil her få en meget negativ teststørrelse, hvilket giver en mikroskopisk lille p-værdi.<br>Det vil være nærmest umuligt at få en mere ekstrem teststørrelse, hvis den sande middelhøjde er 210 cm.<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/hypotesetests-middelvrdi.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om signifikanssandsynligheder!<\/a>\n  <\/h4>","text":"signifikanssandsynligheden"},"evals":[],"jsHooks":[]}</script></span> er 0.8656, hvilket direkte kan aflæses i nedenstående Freestat output. Vi kan altså ikke forkaste <span class="hl"><span id="htmlwidget-b02410295dacde2f8e9e" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-b02410295dacde2f8e9e">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Nulhypotesen H<sub>0<\/sub> er vores grundtro i et hypotesetest, vi har altid lighedstegn i nulhypotesen. Der skal stærke beviser til at forkaste nulhypotesen.<br>\n<i>Eksempler på nulhypoteser er:<br>\nH<sub>0<\/sub>: &mu;=45 (Middelværdien er 45)<br>\nH<sub>0<\/sub>: &mu;≤45 (Middelværdien er højst 45)<br>\nH<sub>0<\/sub>: &mu;≥45 (Middelværdien er mindst 45)<br><br>\n<a href=\"https://s.tepedu.dk/hypotesetests-middelv%C3%A6rdi.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om hypotesetests!<\/a><\/i>\n<\/h4>","text":"nulhypotesen"},"evals":[],"jsHooks":[]}</script></span> og konstaterer at varianserne er ens, og det er derfor korrekt at anvende pooled t-test til at undersøge om kvinders karakterer er højere end mænds. Når vi tester to middelværdier undersøger vi om forskel mellem middelværdierne er forskellig fra 0. Vi får en t-teststørrelse jo større denne numerisk er jo større er forskellen mellem middelværdierne. En numerisk stor t-teststørrelse udtrykker altså stor forskel. Hypoteserne bliver:</p>
+<p><span class="math display">\[H_0:\mu_{kvinder}\leq\mu_{mæ\ nd}\]</span>
+<span class="math display">\[H_1:\mu_{kvinder}&gt;\mu_{mæ\ nd}\]</span></p>
+<p>Hvilket vi også kan skrive som</p>
+<p><span class="math display">\[H_0:\mu_{kvinder}-\mu_{mæ\ nd}\leq 0\]</span>
+<span class="math display">\[H_1:\mu_{kvinder}-\mu_{mæ\ nd}&gt; 0\]</span></p>
+<p>Vi får en test-størrelse på 0.536, denne medfører en <span class="hl"><span id="htmlwidget-f85bf9d18348bbfaec3f" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-f85bf9d18348bbfaec3f">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>p-værdien også kaldet signifikanssandsynligheden er et tal mellem 0 og 1, den angiver sandsynligheden for, hvis nulhypotesen er sand, at få en mere ekstrem teststørrelse, end den vi har fået i testet (teststørrelsen måler forskellen mellem fx. stikprøvegennemsnit og middelværdien antaget i nulhypotesen). <br>\n  Jo lavere p-værdi, des mindre tror vi på nulhypotesen<br>\n  <i>Antag fx. at vi har en stikprøve af 100 mænds højde, med et gennemsnit på 176.32 cm.<br>\n  Vi ønsker at teste om middel højden i populationen, kan antages at være 210 cm dvs. <br>H<sub>0<\/sub>: &mu;=210<br>\n  H<sub>1<\/sub>: &mu;&ne;210<br>\n  Vi vil her få en meget negativ teststørrelse, hvilket giver en mikroskopisk lille p-værdi.<br>\n  Det vil være nærmest umuligt at få en mere ekstrem teststørrelse, hvis den sande middelhøjde er 210 cm.<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/hypotesetests-middelvrdi.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om p-værdier!<\/a>\n  <\/h4>","text":"p-værdi"},"evals":[],"jsHooks":[]}</script></span> på 29.71%. Vi kan ikke forkaste <span class="hl"><span id="htmlwidget-d526ab00a372938443aa" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-d526ab00a372938443aa">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Nulhypotesen H<sub>0<\/sub> er vores grundtro i et hypotesetest, vi har altid lighedstegn i nulhypotesen. Der skal stærke beviser til at forkaste nulhypotesen.<br>\n<i>Eksempler på nulhypoteser er:<br>\nH<sub>0<\/sub>: &mu;=45 (Middelværdien er 45)<br>\nH<sub>0<\/sub>: &mu;≤45 (Middelværdien er højst 45)<br>\nH<sub>0<\/sub>: &mu;≥45 (Middelværdien er mindst 45)<br><br>\n<a href=\"https://s.tepedu.dk/hypotesetests-middelv%C3%A6rdi.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om hypotesetests!<\/a><\/i>\n<\/h4>","text":"nulhypotesen"},"evals":[],"jsHooks":[]}</script></span>.</p>
+<p>Vi kan altså ikke konkludere at kvinder får en højere karakter end mænd.</p>
+<p>Bemærk i Freestat, står der D for difference, dette skyldes man kan undersøge om en forskel mellem middelværdier kan være fx. 0.25, ved at sætte D, i det gule felt til 0.25.</p>
+<p><img src="img/freestatpooledkarakterer.png" /></p>
+</div>
+</div>
+</div>
+<div id="sammenligning-af-2-middelværdier-uens-varians-unpooled-t-test." class="section level2">
+<h2><span class="header-section-number">9.4</span> Sammenligning af 2 middelværdier uens varians Unpooled t-test.</h2>
+<p>Skal vi undersøge 2 <span class="hl"><span id="htmlwidget-95e6bc17fdde7dbeaf8a" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-95e6bc17fdde7dbeaf8a">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>En kvantitativ variabel, er populært sagt en numerisk variabel man kan \"regne med \" fx. finde gennemsnit, median, standardafvigelse, fraktiler osv. Eksempler på kvantitative variable er:<i><br>\n  Mænds højde i cm.<br>\n  {176, 188, 169, 177, 181, 182,...}<br>\n  Aktiekurs<br>\n  {437.39, 437.78, 432.12, 431.03, 433.83, 433.81}<br>\n  Antal børn i familien<br>\n  {0, 1, 0, 3, 2, 1,0,1,0,...}<br>\n  Nedbørsmængde i mm. i Dragør<br>\n  {0,00, 0,02, 0,03, 0.12, 0.08, 1,12,1,43,1,21,0,03,...}<br>\n  Indholdet i Coca Cola dåser i ml.<br>\n  {333.12, 333.08, 332.82, 332,73, 332.93,...}<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/datast-og-data.html#kvalitative-variable\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om kvantitative variable!<\/a><\/h4>","text":"kvantitative"},"evals":[],"jsHooks":[]}</script></span> stikprøver, der stammer fra populationer med uens varians, benytter vi unpooled t-test. Det er samme fremgangsmåde som ved pooled t-test, men unpooled testen er ikke så præcis som pooled. Derfor starter vi i pooled t-test og gennemfører kun unpooled t-test hvis varianserne ikke er ens.</p>
+<div id="us-crime" class="section level4">
+<h4><span class="header-section-number">9.4.0.1</span> US crime</h4>
+<p><img src="img/usgun.png" align="right" width="30%" height="30%"style="border:0.0px solid #eeeeee; padding:5px; margin:6px;"/></p>
+<p>Vi har i datasættet <a href="https://drive.google.com/uc?export=download&amp;id=0B1E7VnhxsDMlRDhUYUk4R0NwVFk">US crime</a>, de beregnede rater pr. 100000 borgere fordelt på stat. for hhv. mord overfald og voldtægt. Yderemere er angivet graden af urbanisering, højere betyder staten har større arealer med bymæssig bebyggelse. Observationssættet er baseret på en stor 1973 undersøgelse af 100.000 arrestationer. Mordraterne er illustreret på kortet nedenfor.</p>
+<p><img src="_main_files/figure-html/USMAP-1.svg" width="1123.2" /></p>
+<p>Lad os groft dele staterne i voldelige og ikke-voldelige stater, hvis der er 150 overfald/assaults eller derunder, betegner vi staten som ikke voldelig. Stater med mere end 150 overfald pr 100000 borgere betegnes som voldelige.</p>
+<p>Er det gennemsnitlige antal mord pr. 100000 borgere lavere i ikke-voldelige stater?</p>
+<p>For at besvare spørgsmålet er man nødt til at sortere data efter Assualt og tage Murder med i sorteringen. Herefter skal man dele Murder i de voldelige og ikke-voldelige grupper. Hvis det driller kan man se hvordan sorteringen skal blive længere nede på
+Vi får følgende hypotesetest:</p>
+<p><span class="math display">\[H_0: \mu_{voldelige}-\mu_{ikke-voldelige}\leq 0 \]</span>
+<span class="math display">\[H_1: \mu_{voldelige}-\mu_{ikke-voldelige}&gt; 0 \]</span></p>
+<p>Der er 21 ikke voldelige stater, og 27 voldelige stater. Vi skal altså huske at undersøge om stikprøverne stammer fra normalfordelte populationer, normalfraktildiagrammerne er her udeladt.</p>
+<p>Vi skal også undersøge om der er <span class="hl"><span id="htmlwidget-568cbda47ab0009aa15f" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-568cbda47ab0009aa15f">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Varianshomogenitet betyder der er ens varianser for populationerne.<br>\n<i>Hvis fx. vi har 2 stikprøver med højder for CBS og Cphbusiness studerende, vil varianshomogenitet betyde, at der er samme variation i de 2 populationer.<br>\nTestet kunne se ud som nedenfor, bemærk er der varianshomogenitet, er standardafvigelserne også altid ens.<br>\nH<sub>0<\/sub>: &sigma;<sub>CBS<\/sub>=&sigma;<sub>Cph<\/sub> (Der er Varianshomogenitet)<br>\nH<sub>1<\/sub>: &sigma;<sub>CBS<\/sub>≠&sigma;<sub>Cph<\/sub> (Der er ikke varianshomogenitet)<br><br>\n<a href=\"https://s.tepedu.dk/middelv%C3%A6rdier.html#varianshomogenitet\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om varianshomogenitet!<\/a><\/i>\n<\/h4>","text":"varianshomogenitet"},"evals":[],"jsHooks":[]}</script></span>. Hvis vi tester <span class="hl"><span id="htmlwidget-1b67bd35b78214764604" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-1b67bd35b78214764604">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Varianshomogenitet betyder der er ens varianser for populationerne.<br>\n<i>Hvis fx. vi har 2 stikprøver med højder for CBS og Cphbusiness studerende, vil varianshomogenitet betyde, at der er samme variation i de 2 populationer.<br>\nTestet kunne se ud som nedenfor, bemærk er der varianshomogenitet, er standardafvigelserne også altid ens.<br>\nH<sub>0<\/sub>: &sigma;<sub>CBS<\/sub>=&sigma;<sub>Cph<\/sub> (Der er Varianshomogenitet)<br>\nH<sub>1<\/sub>: &sigma;<sub>CBS<\/sub>≠&sigma;<sub>Cph<\/sub> (Der er ikke varianshomogenitet)<br><br>\n<a href=\"https://s.tepedu.dk/middelv%C3%A6rdier.html#varianshomogenitet\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om varianshomogenitet!<\/a><\/i>\n<\/h4>","text":"varianshomogenitet"},"evals":[],"jsHooks":[]}</script></span>:</p>
+<p><span class="math display">\[H_0: \sigma_{voldelige}=\sigma_{ikke-voldelige}\]</span>
+<span class="math display">\[H_1: \sigma_{voldelige}=\sigma_{ikke-voldelige}\]</span></p>
+<p>Konstaterer vi at på 5% <span class="hl"><span id="htmlwidget-a75fe1bcb6ccdc5c1c9d" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-a75fe1bcb6ccdc5c1c9d">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Signifikansniveauet &alpha; typisk 1%, 5% eller 10%, fastsættes inden et test og sammenlignes med p-værdien.<br>\n  Er p-værdien mindre end signifikansniveauet forkastes nulhypotesen, ellers ikke.<br>\n  <i>Signifikansniveauet angiver sandsynligheden for at forkaste en sand nulhypotese (en type 1 fejl også kaldet en falsk positiv)<br>\n  Medicinal industrien arbejder ofte med 1% signifikansniveau, hvor et test kunne være:<br>\n  H<sub>0<\/sub>: Medicinen har ingen effekt<br>\n  H<sub>1<\/sub>: Medicinen har effekt<br>\n  Med 1% signifikansniveau, begås en type 1 fejl kun i et ud af 100 tests.<br>\n  En type 1 fejl vil her betyde, at man fejlagtigt konkluderer at et medicinal produkt uden effekt virker.<br>\n  Signifikansniveauet kan bruges til at bestemme konfidensniveauet 1-&alpha;, der angiver sandsynligheden for korrekt ikke at forkaste en sand nulhypotese <\/i><br><br>\n  <a href=\"https://s.tepedu.dk/hypotesetests-middelvrdi.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om signifikansniveauet!<\/a>\n  <\/h4>","text":"signifikansniveau"},"evals":[],"jsHooks":[]}</script></span>, ville vi konkludere at der er forskel på varianserne da <span class="hl"><span id="htmlwidget-4b2c77f128b6c9be2b60" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-4b2c77f128b6c9be2b60">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Signifikanssandsynligheden også kaldet p-værdien er et tal mellem 0 og 1, den angiver sandsynligheden for, hvis nulhypotesen er sand, at få en mere ekstrem teststørrelse, end den vi har fået i testet (teststørrelsen måler forskellen mellem fx. stikprøvegennemsnit og middelværdien antaget i nulhypotesen). <br>\n  Jo lavere p-værdi, des mindre tror vi på nulhypotesen<br><br>\n  <i>Antag fx. at vi har en stikprøve af 100 mænds højde, med et gennemsnit på 176.32 cm.<br>\n  Vi ønsker at teste om middel højden i populationen, kan antages at være 210 cm dvs. <br>\n  H<sub>0<\/sub>: &mu;=210<br>\n  H<sub>1<\/sub>: &mu;&ne;210<br>\n  Vi vil her få en meget negativ teststørrelse, hvilket giver en mikroskopisk lille p-værdi.<br>Det vil være nærmest umuligt at få en mere ekstrem teststørrelse, hvis den sande middelhøjde er 210 cm.<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/hypotesetests-middelvrdi.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om signifikanssandsynligheder!<\/a>\n  <\/h4>","text":"p-værdien"},"evals":[],"jsHooks":[]}</script></span> er 0.0303666. Konklusionen er dog niveaufølsom, men vi benytter pooled t-test her.</p>
+<p>Vor hypotesetest for middelværdierne bliver:</p>
+<p><span class="math display">\[H_0: \mu_{voldelige}-\mu_{ikke-voldelige}\leq 0\]</span>
+<span class="math display">\[H_1: \mu_{voldelige}-\mu_{ikke-voldelige}&gt; 0\]</span></p>
+<p>Vi finder stikprøvegennemsnittene. For mordrater i voldelige stater er stikprøvegennemsnittet 10.58, for ikke voldelige er stater er stikprøvegennemsnittet 4.21.</p>
+<p>Nedenfor er Freestat output for testen, vi ser testet for <span class="hl"><span id="htmlwidget-3d6a257948f93e7d66f6" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-3d6a257948f93e7d66f6">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Varianshomogenitet betyder der er ens varianser for populationerne.<br>\n<i>Hvis fx. vi har 2 stikprøver med højder for CBS og Cphbusiness studerende, vil varianshomogenitet betyde, at der er samme variation i de 2 populationer.<br>\nTestet kunne se ud som nedenfor, bemærk er der varianshomogenitet, er standardafvigelserne også altid ens.<br>\nH<sub>0<\/sub>: &sigma;<sub>CBS<\/sub>=&sigma;<sub>Cph<\/sub> (Der er Varianshomogenitet)<br>\nH<sub>1<\/sub>: &sigma;<sub>CBS<\/sub>≠&sigma;<sub>Cph<\/sub> (Der er ikke varianshomogenitet)<br><br>\n<a href=\"https://s.tepedu.dk/middelv%C3%A6rdier.html#varianshomogenitet\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om varianshomogenitet!<\/a><\/i>\n<\/h4>","text":"varianshomogenitet"},"evals":[],"jsHooks":[]}</script></span> i blå ramme ,betyder vi bør benytte unpooled t-test:</p>
+<p><img src="img/freestatuscrimepooled.png" />
+<span class="hl"><span id="htmlwidget-b38148cc90f2c16501e1" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-b38148cc90f2c16501e1">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Teststørrelsen kan populært forklares, som forskellen mellem observeret i stikprøven og forventet under nulhypotesen.<br><br>\n  Teststørrelsen er et udtryk for forskellen mellem fx. gennemsnit, andel eller antal i stikprøven i forhold til påstanden i nulhypotesen H<sub>0<\/sub>.<br>\n  Teststørrelsen korrigerer for stikprøvestørrelse og standardafvigelse, men beregnes forskelligt afhængigt af hvilket test der udføres.<br>\n  <i>Testes fx. middelværdi &mu; eller eller hældning i lineær regression &beta;, benyttes t-teststørrelsen<br>\n  Testes andele kan fx. z-teststørrelsen benyttes<br>Antag fx. at vi har en stikprøve af 100 mænds højde, med et gennemsnit på 176.32 cm.<br>\n  Vi ønsker at teste om middel højden i populationen, kan antages at være 210 cm dvs. <br>\n  H<sub>0<\/sub>: &mu;=210<br>\n  H<sub>1<\/sub>: &mu;&ne;210<br>\n  Vi vil her få en meget negativ teststørrelse, 176.32-210 divideret med standardfejlen for middelværdien SEM<br>\n  Ønskede at teste om middel højden i populationen, kunne antages at være 150 cm ud fra samme stikprøve ville vi få et meget positiv teststørrelse, 176.32-150 divideret med standardfejlen for middelværdien SEM<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/hypotesetests-middelvrdi.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om teststørrelser!<\/a>\n  <\/h4>","text":"Teststørrelsen"},"evals":[],"jsHooks":[]}</script></span> i pooled t-testen ovenfor bliver stor 7.0706, der er altså meget stor forskel på mordraten. Vi får tilsvarende nedenfor en unpooled <span class="hl"><span id="htmlwidget-cfee16bc2754231f1fb9" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-cfee16bc2754231f1fb9">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Teststørrelsen kan populært forklares, som forskellen mellem observeret i stikprøven og forventet under nulhypotesen.<br><br>\n  Teststørrelsen er et udtryk for forskellen mellem fx. gennemsnit, andel eller antal i stikprøven i forhold til påstanden i nulhypotesen H<sub>0<\/sub>.<br>\n  Teststørrelsen korrigerer for stikprøvestørrelse og standardafvigelse, men beregnes forskelligt afhængigt af hvilket test der udføres.<br>\n  <i>Testes fx. middelværdi &mu; eller eller hældning i lineær regression &beta;, benyttes t-teststørrelsen<br>\n  Testes andele kan fx. z-teststørrelsen benyttes<br>Antag fx. at vi har en stikprøve af 100 mænds højde, med et gennemsnit på 176.32 cm.<br>\n  Vi ønsker at teste om middel højden i populationen, kan antages at være 210 cm dvs. <br>\n  H<sub>0<\/sub>: &mu;=210<br>\n  H<sub>1<\/sub>: &mu;&ne;210<br>\n  Vi vil her få en meget negativ teststørrelse, 176.32-210 divideret med standardfejlen for middelværdien SEM<br>\n  Ønskede at teste om middel højden i populationen, kunne antages at være 150 cm ud fra samme stikprøve ville vi få et meget positiv teststørrelse, 176.32-150 divideret med standardfejlen for middelværdien SEM<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/hypotesetests-middelvrdi.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om teststørrelser!<\/a>\n  <\/h4>","text":"teststørrelse"},"evals":[],"jsHooks":[]}</script></span> på 7.4868. Begge teststørrelser er langt større end 2, hvilket giver os meget små p-værdier, så vi vil med sikkerhed forkaste <span class="hl"><span id="htmlwidget-4badb30dbbb96b759a4f" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-4badb30dbbb96b759a4f">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Nulhypotesen H<sub>0<\/sub> er vores grundtro i et hypotesetest, vi har altid lighedstegn i nulhypotesen. Der skal stærke beviser til at forkaste nulhypotesen.<br>\n<i>Eksempler på nulhypoteser er:<br>\nH<sub>0<\/sub>: &mu;=45 (Middelværdien er 45)<br>\nH<sub>0<\/sub>: &mu;≤45 (Middelværdien er højst 45)<br>\nH<sub>0<\/sub>: &mu;≥45 (Middelværdien er mindst 45)<br><br>\n<a href=\"https://s.tepedu.dk/hypotesetests-middelv%C3%A6rdi.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om hypotesetests!<\/a><\/i>\n<\/h4>","text":"nulhypotesen"},"evals":[],"jsHooks":[]}</script></span> i begge analyser. I unpooled testen bliver <span class="hl"><span id="htmlwidget-5ebb1c9905af4534549a" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-5ebb1c9905af4534549a">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Signifikanssandsynligheden også kaldet p-værdien er et tal mellem 0 og 1, den angiver sandsynligheden for, hvis nulhypotesen er sand, at få en mere ekstrem teststørrelse, end den vi har fået i testet (teststørrelsen måler forskellen mellem fx. stikprøvegennemsnit og middelværdien antaget i nulhypotesen). <br>\n  Jo lavere p-værdi, des mindre tror vi på nulhypotesen<br><br>\n  <i>Antag fx. at vi har en stikprøve af 100 mænds højde, med et gennemsnit på 176.32 cm.<br>\n  Vi ønsker at teste om middel højden i populationen, kan antages at være 210 cm dvs. <br>\n  H<sub>0<\/sub>: &mu;=210<br>\n  H<sub>1<\/sub>: &mu;&ne;210<br>\n  Vi vil her få en meget negativ teststørrelse, hvilket giver en mikroskopisk lille p-værdi.<br>Det vil være nærmest umuligt at få en mere ekstrem teststørrelse, hvis den sande middelhøjde er 210 cm.<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/hypotesetests-middelvrdi.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om signifikanssandsynligheder!<\/a>\n  <\/h4>","text":"p-værdien"},"evals":[],"jsHooks":[]}</script></span> et meget lille tal, tæt på 0%, dette kan ses i nedenstående Freestat output.</p>
+<p>Output fra Freestat når vi benytter unpooled t-test til analysen, ses herunder:</p>
+<p><img src="img/USunpooled.png" /></p>
+</div>
+</div>
+<div id="parret-t-test" class="section level2">
+<h2><span class="header-section-number">9.5</span> Parret t-test</h2>
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class="embed-container">
+<iframe src="https://player.vimeo.com/video/228416754" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+</iframe>
+</div>
+<p>I video eksemplet benyttes et datasæt med 2 aktier, dette kan du <a href="https://www.dropbox.com/s/052q3a8z60kydmm/2%20aktiekurser.xls?dl=1">hente her.</a></p>
+<p>Hvis vi betragter en variabel før og efter en treatment, her kan treatment fx. være en behandling med et medicinsk produkt, det er vigtigt at vi betragter samme respondenter, før og efter treatment. I parret t-test vil der altid være tale om samme størrelse af datasættene før og efter treatment, treatment kan også være tid. Hvis man forestiller sig at en bank måler 40 kunders gennemsnitlige netbank besøgstid, før og efter en softwareopdatering, hvis der her er tale om de samme kunder, kan vi bruge parret t-test her.</p>
+</div>
+<div id="spørgsmål-2-middelværdier" class="section level2">
+<h2><span class="header-section-number">9.6</span> Spørgsmål 2 middelværdier</h2>
+<br>
+<details>
+<p><summary> Spørgsmål 2 middelværdier bankdata.</summary></p>
+<p>Vi ser igen på <a href="https://drive.google.com/uc?export=download&amp;id=0B1E7VnhxsDMlRENKWWxlNlBXbmM">bankdata</a>.</p>
+<p><strong>1.</strong> Bestem ved hjælp af konfidensintervaller for forskellen om der forskel på kvinder og mænds gennemsnitlige uddannelseslængde?<br />
+<strong>2.</strong> Bestem ved hjælp af konfidensintervaller for forskellen om der forskel på ledelsens og administationens gennemsnitlige uddannelse i <span class="hl"><span id="htmlwidget-05327bfce9dfd158c37e" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-05327bfce9dfd158c37e">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Populationen er den store mængde, vi ønsker at udtale os om. Fx alle iphone brugere i København, alle kontohavere i Danske Bank, alle danske kvinder etc.<br>\n  <i>Vi bruger som redskab stikprøver som er en lille del af populationen til at udtale os om populationen, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om populationen!<\/a>\n  <br><\/h4>","text":"populationen"},"evals":[],"jsHooks":[]}</script></span>?</p>
+</details>
+<br>
+<details>
+<p><summary> Svar 2 middelværdier bankdata.</summary></p>
+<p><strong>1.</strong> Bemærk der er uens varianser, vi skal således benyttet Unpooled t-test til at bestemme konfidensintervaller.<br />
+Der er 216 kvinder, deres gennemsnitlige uddanelseslængde er 12.37, Der er 258 mænd, deres gennemsnitlige uddanelseslængde er 14.43<br />
+Vi kan med 95% sikkerhed sige at forskellen på mænds og kvinders gennemsnitlige uddannelse i <span class="hl"><span id="htmlwidget-00834507832a26a277f1" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-00834507832a26a277f1">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Populationen er den store mængde, vi ønsker at udtale os om. Fx alle iphone brugere i København, alle kontohavere i Danske Bank, alle danske kvinder etc.<br>\n  <i>Vi bruger som redskab stikprøver som er en lille del af populationen til at udtale os om populationen, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om populationen!<\/a>\n  <br><\/h4>","text":"populationen"},"evals":[],"jsHooks":[]}</script></span>, ligger mellem 1.58 år og 2.54 år.<br />
+Vi kan med 99% sikkerhed sige at forskellen på mænds og kvinders gennemsnitlige uddannelse i <span class="hl"><span id="htmlwidget-ccd5acd69115b0b8360d" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-ccd5acd69115b0b8360d">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Populationen er den store mængde, vi ønsker at udtale os om. Fx alle iphone brugere i København, alle kontohavere i Danske Bank, alle danske kvinder etc.<br>\n  <i>Vi bruger som redskab stikprøver som er en lille del af populationen til at udtale os om populationen, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om populationen!<\/a>\n  <br><\/h4>","text":"populationen"},"evals":[],"jsHooks":[]}</script></span>, ligger mellem 1.43 år og 2.69 år. Vi er altså ret sikre på, at der er forskel på uddannelseslængden for mænd og kvinder, da 0 ikke engang er indeholdt i 99% <span class="hl"><span id="htmlwidget-33f5f6921f371f1a6bb0" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-33f5f6921f371f1a6bb0">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Konfidensintervallet beregnes ud fra en stikprøve, og angiver nedre og øvre grænser indenfor hvilke populations parameteren, ligger med en vis sandsynlighed.<br>\n  <i>Er 95% konfidensintervallet for mænds gennemsnitlige højde fx. 172 cm. og 182 cm. kan vi sige:<br>\n  Vi kan med 95% sandsynlighed sige den gennemsnitlige højde for mænd i populationen, ligger mellem 172 cm. og 182 cm.<br>\n  Jo større stikprøve og jo lavere sikkerhed (konfidensniveau), jo mere præcist bliver vore konfidensinterval (interval estimatet), dvs intervallet bliver smallere.<br>\n  Vi kan beregne konfidensintervaller for parametre vi estimerer, fx. gennemsnittet, standardafvigelsen, andelen etc.<br>\n  I modsætning til et punktestimat for fx. middelværdien, fortæller konfidensintervallet os noget om kvaliteten af vort estimat/gæt, ud fra bredden af konfidensintervallet.<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/konfidensintervaller.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om konfidensintervallet!<\/a>\n  <br><\/h4>","text":"konfidensintervallet"},"evals":[],"jsHooks":[]}</script></span>.</p>
+<p>Havde vi i stedet benyttet pooled t-test havde vi nået samme konklusion, der er ikke meget forskel på grænserne:<br />
+Vi kan med 95% sikkerhed sige at forskellen på mænds og kvinders gennemsnitlige uddannelse i <span class="hl"><span id="htmlwidget-f06def3938aea02724e1" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-f06def3938aea02724e1">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Populationen er den store mængde, vi ønsker at udtale os om. Fx alle iphone brugere i København, alle kontohavere i Danske Bank, alle danske kvinder etc.<br>\n  <i>Vi bruger som redskab stikprøver som er en lille del af populationen til at udtale os om populationen, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om populationen!<\/a>\n  <br><\/h4>","text":"populationen"},"evals":[],"jsHooks":[]}</script></span>, ligger mellem 1.57 år og 2.55 år.<br />
+Vi kan med 99% sikkerhed sige at forskellen på mænds og kvinders gennemsnitlige uddannelse i <span class="hl"><span id="htmlwidget-ff34387ec950e98dfaca" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-ff34387ec950e98dfaca">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Populationen er den store mængde, vi ønsker at udtale os om. Fx alle iphone brugere i København, alle kontohavere i Danske Bank, alle danske kvinder etc.<br>\n  <i>Vi bruger som redskab stikprøver som er en lille del af populationen til at udtale os om populationen, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om populationen!<\/a>\n  <br><\/h4>","text":"populationen"},"evals":[],"jsHooks":[]}</script></span>, ligger mellem 1.42 år og 2.7 år. Vi er altså ret sikre på, at der er forskel på uddannelseslængden for mænd og kvinder, da 0 ikke engang er indeholdt i 99% <span class="hl"><span id="htmlwidget-8204faf6b5c60a479c75" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-8204faf6b5c60a479c75">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Konfidensintervallet beregnes ud fra en stikprøve, og angiver nedre og øvre grænser indenfor hvilke populations parameteren, ligger med en vis sandsynlighed.<br>\n  <i>Er 95% konfidensintervallet for mænds gennemsnitlige højde fx. 172 cm. og 182 cm. kan vi sige:<br>\n  Vi kan med 95% sandsynlighed sige den gennemsnitlige højde for mænd i populationen, ligger mellem 172 cm. og 182 cm.<br>\n  Jo større stikprøve og jo lavere sikkerhed (konfidensniveau), jo mere præcist bliver vore konfidensinterval (interval estimatet), dvs intervallet bliver smallere.<br>\n  Vi kan beregne konfidensintervaller for parametre vi estimerer, fx. gennemsnittet, standardafvigelsen, andelen etc.<br>\n  I modsætning til et punktestimat for fx. middelværdien, fortæller konfidensintervallet os noget om kvaliteten af vort estimat/gæt, ud fra bredden af konfidensintervallet.<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/konfidensintervaller.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om konfidensintervallet!<\/a>\n  <br><\/h4>","text":"konfidensintervallet"},"evals":[],"jsHooks":[]}</script></span>.</p>
+<p><strong>2.</strong> Bemærk der er uens varianser, vi skal således benyttet Unpooled t-test til at bestemme konfidensintervaller. Der er 363 personer i administative stillinger, deres gennemsnitlige uddanelseslængde er 12.87, Der er 84 i ledelsen, deres gennemsnitlige uddanelseslængde er 17.25<br />
+Vi kan med 95% sikkerhed sige at forskellen på ledelsens og administrationens gennemsnitlige uddannelse i <span class="hl"><span id="htmlwidget-aff3cf1dc499ecb9506d" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-aff3cf1dc499ecb9506d">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Populationen er den store mængde, vi ønsker at udtale os om. Fx alle iphone brugere i København, alle kontohavere i Danske Bank, alle danske kvinder etc.<br>\n  <i>Vi bruger som redskab stikprøver som er en lille del af populationen til at udtale os om populationen, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om populationen!<\/a>\n  <br><\/h4>","text":"populationen"},"evals":[],"jsHooks":[]}</script></span>, ligger mellem 3.96 år og 4.81 år.</p>
+Vi kan med 99% sikkerhed sige at forskellen på ledelsens og administrationens gennemsnitlige uddannelse i <span class="hl"><span id="htmlwidget-655c51ac936727cc511b" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-655c51ac936727cc511b">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Populationen er den store mængde, vi ønsker at udtale os om. Fx alle iphone brugere i København, alle kontohavere i Danske Bank, alle danske kvinder etc.<br>\n  <i>Vi bruger som redskab stikprøver som er en lille del af populationen til at udtale os om populationen, da det er billigere end at undersøge hele populationen.<br>\n  Hvis vi fx. ønsker at udtale os om danske mænds gennemsnitlige højde, kan vi udtage en stikprøve, hvor vi måler 100 mænds højde.<br>\n  Stikprøven består så af de 100 målinger af højderne, populationen er så alle danske mænd.<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/normalfordelingen.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om populationen!<\/a>\n  <br><\/h4>","text":"populationen"},"evals":[],"jsHooks":[]}</script></span>, ligger mellem 3.82 år og 4.94 år. Vi er altså ret sikre på at der er forskel på uddannelseslængden for ledere og administrativt personale, da 0 ikke engang er indeholdt i 99% <span class="hl"><span id="htmlwidget-6f60cc8dfc240f6e5625" class="tippy html-widget" width="960" height="500"></span>
+<script type="application/json" data-for="htmlwidget-6f60cc8dfc240f6e5625">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Konfidensintervallet beregnes ud fra en stikprøve, og angiver nedre og øvre grænser indenfor hvilke populations parameteren, ligger med en vis sandsynlighed.<br>\n  <i>Er 95% konfidensintervallet for mænds gennemsnitlige højde fx. 172 cm. og 182 cm. kan vi sige:<br>\n  Vi kan med 95% sandsynlighed sige den gennemsnitlige højde for mænd i populationen, ligger mellem 172 cm. og 182 cm.<br>\n  Jo større stikprøve og jo lavere sikkerhed (konfidensniveau), jo mere præcist bliver vore konfidensinterval (interval estimatet), dvs intervallet bliver smallere.<br>\n  Vi kan beregne konfidensintervaller for parametre vi estimerer, fx. gennemsnittet, standardafvigelsen, andelen etc.<br>\n  I modsætning til et punktestimat for fx. middelværdien, fortæller konfidensintervallet os noget om kvaliteten af vort estimat/gæt, ud fra bredden af konfidensintervallet.<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/konfidensintervaller.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om konfidensintervallet!<\/a>\n  <br><\/h4>","text":"konfidensintervallet"},"evals":[],"jsHooks":[]}</script></span>.
+</details>
+<br>
+<details>
+<p><summary> Spørgsmål 2016 8 Eksamen statistik Fin opg 3.</summary></p>
+<p>Opgave 3 (30 %)
+En række klagesager i Nykøbing Bank har fået en del kunder til at forlade banken. Det er vigtigt for Nykøbing Bank at fastholde sine kunder i lokalområdet i mange år. Banken ønsker derfor en nærmere analyse af kundeancienniteten.</p>
+<p>Spørgsmål 3.1 (5 %)<br />
+Undersøg om kundeancienniteten i banken er normalfordelt.</p>
+<p>Spørgsmål 3.2 (10 %)<br />
+Test på 5 % testniveau om den gennemsnitlige kundeanciennitet er under 20 år.<br />
+<br>
+I undersøgelsen af 75 kunder fra 2015, var kundeancienniteten på 20 år med en standardafvigelse på 10 år.
+Spørgsmål 3.3 (5 %)<br />
+Test på 5 % testniveau om standardafvigelserne er ens i de 2 undersøgelser.</p>
+<p>Spørgsmål 3.4 (10 %)<br />
+Test på 5 % testniveau om den gennemsnitlige anciennitet er faldet fra 2015 til 2016.</p>
+<p><br>
+Du finder hele opgaver i linket:</p>
+<p><a href="https://drive.google.com/uc?export=download&amp;id=0B1E7VnhxsDMldWRQVGRwZWlkdzQ">2016 8 Eksamen Statistik Opgave</a></p>
+<p><a href="https://drive.google.com/uc?export=download&amp;id=0B1E7VnhxsDMlN29HR09IRmJZSE0">2016 8 Eksamen Statistik Data</a></p>
+</details>
+<br>
+<details>
+<p><summary>Svar 2016 8 Eksamen statistik Fin opg 3.</summary></p>
+<div >
+<iframe width="500" height="280"
+src="https://www.youtube.com/embed/keMbL_L-35U"
+
+frameborder="0">
+<blockquote>
+</iframe>
+<p>
+<center>
+Løsning eksamensopgave
+</center>
+</p>
+<div class="clear">
+
+</div>
+</div>
+<p><a href="https://drive.google.com/uc?export=download&amp;id=0B1E7VnhxsDMlV1g0a3BLLTBzN1k">2016 8 Eksamen Statistik LØSNING</a></p>
+</blockquote>
+</details>
+</div>
+<div id="selvtest-7" class="section level2">
+<h2><span class="header-section-number">9.7</span> Selvtest</h2>
+<h2>
+<a href="https://www.edutest.dk/mod/quiz/view.php?id=60" target="_blank">Selvtest Realkredit 2 middelværdier med videoløsning</a>
+</h2>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="andele.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="korrelation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false,
+"google": false,
+"instapper": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
