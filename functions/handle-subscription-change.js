@@ -36,7 +36,7 @@ exports.handler = async ({ body, headers }, context) => {
     // const role = plan.split(" ")[0].toLowerCase();
 
     let role = "";
-    if (subscription.items.data[0].plan.product == process.env.STRIPE_PRO_PLAN) {
+    if (subscription.items.data[0].plan.product == "prod_IyCAbZ8bewfWEx") {
       role = "pro";
     } else {
       role = "premium";
