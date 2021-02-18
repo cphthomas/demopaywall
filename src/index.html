@@ -621,6 +621,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
      container.innerHTML = '';
 
      if (user) {
+       console.log(user);
+       console.log(user.role);
        b1.innerText = 'Log Out';
        b1.addEventListener('click', () => {
          netlifyIdentity.logout();
