@@ -621,8 +621,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
      container.innerHTML = '';
 
      if (user) {
-       console.log(user);
-       console.log(user.role);
+       //console.log(user);
+       console.log(user.app_metadata.roles[0]);
+       if(user.app_metadata.roles[0]=="free"){
+        fetch('/.netlify/functions/create-manage-link', {
+         method: 'POST',
+         headers: {
+           Authorization: `Bearer ${user.token.access_token}`,
+         },
+       })
+         .then((res) => res.json())
+         .then((link) => {
+           window.location.href = link;
+         })
+         .catch((err) => console.error(err));
+       }
        b1.innerText = 'Log Out';
        b1.addEventListener('click', () => {
          netlifyIdentity.logout();
