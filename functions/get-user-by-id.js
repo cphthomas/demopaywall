@@ -8,7 +8,9 @@ exports.handler = async (_event, context) => {
     query: `
       query ($netlifyID: ID!) {
         getUserByNetlifyID(netlifyID: $netlifyID) {
+          netlifyID
           stripeID
+          roleID
         }
       }
     `,
