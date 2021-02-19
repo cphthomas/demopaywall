@@ -621,33 +621,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
      container.innerHTML = '';
 
      if (user) {
-      fetch('/.netlify/functions/get-user-by-id', {
-         method: 'POST',
-         headers: {
-           Authorization: `Bearer ${user.token.access_token}`,
-         },
-       })
-         .then((res) => res.json())
-         .then((link) => {
-           //window.location.href = link;
-           console.log(link);
-         })
-         .catch((err) => console.error(err));
-       //console.log(user);
-       //console.log(user);
-      //  if(user.app_metadata.roles[0]=="free"){
-      //   fetch('/.netlify/functions/create-manage-link', {
-      //    method: 'POST',
-      //    headers: {
-      //      Authorization: `Bearer ${user.token.access_token}`,
-      //    },
-      //  })
-      //    .then((res) => res.json())
-      //    .then((link) => {
-      //      window.location.href = link;
-      //    })
-      //    .catch((err) => console.error(err));
-      //  }
        b1.innerText = 'Log Out';
        b1.addEventListener('click', () => {
          netlifyIdentity.logout();
@@ -724,6 +697,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    const handleUserStateChange = (user) => {
      updateUserInfo(user);
      console.log(netlifyIdentity.currentUser());
+      if(user.app_metadata.roles[0]=="free"){
+        fetch('/.netlify/functions/create-manage-link', {
+         method: 'POST',
+         headers: {
+           Authorization: `Bearer ${user.token.access_token}`,
+         },
+       })
+         .then((res) => res.json())
+         .then((link) => {
+           window.location.href = link;
+         })
+         .catch((err) => console.error(err));
+       }
      //loadSubscriptionContent(user);
    };
 

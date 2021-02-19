@@ -61,22 +61,6 @@ exports.handler = async ({ body, headers }, context) => {
       }),
     });
 
-    await faunaFetch({
-      query: `
-        mutation ($netlifyID: ID!, $roleID: Int) {
-          updateUser(netlifyID:$netlifyID
-                    data: { roleID: $roleID }) {
-            netlifyID
-            roleID
-          }
-        }
-      `,
-      variables: {
-        netlifyID: netlifyID,
-        roleID: 1,
-      },
-    });
-
     return {
       statusCode: 200,
       body: JSON.stringify({ received: true }),
