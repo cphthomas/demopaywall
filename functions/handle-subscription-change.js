@@ -36,7 +36,7 @@ exports.handler = async ({ body, headers }, context) => {
     // const role = plan.split(" ")[0].toLowerCase();
 
     let role = "";
-    let roleID = 0;
+    let roleID = 1;
     if (subscription.items.data[0].plan.product == "prod_IyCAbZ8bewfWEx") {
       role = "pro";
       roleID = 1;
@@ -73,7 +73,7 @@ exports.handler = async ({ body, headers }, context) => {
       `,
       variables: {
         netlifyID: netlifyID,
-        roleID: roleID,
+        roleID: 1,
       },
     });
 
