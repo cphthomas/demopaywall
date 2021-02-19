@@ -697,7 +697,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    const handleUserStateChange = (user) => {
      updateUserInfo(user);
      console.log(netlifyIdentity.currentUser());
-      if(user.app_metadata.roles[0]=="free"){
+      if(user && user.app_metadata.roles[0]=="free"){
         fetch('/.netlify/functions/create-manage-link', {
          method: 'POST',
          headers: {
