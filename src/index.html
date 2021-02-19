@@ -694,7 +694,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
      });
    };
 
-   const handleUserStateChange = (user) => {
+   const handleUserStateChange = async (user) => {
      updateUserInfo(user);
      if(user){
      const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
