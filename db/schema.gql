@@ -1,11 +1,10 @@
 type User {
   netlifyID: ID!
   stripeID: ID!
-  role: ID!
+  roleID: ID!
 }
 
 type Query {
   getUserByNetlifyID(netlifyID: ID!): User!
   getUserByStripeID(stripeID: ID!): User!
-  getUserByRoleID(stripeID: ID!): User!
 }
