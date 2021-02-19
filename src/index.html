@@ -712,7 +712,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    const handleUserStateChange = (user) => {
      console.log(user);
      updateUserInfo(user);
-     //loadSubscriptionContent(user);
+     loadSubscriptionContent(user);
    };
 
    netlifyIdentity.on('init', handleUserStateChange);

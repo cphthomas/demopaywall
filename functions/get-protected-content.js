@@ -36,6 +36,7 @@ const content = {
      const { user } = context.clientContext;
      const roles = user ? user.app_metadata.roles : false;
      const { allowedRoles } = content[type];
+     console.log(roles);
 
      if (!roles || !roles.some(role => allowedRoles.includes(role))) {
        return {
