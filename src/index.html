@@ -600,6 +600,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  ></script>
 
  <script>
+
    const button1 = document.getElementById('left');
    const button2 = document.getElementById('right');
 
@@ -647,6 +648,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
        b2.innerText = 'Sign Up';
        b2.addEventListener('click', signup);
+       var links = document.querySelectorAll('.summary a');
+       for(var i = 0; i < links.length; i++){
+        links[i].href;
+        console.log(links[i].href);
+        links[i].onclick = function() {return false;};
+       }
      }
 
     container.appendChild(b1);
