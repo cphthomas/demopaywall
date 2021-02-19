@@ -302,7 +302,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Login</a></li>
 <li class="divider"></li>
 <li><a href="index.html#section"></a></li>
-<li class="chapter" data-level="1" data-path="indledning.html"><a href="indledning.html"><i class="fa fa-check"></i><b>1</b> Indledning</a><ul>
+<li class="chapter" data-level="1" data-path="indledning.html"><a id="yourElement" title="" href="indledning.html"><i class="fa fa-check"></i><b>1</b> Indledning</a><ul>
 <li class="chapter" data-level="1.1" data-path="indledning.html"><a href="indledning.html#freestat-basisversion"><i class="fa fa-check"></i><b>1.1</b> Freestat basisversion</a></li>
 <li class="chapter" data-level="1.2" data-path="indledning.html"><a href="indledning.html#freestat-fuld-version"><i class="fa fa-check"></i><b>1.2</b> Freestat fuld version</a></li>
 </ul></li>
@@ -598,6 +598,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    type="text/javascript"
    src="https://identity.netlify.com/v1/netlify-identity-widget.js"
  ></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
  <script>
 
@@ -642,18 +643,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
          .catch((err) => console.error(err));
        });
      } else {
+      //   var links = document.querySelectorAll('.summary a');
+      //  for(var i = 0; i < links.length; i++){
+      //   links[i].removeAttribute("href");
+      //   $(this).attr('title', 'This is the hover-over text');
+      //  }
+      $('.summary a').map( function() {
+        //$(this).removeAttr("href");
+        $(this).attr('href', "javascript:alert('Please subscribe or login if subscribed alredy')");
+      }).get();
        // if no on is logged in, show login/signup options
        b1.innerText = 'Log In';
        b1.addEventListener('click', login);
 
        b2.innerText = 'Sign Up';
        b2.addEventListener('click', signup);
-       var links = document.querySelectorAll('.summary a');
-       for(var i = 0; i < links.length; i++){
-        links[i].href;
-        console.log(links[i].href);
-        links[i].onclick = function() {return false;};
-       }
      }
 
     container.appendChild(b1);
@@ -729,6 +733,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
            window.location.href = link;
          })
          .catch((err) => console.error(err));
+          } else {
+            $('.summary a').map( function() {
+              //$(this).removeAttr("href");
+              $(this).attr('href', "javascript:alert('Please subscribe or login if subscribed alredy')");
+            }).get();
           }
         });
       }
@@ -753,6 +762,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    netlifyIdentity.on('logout', handleUserStateChange);
 
  </script>
+ <!-- <script>
+   window.onload = function() {
+    var links = document.querySelectorAll('.summary a');
+       for(var i = 0; i < links.length; i++){
+        //links[i].href;
+        //links[i].removeAttribute("href");
+        //links[i].onclick = function() {return false;};
+       }
+   }
+ </script> -->
 </div>
 <div id="Sentry_loggingIn" style="width:175px; display:none;">
 <img src="https://www.sentrylogin.com/sentry/images/wait_animated_sentry.gif">
@@ -803,7 +822,7 @@ For testing.
 <script src="https://keen-archimedes-cc5aba.netlify.app/_book/libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="https://keen-archimedes-cc5aba.netlify.app/_book/libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="https://keen-archimedes-cc5aba.netlify.app/_book/libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="https://keen-archimedes-cc5aba.netlify.app/_book/libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<!-- <script src="https://keen-archimedes-cc5aba.netlify.app/_book/libs/gitbook-2.6.7/js/plugin-bookdown.js"></script> -->
 <script src="https://keen-archimedes-cc5aba.netlify.app/_book/libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script src="https://keen-archimedes-cc5aba.netlify.app/_book/libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
