@@ -710,6 +710,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         .then((res) => res.json())
         .then((data) => {
           console.log(data[0]);
+          if(data[0]=="free"){
+              fetch('/.netlify/functions/create-manage-link', {
+         method: 'POST',
+         headers: {
+           Authorization: `Bearer ${user.token.access_token}`,
+         },
+       })
+         .then((res) => res.json())
+         .then((link) => {
+           window.location.href = link;
+         })
+         .catch((err) => console.error(err));
+          }
         });
       }
       // if(user && user.app_metadata.roles[0]=="free"){
