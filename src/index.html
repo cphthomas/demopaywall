@@ -643,13 +643,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
          .catch((err) => console.error(err));
        });
      } else {
-      //   var links = document.querySelectorAll('.summary a');
-      //  for(var i = 0; i < links.length; i++){
-      //   links[i].removeAttribute("href");
-      //   $(this).attr('title', 'This is the hover-over text');
-      //  }
       $('.summary a').map( function() {
-        //$(this).removeAttr("href");
         $(this).attr('href', "javascript:alert('Please subscribe or login if subscribed alredy')");
       }).get();
        // if no on is logged in, show login/signup options
@@ -734,10 +728,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
          })
          .catch((err) => console.error(err));
           } else {
-            $('.summary a').map( function() {
-              //$(this).removeAttr("href");
-              $(this).attr('href', "javascript:alert('Please subscribe or login if subscribed alredy')");
-            }).get();
+            if(data[0]=="pro"){
+              $('.summary a').map( function() {
+                //$(this).removeAttr("href");
+                if($(this).text().indexOf("Premium") != -1){
+                  console.log($(this).text());
+                  $(this).attr('href', "javascript:alert('Please subscribe to premium plan')");
+                }
+              }).get();
+            }
           }
         });
       }
