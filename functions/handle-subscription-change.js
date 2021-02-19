@@ -36,10 +36,13 @@ exports.handler = async ({ body, headers }, context) => {
     // const role = plan.split(" ")[0].toLowerCase();
 
     let role = "";
+    let roleID = 0;
     if (subscription.items.data[0].plan.product == "prod_IyCAbZ8bewfWEx") {
       role = "pro";
+      roleID = 1;
     } else {
       role = "premium";
+      roleID = 2;
     }
 
     // send a call to the Netlify Identity admin API to update the user role
@@ -54,8 +57,24 @@ exports.handler = async ({ body, headers }, context) => {
         app_metadata: {
           roles: [role],
         },
-        role: role
+        role: role,
       }),
+    });
+
+    await faunaFetch({
+      query: `
+        mutation ($netlifyID: ID!, $roleID: ID!) {
+          updateUser(netlifyID:$netlifyID
+                    data: { roleID: $roleID }) {
+            netlifyID
+            roleID
+          }
+        }
+      `,
+      variables: {
+        netlifyID: netlifyID,
+        roleID: roleID,
+      },
     });
 
     return {
