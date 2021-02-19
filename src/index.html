@@ -710,7 +710,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    };
 
    const handleUserStateChange = (user) => {
-     console.log(user);
+    const roles = user ? user.app_metadata.roles : false;
+     console.log(roles);
      updateUserInfo(user);
      loadSubscriptionContent(user);
    };
