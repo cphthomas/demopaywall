@@ -698,13 +698,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
      updateUserInfo(user);
      if(user){
      const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
+     const type = "";
 
      fetch('/.netlify/functions/get-user-role', {
         method: 'POST',
         headers: {
            Authorization: `Bearer ${token}`,
          },
-        body: JSON.stringify({ "" }),
+        body: JSON.stringify({ type }),
       })
         .then((res) => res.json())
         .then((data) => {
