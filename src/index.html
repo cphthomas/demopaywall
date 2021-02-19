@@ -621,6 +621,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
      container.innerHTML = '';
 
      if (user) {
+      fetch('/.netlify/functions/get-user-bynetlifyid', {
+         method: 'POST',
+         headers: {
+           Authorization: `Bearer ${user.token.access_token}`,
+         },
+       })
+         .then((res) => console.log(res.json()))
+         .then((link) => {
+           window.location.href = link;
+         })
+         .catch((err) => console.error(err));
        //console.log(user);
        //console.log(user);
       //  if(user.app_metadata.roles[0]=="free"){
