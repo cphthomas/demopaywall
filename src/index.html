@@ -696,13 +696,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
    const handleUserStateChange = (user) => {
      updateUserInfo(user);
+     const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
 
+     fetch('/.netlify/functions/get-user-role', {
+        method: 'POST',
+        headers: {
+           Authorization: `Bearer ${token}`,
+         },
+        body: JSON.stringify({ type }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
 
-
-     const role = await netlifyIdentity.currentUser().jwt(true);
-     const roles = await netlifyIdentity.currentUser().jwt(true);
-     console.log(role);
-     console.log(roles);
+        });
       // if(user && user.app_metadata.roles[0]=="free"){
       //   fetch('/.netlify/functions/create-manage-link', {
       //    method: 'POST',
