@@ -696,6 +696,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
    const handleUserStateChange = (user) => {
      updateUserInfo(user);
+     if(user){
      const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
 
      fetch('/.netlify/functions/get-user-role', {
@@ -709,6 +710,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         .then((data) => {
           console.log(data);
         });
+      }
       // if(user && user.app_metadata.roles[0]=="free"){
       //   fetch('/.netlify/functions/create-manage-link', {
       //    method: 'POST',
