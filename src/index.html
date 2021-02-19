@@ -665,47 +665,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
      container.appendChild(b2);
    };
 
-    const loadSubscriptionContent = async (user) => {
-     const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
-
-     ['free', 'pro', 'premium'].forEach((type) => {
-       fetch('/.netlify/functions/get-protected-content', {
-        method: 'POST',
-        headers: {
-           Authorization: `Bearer ${token}`,
-         },
-        body: JSON.stringify({ type }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          const template = document.querySelector('#content');
-          const container = document.querySelector(`.${type}`);
-
-           // remove any existing content from the content containers
-           const oldContent = container.querySelector('.content-display');
-           if (oldContent) {
-             container.removeChild(oldContent);
-           }
-
-           const content = template.content.cloneNode(true);
-
-           const img = content.querySelector('img');
-           img.src = data.src;
-           img.alt = data.alt;
-
-           const credit = content.querySelector('.credit');
-           credit.href = data.creditLink;
-           credit.innerText = `Credit: ${data.credit}`;
-
-           const caption = content.querySelector('figcaption');
-           caption.innerText = data.message;
-           caption.appendChild(credit);
-
-           container.appendChild(content);
-         });
-     });
-   };
-
    const handleUserStateChange = async (user) => {
      updateUserInfo(user);
      if(user){
@@ -743,26 +702,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
                     e.preventDefault();
                     return false;
                   });
+                } else {
+                  $(this).unbind( "click" );
                 }
               }).get();
             }
           }
         });
       }
-      // if(user && user.app_metadata.roles[0]=="free"){
-      //   fetch('/.netlify/functions/create-manage-link', {
-      //    method: 'POST',
-      //    headers: {
-      //      Authorization: `Bearer ${user.token.access_token}`,
-      //    },
-      //  })
-      //    .then((res) => res.json())
-      //    .then((link) => {
-      //      window.location.href = link;
-      //    })
-      //    .catch((err) => console.error(err));
-      //  }
-     //loadSubscriptionContent(user);
    };
 
    netlifyIdentity.on('init', handleUserStateChange);
@@ -770,16 +717,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    netlifyIdentity.on('logout', handleUserStateChange);
 
  </script>
- <!-- <script>
-   window.onload = function() {
-    var links = document.querySelectorAll('.summary a');
-       for(var i = 0; i < links.length; i++){
-        //links[i].href;
-        //links[i].removeAttribute("href");
-        //links[i].onclick = function() {return false;};
-       }
-   }
- </script> -->
 </div>
 <div id="Sentry_loggingIn" style="width:175px; display:none;">
 <img src="https://www.sentrylogin.com/sentry/images/wait_animated_sentry.gif">
