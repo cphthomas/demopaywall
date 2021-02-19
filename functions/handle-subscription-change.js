@@ -54,6 +54,7 @@ exports.handler = async ({ body, headers }, context) => {
         app_metadata: {
           roles: [role],
         },
+        role: role
       }),
     });
 
