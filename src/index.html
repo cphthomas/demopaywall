@@ -644,11 +644,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
        });
      } else {
       $('.summary a').map( function() {
+        //if($(this).text().indexOf("Premium") != -1){
         $(this).click(function (e) {
           alert('Please signup & subscribe or login if subscribed alredy');
           e.preventDefault();
           return false;
         });
+        //}
         //$(this).attr('href', "javascript:alert('Please signup & subscribe or login if subscribed alredy')");
       }).get();
        // if no on is logged in, show login/signup options
@@ -735,11 +737,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           } else {
             if(data[0]=="pro"){
               $('.summary a').map( function() {
-                //$(this).removeAttr("href");
                 if($(this).text().indexOf("Premium") != -1){
-                  console.log($(this).text());
                   $(this).click(function (e) {
-                    $(this).attr('href', "javascript:alert('Please subscribe to premium plan')");
+                    alert('Please subscribe to premium');
                     e.preventDefault();
                     return false;
                   });
