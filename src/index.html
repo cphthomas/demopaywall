@@ -698,8 +698,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
      updateUserInfo(user);
 
 
-  
-     console.log(netlifyIdentity.currentUser().jwt(true));
+
+     const role = await netlifyIdentity.currentUser().jwt(true);
+     const roles = await netlifyIdentity.currentUser().jwt(true);
+     console.log(role);
+     console.log(roles);
       // if(user && user.app_metadata.roles[0]=="free"){
       //   fetch('/.netlify/functions/create-manage-link', {
       //    method: 'POST',
