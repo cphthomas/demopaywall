@@ -622,7 +622,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
      if (user) {
        //console.log(user);
-       console.log(user);
+       //console.log(user);
       //  if(user.app_metadata.roles[0]=="free"){
       //   fetch('/.netlify/functions/create-manage-link', {
       //    method: 'POST',
@@ -710,6 +710,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    };
 
    const handleUserStateChange = (user) => {
+     console.log(user);
      updateUserInfo(user);
      //loadSubscriptionContent(user);
    };
