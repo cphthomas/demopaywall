@@ -11,7 +11,6 @@ exports.handler = async (_event, context) => {
           netlifyID
           stripeID
           roleID
-          ID
         }
       }
     `,

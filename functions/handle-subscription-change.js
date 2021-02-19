@@ -63,7 +63,7 @@ exports.handler = async ({ body, headers }, context) => {
 
     await faunaFetch({
       query: `
-        mutation ($netlifyID: ID!, $roleID: ID!) {
+        mutation ($netlifyID: ID!, $roleID: Int) {
           updateUser(netlifyID:$netlifyID
                     data: { roleID: $roleID }) {
             netlifyID
