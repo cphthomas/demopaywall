@@ -20,6 +20,7 @@ exports.handler = async (event) => {
         createUser(data: { netlifyID: $netlifyID, stripeID: $stripeID }) {
           netlifyID
           stripeID
+          role
         }
       }
     `,
