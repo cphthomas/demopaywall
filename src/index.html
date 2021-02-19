@@ -698,7 +698,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
      updateUserInfo(user);
 
 
-     console.log(await netlifyIdentity.currentUser().jwt(true));
+  
+     console.log(netlifyIdentity.currentUser().jwt(true));
       // if(user && user.app_metadata.roles[0]=="free"){
       //   fetch('/.netlify/functions/create-manage-link', {
       //    method: 'POST',
