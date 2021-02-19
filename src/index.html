@@ -697,6 +697,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             if(data[0]=="pro"){
               $('.summary a').map( function() {
                 if($(this).text().indexOf("Premium") != -1){
+                  $(this).unbind( "click" );
                   $(this).click(function (e) {
                     alert('Please subscribe to premium');
                     e.preventDefault();
