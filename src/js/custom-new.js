@@ -28,6 +28,8 @@ const handleUserStateChange = async (user) => {
         } else {
           if (data[0] == "premium") {
             $("body").show();
+          } else {
+            document.location.href = "/";
           }
         }
       });
