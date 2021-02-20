@@ -606,6 +606,15 @@ gitbook.start({
 });
 </script>
 
+<script>
+  console.log("in dataset page");
+  const handleUserStateChange = async (user) => {
+    console.log("in dataset page handleUserStateChange");
+    console.log(user);
+  };
+  netlifyIdentity.on('init', handleUserStateChange);
+</script>
+
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
   (function () {
