@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
 <head>
+  <script
+   type="text/javascript"
+   src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+ ></script>
+<script>
+  console.log("in dataset page up");
+  const handleUserStateChange = async (user) => {
+    if(user){
+
+    } else{
+      document.location.href="/";
+    }
+  };
+  netlifyIdentity.on('init', handleUserStateChange);
+</script>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -604,21 +619,6 @@ gitbook.start({
 }
 });
 });
-</script>
-<script
-   type="text/javascript"
-   src="https://identity.netlify.com/v1/netlify-identity-widget.js"
- ></script>
-<script>
-  console.log("in dataset page up");
-  const handleUserStateChange = async (user) => {
-    if(user){
-
-    } else{
-      document.location.href="/";
-    }
-  };
-  netlifyIdentity.on('init', handleUserStateChange);
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
