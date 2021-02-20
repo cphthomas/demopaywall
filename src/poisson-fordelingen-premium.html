@@ -457,7 +457,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- ``` -->
 <p>Poisson fordelingen er en <span class="hl"><span id="htmlwidget-ff9e3de9611b945a3557" class="tippy html-widget" width="960" height="500"></span>
 <script type="application/json" data-for="htmlwidget-ff9e3de9611b945a3557">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Diskrete variable er variable, der har heltallige værdier fx.<br><i>\n  Antal børn i familien<br>\n  {0, 1, 0, 3, 2, 1,0,1,0,...}<\/i><br><br>\n  <a href=\"https://s.tepedu.dk/datast-og-data.html#kvalitative-variable\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om diskrete variable!<\/a><\/h4>","text":"diskret"},"evals":[],"jsHooks":[]}</script></span> sandsynlighedsfordeling der angiver sandsynligheden for at et antal begivenheder, indtræffer i tid eller rum. Fx.
-<img src="img/car.png" align="right" width="30%" height="30%"style="border:0.0px solid #eeeeee; padding:5px; margin:6px;"/></p>
+<img src="/images/car.png" align="right" width="30%" height="30%"style="border:0.0px solid #eeeeee; padding:5px; margin:6px;"/></p>
 <ol style="list-style-type: decimal">
 <li>Antal cykelpunkteringer indenfor 1000 km.<br />
 </li>
@@ -475,7 +475,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[X\sim Pois(\lambda)\]</span></p>
 <p>Når vi kender <span class="math inline">\(\lambda\)</span> kan vi beregne punktsandsynligheden for at den stokastiske variabel X er netop x som:</p>
 <p><span class="math display">\[P(X=x)=\frac{e^{-\lambda}\cdot \lambda^x}{x!}\]</span>
-<img src="img/Puncture.jpg" align="right" width="30%" height="30%"style="border:0.0px solid #eeeeee; padding:5px; margin:6px;"/></p>
+<img src="/images/Puncture.jpg" align="right" width="30%" height="30%"style="border:0.0px solid #eeeeee; padding:5px; margin:6px;"/></p>
 <p>Uafhængighed mellem antal hændelser der intræffer i 2 på hinanden følgende intervaller er en forudsætning. Har der fx. være 1 punktering på de første 1000 km. påvirker dette ikke det forventede antal punkteringer på de næste 1000 km. Vi kalder også <span class="math inline">\(\lambda\)</span> for intensiteten, intensiteten er konstant for intervaller af samme længde og proportional. Er <span class="math inline">\(\lambda\)</span>=3 for hver 1000 kilometer, bliver <span class="math inline">\(\lambda\)</span>=6 for 2000 kilometer.</p>
 <p>Hvis det forventede antal punkteringer <span class="math inline">\(\lambda=3\)</span>, kan vi beregne sandsynligheden for fx. 4 punkteringer som:</p>
 <p><span class="math display">\[P(X=4)=\frac{e^{-\lambda}\cdot \lambda^x}{x!}=\frac{e^{-3}\cdot 3^4}{4!}=\frac{4.032753}{4\cdot 3\cdot 2\cdot 1}=0.1680\]</span></p>
@@ -487,13 +487,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Variansen for poissonfordelingen er <span class="math inline">\(\lambda\)</span>, heraf følger at <span class="hl"><span id="htmlwidget-eaec7900b52b58bafe22" class="tippy html-widget" width="960" height="500"></span>
 <script type="application/json" data-for="htmlwidget-eaec7900b52b58bafe22">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Standardafvigelsen fortæller hvor meget en variabel typisk varierer omkring middelværdien.<br>\n  Standardafvigelsen også kaldet spredningen, findes som kvadratroden af variansen, i modsætning til variansen er standardafvigelsen i samme enhed som variablen hvilket gør tolkning nemmere.<br><br>\n  Kursen for en aktie med middelkurs 100 Kr. og standardafvigelse 1 svinger meget mindre, end en aktie med middelkurs 100 og standardafvigelse 10. Da investorer er risikoaverse vil de foretrække aktien med den mindste standardafvigelse.<br><br>\n  <a href=\"https://s.tepedu.dk/deskriptiv-statistik.html#standardafvigelsen\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om standardafvigelsen!<\/a>\n<\/h4>","text":"standardafvigelsen"},"evals":[],"jsHooks":[]}</script></span> som kvadratroden af <span class="math inline">\(\lambda\)</span> dvs. <span class="math inline">\(\lambda^{0.5}\)</span></p>
 <p>Vi får følgende sandsynlighedfordeling.</p>
-<p><img src="_main_files/figure-html/hyp3-1.svg" width="864" /></p>
+<p><img src="/images/hyp3-1.svg" width="864" /></p>
 <p>Nedenfor ses output fra Freestat:
-<img src="img/poisson.png" /></p>
+<img src="/images/poisson.png" /></p>
 <br>
 <details>
 <p><summary>Spørgsmål bankkunder</summary></p>
-<p><img src="img/bankkunder.jpg" align="right" width="30%" height="30%"style="border:0.0px solid #eeeeee; padding:5px;margin:6px;"/>
+<p><img src="/images/bankkunder.jpg" align="right" width="30%" height="30%"style="border:0.0px solid #eeeeee; padding:5px;margin:6px;"/>
 Antag at antal kunder der ankommer i en bank i minuttet er <span class="hl"><span id="htmlwidget-b1a456c249632b5cf6a6" class="tippy html-widget" width="960" height="500"></span>
 <script type="application/json" data-for="htmlwidget-b1a456c249632b5cf6a6">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Poisson fordelingen er en  diskret  sandsynlighedsfordeling, der angiver sandsynligheden for at et antal begivenheder, indtræffer i tid eller rum.<br>\nFx. Antal konkurser pr år. Fordelingen bestemmes udelukkende ud fra middelværdien &lambda;, der angiver det forventede antal\nhændelser pr. måleenhed, i eksemplet her er &lambda; det forventede antal konkurser pr. år.<br><br>\n<a href=\"https://s.tepedu.dk/binomialfordelingen-premium.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om binomialfordelingen!<\/a>\n<\/h4>","text":"poissonfordelt"},"evals":[],"jsHooks":[]}</script></span> med intensitet 2.
 1. Hvad er sandsynligheden for der netop ankommer 1 kunde i minuttet?
@@ -508,15 +508,15 @@ Antag at antal kunder der ankommer i en bank i minuttet er <span class="hl"><spa
 <script type="application/json" data-for="htmlwidget-fcbfb198886b7859104b">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Poisson fordelingen er en  diskret  sandsynlighedsfordeling, der angiver sandsynligheden for at et antal begivenheder, indtræffer i tid eller rum.<br>\nFx. Antal konkurser pr år. Fordelingen bestemmes udelukkende ud fra middelværdien &lambda;, der angiver det forventede antal\nhændelser pr. måleenhed, i eksemplet her er &lambda; det forventede antal konkurser pr. år.<br><br>\n<a href=\"https://s.tepedu.dk/binomialfordelingen-premium.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om binomialfordelingen!<\/a>\n<\/h4>","text":"poisson"},"evals":[],"jsHooks":[]}</script></span> fordeling med <span class="hl"><span id="htmlwidget-3165a67081f48c4a446a" class="tippy html-widget" width="960" height="500"></span>
 <script type="application/json" data-for="htmlwidget-3165a67081f48c4a446a">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>En parameter betegner en ukendt konstant i en statistisk model eller formel, ud fra en stikprøve estimeres (gættes kvalificeret på) dens værdi.<br>\n  En parameter kan fx. være &beta;, &mu;, p, &sigma; etc.<br>\n  <i>Vi ønsker at udtale os om danske mænds højde, populationen er så danske mænd. Stikprøve gennemsnittet for fx. 100 mænds højde 179.34 cm. er parameter estimatet (gættet på middelværdien i populationen).\n  Den sande ukendte parameter i populationen er altså middelhøjden i populationen &mu;<\/i><\/h4>","text":"parameter"},"evals":[],"jsHooks":[]}</script></span> <span class="math inline">\(\lambda\)</span>=2, vi ønsker at bestemme sandsynligheden for at x=1.
 <span class="math display">\[P(X=1)=\frac{e^{-\lambda}\cdot \lambda^x}{x!}=\frac{e^{-2}\cdot 2^1}{1!}=0.2707\]</span>
-<img src="img/poisson2.png" /></p></li>
+<img src="/images/poisson2.png" /></p></li>
 <li><p>Vi skal finde sandsynligheden for der netop ankommer 10 kunder på 10 minutter. Her er tale om en <span class="hl"><span id="htmlwidget-65c372c728eef421f138" class="tippy html-widget" width="960" height="500"></span>
 <script type="application/json" data-for="htmlwidget-65c372c728eef421f138">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>Poisson fordelingen er en  diskret  sandsynlighedsfordeling, der angiver sandsynligheden for at et antal begivenheder, indtræffer i tid eller rum.<br>\nFx. Antal konkurser pr år. Fordelingen bestemmes udelukkende ud fra middelværdien &lambda;, der angiver det forventede antal\nhændelser pr. måleenhed, i eksemplet her er &lambda; det forventede antal konkurser pr. år.<br><br>\n<a href=\"https://s.tepedu.dk/binomialfordelingen-premium.html\" style=\"color:#30bbfc\" target=\"_blank\">Klik her for at lære mere om binomialfordelingen!<\/a>\n<\/h4>","text":"poisson"},"evals":[],"jsHooks":[]}</script></span> fordeling med <span class="hl"><span id="htmlwidget-157ab9c51dc81ff9101d" class="tippy html-widget" width="960" height="500"></span>
 <script type="application/json" data-for="htmlwidget-157ab9c51dc81ff9101d">{"x":{"opts":{"size":"large","interactive":true,"arrow":true},"tooltip":"<h4>En parameter betegner en ukendt konstant i en statistisk model eller formel, ud fra en stikprøve estimeres (gættes kvalificeret på) dens værdi.<br>\n  En parameter kan fx. være &beta;, &mu;, p, &sigma; etc.<br>\n  <i>Vi ønsker at udtale os om danske mænds højde, populationen er så danske mænd. Stikprøve gennemsnittet for fx. 100 mænds højde 179.34 cm. er parameter estimatet (gættet på middelværdien i populationen).\n  Den sande ukendte parameter i populationen er altså middelhøjden i populationen &mu;<\/i><\/h4>","text":"parameter"},"evals":[],"jsHooks":[]}</script></span> <span class="math inline">\(\lambda\)</span>=20. Vi skal jo betragte 10 minutters intervallet, derfor ganger vi intensiteten for 1 minut <span class="math inline">\(\lambda\)</span>=2 med 10. Vi ønsker at bestemme sandsynligheden for at x=10.
 <span class="math display">\[P(X=10)=\frac{e^{-\lambda}\cdot \lambda^x}{x!}=\frac{e^{-20}\cdot 20^{10}}{10!}=0.0058\]</span>
-<img src="img/poisson3.png" /></p></li>
+<img src="/images/poisson3.png" /></p></li>
 <li><p>Vi kan bestemme sandsynligheden for der mindst ankommer 1 kunde i minuttet ved:
 <span class="math display">\[P(X\geq 1)=1-P(X=0)=1-0.1353=0.8647\]</span>
-<img src="img/poisson2.png" /></p></li>
+<img src="/images/poisson2.png" /></p></li>
 </ol>
 </details>
 <div id="selvtest-premium-2" class="section level2">

@@ -492,18 +492,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb46-3"><a href="klyngeanalyse-premium.html#cb46-3"></a>pacman<span class="op">::</span><span class="kw">p_load</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
 <span id="cb46-4"><a href="klyngeanalyse-premium.html#cb46-4"></a><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(hp, mpg, <span class="dt">color =</span> cyl)) <span class="op">+</span></span>
 <span id="cb46-5"><a href="klyngeanalyse-premium.html#cb46-5"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="co">#Plot med kun punkter</span></span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
+<p><img src="/images/unnamed-chunk-68-1.png" width="672" /></p>
 <div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="klyngeanalyse-premium.html#cb47-1"></a><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(hp, mpg, <span class="dt">color =</span> cyl,<span class="dt">label=</span><span class="kw">rownames</span>(mtcars)))<span class="op">+</span></span>
 <span id="cb47-2"><a href="klyngeanalyse-premium.html#cb47-2"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">size=</span><span class="dv">3</span>,<span class="dt">check_overlap =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-68-2.png" width="672" /></p>
+<p><img src="/images/unnamed-chunk-68-2.png" width="672" /></p>
 <p>Vi kan benytte t til at transponere data matricen, så kan vi tegne et corrplot, det er meget mørkt da alle bilerne er positivt korrelerede, men man kan ane nogle sammenhænge. t(mtcars) betyder vi transponerer (vender) matricen, så ser vi i stedet på grupper af respondenter, som vi netop analyserer i klyngeanalysen. Hvis ikke vi vender matricen ser vi på korrelationsmatricen mellem de 11 variable i stedet, ligesom vi tidligere har gjort med faktoranalysen.</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="klyngeanalyse-premium.html#cb48-1"></a><span class="co">#korrelationsmatricen for transponeret mtcars data, hclust betyder vi ordner efter variable der passer sammen</span></span>
 <span id="cb48-2"><a href="klyngeanalyse-premium.html#cb48-2"></a>pacman<span class="op">::</span><span class="kw">p_load</span>(corrplot)</span>
 <span id="cb48-3"><a href="klyngeanalyse-premium.html#cb48-3"></a><span class="kw">corrplot</span>(<span class="kw">cor</span>(<span class="kw">t</span>(mtcars)), <span class="dt">order =</span> <span class="st">&quot;hclust&quot;</span>, <span class="dt">tl.col=</span><span class="st">&#39;black&#39;</span>, <span class="dt">tl.cex=</span>.<span class="dv">5</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-69-1.svg" width="672" /></p>
+<p><img src="/images/unnamed-chunk-69-1.svg" width="672" /></p>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="klyngeanalyse-premium.html#cb49-1"></a><span class="co">#Her er korrelationsmatricen ikke transponeret, hvilket svarer til en matrice baseret på variable som ved faktoranalysen vi tidligere så på.</span></span>
 <span id="cb49-2"><a href="klyngeanalyse-premium.html#cb49-2"></a><span class="kw">corrplot</span>(<span class="kw">cor</span>(mtcars), <span class="dt">order =</span> <span class="st">&quot;hclust&quot;</span>, <span class="dt">tl.col=</span><span class="st">&#39;black&#39;</span>, <span class="dt">tl.cex=</span>.<span class="dv">5</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-70-1.png" width="672" /></p>
+<p><img src="/images/unnamed-chunk-70-1.png" width="672" /></p>
 <div id="hierakisk-klyngeanalyse-hclust-kommandoen-premium" class="section level2">
 <h2><span class="header-section-number">21.1</span> <font color="red">Hierakisk klyngeanalyse hclust kommandoen<sup> Premium </font></sup></h2>
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
@@ -549,7 +549,7 @@ Vi kan nu plotte en grafisk oversigt over bilerne. I nederste linje er den fines
 <span id="cb52-2"><a href="klyngeanalyse-premium.html#cb52-2"></a><span class="kw">plot</span>(clusters,<span class="dt">cex=</span><span class="fl">0.5</span>,<span class="dt">main =</span> <span class="st">&quot;Dendogram af mtcars&quot;</span>,<span class="dt">xlab =</span> <span class="st">&quot;Klyngetræ&quot;</span>,<span class="dt">sub=</span><span class="st">&quot;Bilmodeller&quot;</span>)</span>
 <span id="cb52-3"><a href="klyngeanalyse-premium.html#cb52-3"></a><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">190</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>) <span class="co">#Tegn rød vandret linje h betyder horisontal</span></span>
 <span id="cb52-4"><a href="klyngeanalyse-premium.html#cb52-4"></a><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">230</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-72-1.svg" width="672" /></p>
+<p><img src="/images/unnamed-chunk-72-1.svg" width="672" /></p>
 <p>Hvis vi ønsker at undersøge en indeling med et bestemt antal klynger, kan vi bruge cutree i R, til at undersøge klyngerne i en skæring med fx. 4 klynger nærmere. Her ser vi som nævnt, Maserati Bora skiller sig ud ved at have sin egen klynge. Nummeret ved hver af de 32 biler angiver hvilken klynge bilen tilhører.</p>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="klyngeanalyse-premium.html#cb53-1"></a>clusterCut &lt;-<span class="st"> </span><span class="kw">cutree</span>(clusters, <span class="dv">4</span>) <span class="co">#Opdeling i 4 klynger.</span></span>
 <span id="cb53-2"><a href="klyngeanalyse-premium.html#cb53-2"></a>clusterCut</span></code></pre></div>
@@ -614,11 +614,11 @@ Vi kan nu plotte en grafisk oversigt over bilerne. I nederste linje er den fines
 <span id="cb67-4"><a href="klyngeanalyse-premium.html#cb67-4"></a>clus4 =<span class="st"> </span><span class="kw">cutree</span>(clusters, <span class="dv">4</span>)</span>
 <span id="cb67-5"><a href="klyngeanalyse-premium.html#cb67-5"></a><span class="kw">plot</span>(<span class="kw">as.phylo</span>(clusters), <span class="dt">type =</span> <span class="st">&quot;fan&quot;</span>, <span class="dt">tip.color =</span> colors[clus4],</span>
 <span id="cb67-6"><a href="klyngeanalyse-premium.html#cb67-6"></a>     <span class="dt">label.offset =</span> <span class="dv">0</span>, <span class="dt">cex =</span> <span class="fl">0.5</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-76-1.svg" width="672" /></p>
+<p><img src="/images/unnamed-chunk-76-1.svg" width="672" /></p>
 <p>Herunder er et plot, hvor farvekoden er baseret på klyngerne.</p>
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="klyngeanalyse-premium.html#cb68-1"></a><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(hp, mpg)) <span class="op">+</span></span>
 <span id="cb68-2"><a href="klyngeanalyse-premium.html#cb68-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.4</span>, <span class="dt">size =</span> <span class="fl">3.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">col =</span> clusterCut)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-77-1.svg" width="672" /></p>
+<p><img src="/images/unnamed-chunk-77-1.svg" width="672" /></p>
 </div>
 <div id="ikke-hierakisk-klyngeanalyse-kmeans-kommandoen-premium" class="section level2">
 <h2><span class="header-section-number">21.2</span> <font color="red">Ikke hierakisk klyngeanalyse kmeans kommandoen<sup> Premium </font></sup></h2>
@@ -677,15 +677,15 @@ Vi kan nu plotte en grafisk oversigt over bilerne. I nederste linje er den fines
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="klyngeanalyse-premium.html#cb75-1"></a>km3.res &lt;-<span class="st"> </span><span class="kw">kmeans</span>(<span class="kw">scale</span>(mtcars), <span class="dv">3</span>, <span class="dt">nstart =</span> <span class="dv">25</span>)</span>
 <span id="cb75-2"><a href="klyngeanalyse-premium.html#cb75-2"></a>pacman<span class="op">::</span><span class="kw">p_load</span>(factoextra)</span>
 <span id="cb75-3"><a href="klyngeanalyse-premium.html#cb75-3"></a><span class="kw">fviz_cluster</span>(km3.res, <span class="dt">data =</span> mtcars, <span class="dt">main =</span> <span class="st">&quot;Klyngeplot biler opdelt i 3 klynger&quot;</span>,<span class="dt">repel =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-81-1.svg" width="672" /></p>
+<p><img src="/images/unnamed-chunk-81-1.svg" width="672" /></p>
 <p>Vi kan lave et klyngeplot der viser forskellene på de 32 biler, herunder ses plottet med 4 klynger.</p>
 <div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="klyngeanalyse-premium.html#cb76-1"></a>km4.res &lt;-<span class="st"> </span><span class="kw">kmeans</span>(<span class="kw">scale</span>(mtcars), <span class="dv">4</span>, <span class="dt">nstart =</span> <span class="dv">25</span>)</span>
 <span id="cb76-2"><a href="klyngeanalyse-premium.html#cb76-2"></a><span class="kw">fviz_cluster</span>(km4.res, <span class="dt">data =</span> mtcars, <span class="dt">main =</span> <span class="st">&quot;Klyngeplot biler opdelt i 4 klynger&quot;</span>,<span class="dt">repel =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-82-1.svg" width="672" />
+<p><img src="/images/unnamed-chunk-82-1.svg" width="672" />
 Vi kan lave et klyngeplot der viser forskellene på de 32 biler, herunder ses plottet med 5 klynger.</p>
 <div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="klyngeanalyse-premium.html#cb77-1"></a>km5.res &lt;-<span class="st"> </span><span class="kw">kmeans</span>(<span class="kw">scale</span>(mtcars), <span class="dv">5</span>, <span class="dt">nstart =</span> <span class="dv">25</span>)</span>
 <span id="cb77-2"><a href="klyngeanalyse-premium.html#cb77-2"></a><span class="kw">fviz_cluster</span>(km5.res, <span class="dt">data =</span> mtcars, <span class="dt">main =</span> <span class="st">&quot;Klyngeplot biler opdelt i 5 klynger&quot;</span>,<span class="dt">repel =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-83-1.svg" width="672" /></p>
+<p><img src="/images/unnamed-chunk-83-1.svg" width="672" /></p>
 </div>
 <div id="validering-med-anova-premium" class="section level2">
 <h2><span class="header-section-number">21.3</span> <font color="red">Validering med ANOVA<sup> Premium </font></sup></h2>
