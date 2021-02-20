@@ -612,8 +612,11 @@ gitbook.start({
 <script>
   console.log("in dataset page up");
   const handleUserStateChange = async (user) => {
-    console.log("in dataset page handleUserStateChange");
-    console.log(user);
+    if(user){
+
+    } else{
+      document.location.href="/";
+    }
   };
   netlifyIdentity.on('init', handleUserStateChange);
 </script>
