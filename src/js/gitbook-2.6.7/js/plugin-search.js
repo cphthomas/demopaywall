@@ -30,7 +30,7 @@ gitbook.require(["gitbook", "lodash", "jQuery"], function(gitbook, _, $) {
 
     // Fetch the search index
     function fetchIndex() {
-        return $.getJSON(gitbook.state.basePath+"/js/search_index.json")
+        return $.getJSON("https://competent-kilby-614045.netlify.app/js/search_index.json")
                 .then(loadIndex);  // [Yihui] we need to use this object later
     }
 
