@@ -37,9 +37,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="andele.html"/>
-<link rel="next" href="korrelation.html"/>
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="/andele.html"/>
+<link rel="next" href="/korrelation.html"/>
 <script src="/js/jquery-3.5.0/jquery.min.js"></script>
 <link href="/css/gitbook-2.6.7/style.css" rel="stylesheet" />
 <link href="/css/gitbook-2.6.7/plugin-table.css" rel="stylesheet" />
@@ -186,20 +186,20 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="/css/style.css" type="text/css" />
 </head>
 
 <body>
 
 
 
-  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+  <div class="book without-animation with-summary font-size-2 font-family-1" id="mainBookToc" data-basepath=".">
 
     <div class="book-summary">
       <nav role="navigation">
 
         <ul class="summary">
-          <li><a href="./">Login</a></li>
+          <li><a href="/">Login</a></li>
           <li class="divider"></li>
           <li><a href="index.html#section"></a></li>
           <li class="chapter" data-level="1" data-path="indledning.html"><a id="yourElement" title="" href="/indledning.html"><i class="fa fa-check"></i><b>1</b> Indledning</a><ul>
@@ -442,7 +442,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistik</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="/">Statistik</a>
           </h1>
         </div>
 
@@ -716,19 +716,19 @@ Løsning eksamensopgave
           </div>
         </div>
       </div>
-<a href="andele.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="korrelation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="/andele.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="/korrelation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+  <script src="/js/gitbook-2.6.7/js/app.min.js"></script>
+  <script src="/js/gitbook-2.6.7/js/lunr.js"></script>
+  <script src="/js/gitbook-2.6.7/js/clipboard.min.js"></script>
+  <script src="/js/gitbook-2.6.7/js/plugin-search.js"></script>
+  <script src="/js/gitbook-2.6.7/js/plugin-sharing.js"></script>
+  <script src="/js/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+  <!-- <script src="/js/gitbook-2.6.7/js/plugin-bookdown.js"></script> -->
+  <script src="/js/gitbook-2.6.7/js/jquery.highlight.js"></script>
+  <script src="/js/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -783,6 +783,9 @@ gitbook.start({
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
+</script>
+<script>
+  $("#mainBookToc").addClass("with-summary");
 </script>
 </body>
 
