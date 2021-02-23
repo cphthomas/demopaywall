@@ -660,6 +660,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    };
 
    const handleUserStateChange = async (user) => {
+    console.log("in login");
      updateUserInfo(user);
      if(user){
      const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
@@ -688,7 +689,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
          })
          .catch((err) => console.error(err));
           } else {
-            window.location = "indledning"
+            //window.location = "indledning"
             if(data[0]=="pro"){
               $('.summary a').map( function() {
                 if($(this).text().indexOf("Premium") != -1){
@@ -712,7 +713,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       }
    };
 
-   netlifyIdentity.on('init', handleUserStateChange);
+
+   const handleInit = async (user) =>{
+    console.log("in init");
+   }
+
+   netlifyIdentity.on('init', handleInit);
    netlifyIdentity.on('login', handleUserStateChange);
    netlifyIdentity.on('logout', handleUserStateChange);
 
