@@ -561,8 +561,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <h1>Sign Up for Premium Corgi Content</h1>
 
   <div class="user-info">
-    <button id="left">Log In</button>
-    <button id="right">Sign Up</button>
+    <button id="left" style="background-color: black; color: white;">Log In</button>
+    <button id="right" style="background-color: black; color: white;">Sign Up</button>
   </div>
 
   <!-- <div class="corgi-content">
@@ -688,6 +688,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
          })
          .catch((err) => console.error(err));
           } else {
+            //window.location = "/"
             if(data[0]=="pro"){
               $('.summary a').map( function() {
                 if($(this).text().indexOf("Premium") != -1){
