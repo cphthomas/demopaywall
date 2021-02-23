@@ -660,7 +660,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    };
 
    const handleUserStateChange = async (user) => {
-    console.log("in login");
      updateUserInfo(user);
      if(user){
      const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
@@ -713,12 +712,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       }
    };
 
-
-   const handleInit = async (user) =>{
-    console.log("in init");
-   }
-
-   netlifyIdentity.on('init', handleInit);
+   netlifyIdentity.on('init', handleUserStateChange);
    netlifyIdentity.on('login', handleUserStateChange);
    netlifyIdentity.on('logout', handleUserStateChange);
 
