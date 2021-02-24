@@ -97,18 +97,23 @@ const handleUserStateChange = async (user) => {
           //window.location = "indledning"
           if (data[0] == "premium") {
             $("body").show();
+            // $(".summary a")
+            //   .map(function () {
+            //     if ($(this).text().indexOf("Premium") != -1) {
+            //       $(this).unbind("click");
+            //       $(this).click(function (e) {
+            //         alert("Please subscribe to premium");
+            //         e.preventDefault();
+            //         return false;
+            //       });
+            //     } else {
+            //       $(this).unbind("click");
+            //     }
+            //   })
+            //   .get();
             $(".summary a")
               .map(function () {
-                if ($(this).text().indexOf("Premium") != -1) {
-                  $(this).unbind("click");
-                  $(this).click(function (e) {
-                    alert("Please subscribe to premium");
-                    e.preventDefault();
-                    return false;
-                  });
-                } else {
-                  $(this).unbind("click");
-                }
+                $(this).unbind("click");
               })
               .get();
           } else {
