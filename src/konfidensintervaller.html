@@ -3,11 +3,11 @@
 <head>
 
   <script
-   type="text/javascript"
-   src="https://identity.netlify.com/v1/netlify-identity-widget.js"
- ></script>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="/js/custom.js" defer></script>
+  type="text/javascript"
+  src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+<script src="/js/netlifyscriptlogout-new.js" defer></script>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -440,6 +440,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div class="book-body">
       <div class="body-inner">
         <div class="book-header" role="navigation">
+          <div id="loginLogout">
+            <div class="user-info" style="float: right; align-items: center;
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(2, 1fr);
+            list-style: none;
+            padding: 0;">
+              <button id="left" style="background-color: black;
+              color: white;
+              /* background: var(--dark-gray); */
+              border: 0;
+              border-radius: 0.5rem;
+              /* color: var(--white); */
+              display: block;
+              font-family: var(--font-family);
+              font-size: 1.5rem;
+              font-weight: 900;
+              padding: 1rem;
+              text-align: center;
+              text-decoration: none;">Log In</button>
+              <button id="right" style="background-color: black;
+              color: white;
+              /* background: var(--dark-gray); */
+              border: 0;
+              border-radius: 0.5rem;
+              /* color: var(--white); */
+              display: block;
+              font-family: var(--font-family);
+              font-size: 1.5rem;
+              font-weight: 900;
+              padding: 1rem;
+              text-align: center;
+              text-decoration: none;">Sign Up</button>
+            </div>
+          </div>
           <h1>
             <i class="fa fa-circle-o-notch fa-spin"></i><a href="/">Statistik</a>
           </h1>
