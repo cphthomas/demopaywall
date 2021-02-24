@@ -95,7 +95,7 @@ const handleUserStateChange = async (user) => {
             .catch((err) => console.error(err));
         } else {
           //window.location = "indledning"
-          if (data[0] == "pro" || data[0] == "premium") {
+          if (data[0] == "pro") {
             $("body").show();
             $(".summary a")
               .map(function () {
@@ -111,13 +111,14 @@ const handleUserStateChange = async (user) => {
                 }
               })
               .get();
-          } else {
+          } else if (data[0] == "premium") {
+            $("body").show();
             $(".summary a")
               .map(function () {
                 $(this).unbind("click");
               })
               .get();
-            window.location = "/";
+            //window.location = "/";
           }
         }
       });
