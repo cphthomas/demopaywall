@@ -93,7 +93,7 @@ const handleUserStateChange = async (user) => {
             })
             .catch((err) => console.error(err));
         } else {
-          //window.location = "indledning"
+          window.location = "indledning"
           if (data[0] == "pro") {
             $(".summary a")
               .map(function () {
