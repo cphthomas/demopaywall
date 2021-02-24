@@ -534,6 +534,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div class="book-body">
       <div class="body-inner">
         <div class="book-header" role="navigation">
+          <div id="loginLogout">
+            <div class="user-info" style="float: right;">
+              <button id="left" style="background-color: black; color: white;">Log In</button>
+              <button id="right" style="background-color: black; color: white;">Sign Up</button>
+            </div>
+          </div>
           <h1>
             <i class="fa fa-circle-o-notch fa-spin"></i><a href="/">Statistik</a>
           </h1>
@@ -560,10 +566,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="Sentry_outermost" style="width:175px; position:relative;">
   <h1>Sign Up for Premium Corgi Content</h1>
 
-  <div class="user-info">
+  <!-- <div class="user-info">
     <button id="left" style="background-color: black; color: white;">Log In</button>
     <button id="right" style="background-color: black; color: white;">Sign Up</button>
-  </div>
+  </div> -->
 
   <!-- <div class="corgi-content">
     <div class="content">
@@ -832,6 +838,10 @@ gitbook.start({
 </script>
 <script>
   $("#mainBookToc").addClass("with-summary");
+</script>
+<script>
+  $("#header").load("header.html");
+  $("#footer").load("footer.html");
 </script>
 </body>
 
