@@ -121,6 +121,8 @@ const handleUserStateChange = async (user) => {
           }
         }
       });
+  } else {
+    window.location = "/";
   }
 };
 
