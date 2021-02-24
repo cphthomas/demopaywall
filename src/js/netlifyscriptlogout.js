@@ -95,6 +95,7 @@ const handleUserStateChange = async (user) => {
         } else {
           //window.location = "indledning"
           if (data[0] == "pro") {
+            $("body").show();
             $(".summary a")
               .map(function () {
                 if ($(this).text().indexOf("Premium") != -1) {
