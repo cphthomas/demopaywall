@@ -95,7 +95,7 @@ const handleUserStateChange = async (user) => {
             .catch((err) => console.error(err));
         } else {
           //window.location = "indledning"
-          if (data[0] == "pro") {
+          if (data[0] == "pro" || data[0] == "premium") {
             $("body").show();
             $(".summary a")
               .map(function () {
@@ -117,6 +117,7 @@ const handleUserStateChange = async (user) => {
                 $(this).unbind("click");
               })
               .get();
+            window.location = "/";
           }
         }
       });
