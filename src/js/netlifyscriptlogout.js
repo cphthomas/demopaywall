@@ -22,6 +22,7 @@ const updateUserInfo = (user) => {
     b1.innerText = "Log Out";
     b1.addEventListener("click", () => {
       netlifyIdentity.logout();
+      window.location = "/";
     });
 
     b2.innerText = "Manage Subscription";
