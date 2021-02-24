@@ -441,7 +441,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <div id="loginLogout">
-            <div class="user-info" style="float: right;">
+            <div class="user-info" style="float: right; align-items: center;
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(2, 1fr);
+            list-style: none;
+            padding: 0;">
               <button id="left" style="background-color: black;
               color: white;
               /* background: var(--dark-gray); */
