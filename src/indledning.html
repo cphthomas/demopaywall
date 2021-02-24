@@ -440,6 +440,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div class="book-body">
       <div class="body-inner">
         <div class="book-header" role="navigation">
+          <div id="loginLogout">
+            <div class="user-info" style="float: right;">
+              <button id="left" style="background-color: black; color: white;">Log In</button>
+              <button id="right" style="background-color: black; color: white;">Sign Up</button>
+            </div>
+          </div>
           <h1>
             <i class="fa fa-circle-o-notch fa-spin"></i><a href="/">Statistik</a>
           </h1>
@@ -568,6 +574,13 @@ gitbook.start({
 <script>
   $("#mainBookToc").addClass("with-summary");
 </script>
+<script
+   type="text/javascript"
+   src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+ ></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+ <script src="/js/netlifyscriptlogout.js"></script>
 </body>
 
 </html>
