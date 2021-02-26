@@ -41,15 +41,12 @@ const updateUserInfo = (user) => {
   } else {
     $(".summary a")
       .map(function () {
-        //if($(this).text().indexOf("Premium") != -1){
         $(this).unbind("click");
         $(this).click(function (e) {
           alert("Please signup & subscribe or login if subscribed alredy");
           e.preventDefault();
           return false;
         });
-        //}
-        //$(this).attr('href', "javascript:alert('Please signup & subscribe or login if subscribed alredy')");
       })
       .get();
     // if no on is logged in, show login/signup options
@@ -67,6 +64,7 @@ const updateUserInfo = (user) => {
 const handleUserStateChange = async (user) => {
   updateUserInfo(user);
   if (user) {
+    console.log(user);
     const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
     const type = "";
 
@@ -93,7 +91,7 @@ const handleUserStateChange = async (user) => {
             })
             .catch((err) => console.error(err));
         } else {
-          window.location = "indledning"
+          window.location = "indledning";
           if (data[0] == "pro") {
             $(".summary a")
               .map(function () {
