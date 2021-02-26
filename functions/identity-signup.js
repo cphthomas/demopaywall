@@ -31,7 +31,7 @@ exports.handler = async (event) => {
     `,
     variables: {
       netlifyID: user.id,
-      stripeID: user.role,
+      stripeID: customer.id,
       roleID: roleID,
     },
   });
@@ -40,7 +40,7 @@ exports.handler = async (event) => {
     statusCode: 200,
     body: JSON.stringify({
       app_metadata: {
-        roles: ["free"],
+        roles: [user.role],
       },
     }),
   };
