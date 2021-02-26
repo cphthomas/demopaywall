@@ -14,7 +14,12 @@ exports.handler = async (event) => {
   });
 
   let role = "free";
-  if (user.app_metadata.roles[0] != "") {
+  if (
+    user.app_metadata &&
+    user.app_metadata.roles &&
+    user.app_metadata.roles[0] &&
+    user.app_metadata.roles[0] != ""
+  ) {
     role = user.app_metadata.roles[0];
   }
 
