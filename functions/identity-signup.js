@@ -13,10 +13,10 @@ exports.handler = async (event) => {
     items: [{ price: process.env.STRIPE_DEFAULT_PRICE_PLAN }],
   });
 
-  // let roleID = 0;
-  // if (user.role != "") {
-  //   roleID = 2;
-  // }
+  let role = "free";
+  if (user.app_metadata.roles[0] != "") {
+    role = user.app_metadata.roles[0];
+  }
 
   // store the Netlify and Stripe IDs in Fauna
   await faunaFetch({
@@ -31,7 +31,7 @@ exports.handler = async (event) => {
     `,
     variables: {
       netlifyID: user.id,
-      stripeID: user.app_metadata.roles[0],
+      stripeID: customer.id,
       roleID: 0,
     },
   });
@@ -40,7 +40,7 @@ exports.handler = async (event) => {
     statusCode: 200,
     body: JSON.stringify({
       app_metadata: {
-        roles: ["free"],
+        roles: [role],
       },
     }),
   };
