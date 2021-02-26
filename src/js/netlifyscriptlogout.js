@@ -68,7 +68,6 @@ const updateUserInfo = (user) => {
 const handleUserStateChange = async (user) => {
   updateUserInfo(user);
   if (user) {
-    console.log(user);
     const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
     const type = "";
 
