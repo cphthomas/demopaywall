@@ -1,7 +1,6 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const { faunaFetch } = require("./utils/fauna");
-const http = require('http')
-const Cookies = require('cookies')
+//import { machineId, machineIdSync } from "node-unique-machine-id";
 
 exports.handler = async (event) => {
   const { user } = JSON.parse(event.body);
@@ -10,10 +9,10 @@ exports.handler = async (event) => {
   const customer = await stripe.customers.create({ email: user.email });
 
   // subscribe the new customer to the free plan
-  await stripe.subscriptions.create({
-    customer: customer.id,
-    items: [{ price: process.env.STRIPE_DEFAULT_PRICE_PLAN }],
-  });
+  // await stripe.subscriptions.create({
+  //   customer: customer.id,
+  //   items: [{ price: process.env.STRIPE_DEFAULT_PRICE_PLAN }],
+  // });
 
   // await machineId().then((device) => {
   //   console.log(device);
@@ -21,11 +20,6 @@ exports.handler = async (event) => {
 
   // const device = machineIdSync(true);
   // console.log(device);
-
-  // var uuid = new DeviceUUID().get();
-  // Set the cookie to a value
-  let isoString = new Date().toISOString();
-  cookies.set('LastVisit', isoString, { signed: true })
 
   let role = "free";
   if (
@@ -53,7 +47,7 @@ exports.handler = async (event) => {
       netlifyID: user.id,
       stripeID: customer.id,
       roleID: 0,
-      device: isoString,
+      device: "cmkdmc"
     },
   });
 
