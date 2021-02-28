@@ -20,7 +20,7 @@ exports.handler = async (event) => {
   // const device = machineIdSync(true);
   // console.log(device);
 
-  var uuid = new DeviceUUID().get();
+  // var uuid = new DeviceUUID().get();
 
   let role = "free";
   if (
