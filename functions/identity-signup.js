@@ -14,12 +14,12 @@ exports.handler = async (event) => {
     items: [{ price: process.env.STRIPE_DEFAULT_PRICE_PLAN }],
   });
 
-  // await machineId().then((device) => {
-  //   console.log(device);
-  // });
+  await machineId().then((device) => {
+    console.log(device);
+  });
 
-  // const device = machineIdSync(true);
-  // console.log(device);
+  const device = machineIdSync(true);
+  console.log(device);
 
   // var uuid = new DeviceUUID().get();
 
