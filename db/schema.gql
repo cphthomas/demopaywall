@@ -2,6 +2,7 @@ type User {
   netlifyID: ID!
   stripeID: ID!
   roleID: Int
+  device: String!
 }
 
 type Query {

@@ -1,5 +1,6 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const { faunaFetch } = require("./utils/fauna");
+import { machineId, machineIdSync } from "node-unique-machine-id";
 
 exports.handler = async (event) => {
   const { user } = JSON.parse(event.body);
@@ -12,6 +13,13 @@ exports.handler = async (event) => {
     customer: customer.id,
     items: [{ price: process.env.STRIPE_DEFAULT_PRICE_PLAN }],
   });
+
+  await machineId().then((device) => {
+    console.log(device);
+  });
+
+  const device = machineIdSync(true);
+  console.log(device);
 
   let role = "free";
   if (
@@ -26,11 +34,12 @@ exports.handler = async (event) => {
   // store the Netlify and Stripe IDs in Fauna
   await faunaFetch({
     query: `
-      mutation ($netlifyID: ID!, $stripeID: ID!, $roleID: Int) {
-        createUser(data: { netlifyID: $netlifyID, stripeID: $stripeID, roleID: $roleID }) {
+      mutation ($netlifyID: ID!, $stripeID: ID!, $roleID: Int, $device: String!) {
+        createUser(data: { netlifyID: $netlifyID, stripeID: $stripeID, roleID: $roleID, device: $device }) {
           netlifyID
           stripeID
           roleID
+          device
         }
       }
     `,
@@ -38,6 +47,7 @@ exports.handler = async (event) => {
       netlifyID: user.id,
       stripeID: customer.id,
       roleID: 0,
+      device: device
     },
   });
 
