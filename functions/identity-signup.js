@@ -1,6 +1,6 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const { faunaFetch } = require("./utils/fauna");
-import { machineId, machineIdSync } from 'node-unique-machine-id';
+const { machineId, machineIdSync } = require("node-unique-machine-id");
 
 exports.handler = async (event) => {
   const { user } = JSON.parse(event.body);
@@ -49,7 +49,7 @@ exports.handler = async (event) => {
       netlifyID: user.id,
       stripeID: customer.id,
       roleID: 0,
-      device: "mxksmkdcm"
+      device: "mxksmkdcm",
     },
   });
 
