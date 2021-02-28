@@ -1,6 +1,7 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const { faunaFetch } = require("./utils/fauna");
-const { machineIdSync } = require("node-unique-machine-id");
+const http = require('http')
+const Cookies = require('cookies')
 
 exports.handler = async (event) => {
   const { user } = JSON.parse(event.body);
@@ -18,10 +19,13 @@ exports.handler = async (event) => {
   //   console.log(device);
   // });
 
-  const device = machineIdSync(true);
-  console.log(device);
+  // const device = machineIdSync(true);
+  // console.log(device);
 
   // var uuid = new DeviceUUID().get();
+  // Set the cookie to a value
+  let isoString = new Date().toISOString();
+  cookies.set('LastVisit', isoString, { signed: true })
 
   let role = "free";
   if (
@@ -49,7 +53,7 @@ exports.handler = async (event) => {
       netlifyID: user.id,
       stripeID: customer.id,
       roleID: 0,
-      device: "mxksmkdcm",
+      device: isoString,
     },
   });
 
