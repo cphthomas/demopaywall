@@ -64,7 +64,8 @@ const updateUserInfo = (user) => {
 const handleUserStateChange = async (user) => {
   updateUserInfo(user);
   if (user) {
-    console.log(user.api._sameOrigin);
+    //console.log(user.api._sameOrigin);
+    console.log(user);
     // if(!user.api._sameOrigin){
     //   alert("Not same origin");
     // } else {
