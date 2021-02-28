@@ -65,6 +65,11 @@ const handleUserStateChange = async (user) => {
   updateUserInfo(user);
   if (user) {
     console.log(user.api._sameOrigin);
+    if(!user.api._sameOrigin){
+      alert("Not same origin");
+    } else {
+      alert("same origin");
+    }
     const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
     const type = "";
 
