@@ -1,6 +1,5 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const { faunaFetch } = require("./utils/fauna");
-import { machineId, machineIdSync } from "node-unique-machine-id";
 
 exports.handler = async (event) => {
   const { user } = JSON.parse(event.body);
@@ -14,12 +13,14 @@ exports.handler = async (event) => {
     items: [{ price: process.env.STRIPE_DEFAULT_PRICE_PLAN }],
   });
 
-  await machineId().then((device) => {
-    console.log(device);
-  });
+  // await machineId().then((device) => {
+  //   console.log(device);
+  // });
 
-  const device = machineIdSync(true);
-  console.log(device);
+  // const device = machineIdSync(true);
+  // console.log(device);
+
+  var uuid = new DeviceUUID().get();
 
   let role = "free";
   if (

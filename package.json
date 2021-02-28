@@ -12,6 +12,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "device-uuid": "^1.0.4",
     "node-fetch": "^2.6.1",
     "node-unique-machine-id": "^1.1.0",
     "stripe": "^8.136.0"
