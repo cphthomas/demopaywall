@@ -47,7 +47,7 @@ exports.handler = async (event) => {
       netlifyID: user.id,
       stripeID: customer.id,
       roleID: 0,
-      device: device
+      device: "mxksmkdcm"
     },
   });
 
