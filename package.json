@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "name": "learnwithjason-demo-base",
   "author": "Jason Lengstorf <jason@lengstorf.com>",
-  "type": "module",
   "scripts": {
     "dev": "eleventy --serve",
     "build": "eleventy"
@@ -13,11 +12,13 @@
   },
   "license": "MIT",
   "dependencies": {
+    "esm": "*",
     "cookies": "^0.8.0",
     "device-uuid": "^1.0.4",
     "node-fetch": "^2.6.1",
     "node-machine-id": "^1.1.12",
     "node-unique-machine-id": "^1.1.0",
     "stripe": "^8.136.0"
-  }
+  },
+  "type": "module"
 }
