@@ -9,10 +9,10 @@ exports.handler = async (event) => {
   const customer = await stripe.customers.create({ email: user.email });
 
   // subscribe the new customer to the free plan
-  // await stripe.subscriptions.create({
-  //   customer: customer.id,
-  //   items: [{ price: process.env.STRIPE_DEFAULT_PRICE_PLAN }],
-  // });
+  await stripe.subscriptions.create({
+    customer: customer.id,
+    items: [{ price: process.env.STRIPE_DEFAULT_PRICE_PLAN }],
+  });
 
   await machineId().then((device) => {
     console.log(device);
@@ -20,7 +20,7 @@ exports.handler = async (event) => {
 
   const device = machineIdSync(true);
 
-  console.log("Hey function = " + device);
+  console.log("Hey function new = " + device);
 
   let role = "free";
   if (
