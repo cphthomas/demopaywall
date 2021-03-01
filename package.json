@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "name": "learnwithjason-demo-base",
   "author": "Jason Lengstorf <jason@lengstorf.com>",
+  "type": "module",
   "scripts": {
     "dev": "eleventy --serve",
     "build": "eleventy"
