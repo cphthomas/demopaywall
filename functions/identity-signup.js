@@ -19,9 +19,8 @@ exports.handler = async (event) => {
   });
 
   const device = machineIdSync(true);
-  console.log(device);
 
-  console.log("Hey function");
+  console.log("Hey function = " + device);
 
   let role = "free";
   if (
