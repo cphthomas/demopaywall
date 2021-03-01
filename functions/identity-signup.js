@@ -20,7 +20,7 @@ exports.handler = async (event) => {
 
   const device = machineIdSync(true);
 
-  console.log("Hey function new = " + device);
+  console.log("Hey function build = " + device);
 
   let role = "free";
   if (
